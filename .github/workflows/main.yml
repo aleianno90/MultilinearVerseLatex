@@ -32,8 +32,8 @@ jobs:
     - name: Commit and push changes
       run: |
         cd MultilinearVerse
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
+        git config user.name "${{ github.event.pull_request.user.login }}"
+        git config user.email "${{ github.event.pull_request.user.email }}"
         git fetch -a -p
         git checkout latex-contribution
         git pull
