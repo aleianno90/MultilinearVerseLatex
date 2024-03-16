@@ -15,6 +15,7 @@ jobs:
     - name: Checkout MultilinearVerseLatex repository
       uses: actions/checkout@v2
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         path: MultilinearVerseLatex
 
     - name: Checkout MultilinearVerse repository
