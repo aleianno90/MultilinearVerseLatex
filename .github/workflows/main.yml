@@ -26,9 +26,8 @@ jobs:
 
     - name: Copy texfiles folder
       run: |
-        ls MultilinearVerseLatex/texfiles
         cd MultilinearVerse/texfiles && ls | grep -v 'tags' | xargs rm -rf && cd ..
-        cp -r MultilinearVerseLatex/texfiles/* MultilinearVerse/texfiles
+        cp -rf MultilinearVerseLatex/texfiles/* MultilinearVerse/texfiles
 
     - name: Commit and push changes
       run: |
