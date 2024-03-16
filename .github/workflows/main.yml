@@ -37,5 +37,5 @@ jobs:
         git fetch -a -p
         git checkout latex-contribution
         git add texfiles
-        git commit -m "Update texfiles folder"
+        git commit -m "Update texfiles with commit: ${{ github.event.pull_request.title }}"
         git push
