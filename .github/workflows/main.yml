@@ -15,14 +15,13 @@ jobs:
     - name: Checkout MultilinearVerseLatex repository
       uses: actions/checkout@v2
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
         path: MultilinearVerseLatex
 
     - name: Checkout MultilinearVerse repository
       uses: actions/checkout@v2
       with:
         repository: aleianno90/MultilinearVerse
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.MULTILINEAR_VERSE_TOKEN }}
         path: MultilinearVerse
 
     - name: Copy texfiles folder
