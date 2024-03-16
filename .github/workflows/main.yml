@@ -35,7 +35,7 @@ jobs:
         git config user.name "${{ github.event.pull_request.user.login }}"
         git config user.email "${{ github.event.pull_request.user.email }}"
         git fetch -a -p
-        git checkout latex-contribution
         git add .
+        git checkout latex-contribution 
         git commit -m "Update texfiles with commit: ${{ github.event.pull_request.title }}"
         git push
