@@ -36,6 +36,7 @@ jobs:
         git config user.email "actions@github.com"
         git fetch -a -p
         git checkout latex-contribution
+        git pull
         git add texfiles
         git commit -m "Update texfiles with commit: ${{ github.event.pull_request.title }}"
         git push
