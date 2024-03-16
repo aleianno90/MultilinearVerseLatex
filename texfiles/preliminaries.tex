@@ -1,0 +1,69 @@
+In this chapter, we introduce all basic notions, terminologies and notations that will be used through all the MultilinearVerse. 
+
+\section{Representing tensors}
+\label{introduction-section-representingtensors}
+
+For a vector space $V$, let $V^*$ denote its dual space. Given finite-dimensional vector spaces $V ,W$, let $V \otimes W$ denotes the tensor product of $V$ and $W$; it can be equivalently be identified with the space of linear maps $\Hom(V^*,W) \simeq \Hom(W^*,V)$ or with the space of bilinear map $V \times W \to \bbC$. Given spaces $V_1 \vvirg V_d$, let $V_1 \ootimes V_d$ denote their tensor product, which is identified with the space of multilinear maps $V_1^* \ttimes V_d^* \to \bbC$.
+
+In coordinates, if $v_0^{(i)} \vvirg v^{(i)}_{n_i}$ is a basis of $V_i$, then 
+\[
+T = \sum t_{i_1 \vvirg i_d} v^{(1)}_{i_1} \ootimes v^{(d)}_{i_d}
+\]
+can be thought of as a $d$-dimensional array of numbers, with entries $t_{i_1 \vvirg i_d}$. 
+
+For every $K \subseteq \{1 \vvirg d\}$, a tensor $T \in V_1 \ootimes V_d$ defines a linear map 
+\[
+T_K : \bigotimes_{k \in K} V_{k}^* \to  \bigotimes_{k' \notin K} V_{k'}
+\]
+called \emph{flattening} of $T$. The subscript $K$ will be omitted unless it is important to stress which flattening is being considered. It is easy to see that $T_K = T_{K^c}^\bft$, where $K^c$ denotes the complement in $\{1 \vvirg d\}$. A tensor $T$ is \emph{concise} if the flattenings $T_k : V_k^* \to \bigotimes_{k' \neq k} V_{k'}$ are injective. 
+
+
+For $d \geq 0$, let $V^{\otimes d}$ denote the $d$-th tensor power of $V$. Then $S^d V \subseteq V^{\otimes d}$ denotes the subspace of symmetric tensors, which are those tensors invariant under the action of the symmetric group $\frakS_d$ acting by permutation on the tensor factors; if the base field has characteristic $0$, $S^d V$ can be identified with the space of homogeneous polynomials of degree $d$ on $V^*$. 
+
+A tensor $T \in W \otimes S^{d-1} V$ can be regarded as a $(\dim W)$-uple of elements of $S^{d-1} V$. If $F \in S^d V$ is a symmetric tensor, with $v_0 \vvirg v_n$ basis of $V$, then 
+\[
+F = \sum_{j=0}^n v_j \otimes \textstyle\frac{\partial }{\partial v_j} F
+\]
+can be regarded as an element of $V \otimes S^{d-1} V$; the corresponding $(n+1)$-tuple of elements of $S^{d-1} V$ can be identified with the gradient of $V$.
+
+A tensor $T \in V_1 \ootimes V_d$ can be identified with the image of its flattening $T : V_1^* \to V_2 \ootimes V_d$, up to a change of coordinates on the space $V_1$. In other words, if $T,T'$ are two tensors such that the image of their first flattening is the same subspace of $V_2 \ootimes V_d$, then there exists an element $g \in \GL(V_1)$ such that $T = g\cdot T'$. Similar statements hold with respect to the other simple flattenings.
+
+
+\section{Group actions, restrictions and degenerations}
+\label{introduction-section-groupactions}
+
+\begin{definition}
+\label{introduction-definition-orbitsdegenerations}
+Let $G$ be a group acting on a space $V$ and let $v \in V$. The $G$-orbit of $v$ is 
+\[
+\Omega_v = \{ g(v) : g \in G \}.
+\]
+The $G$-orbit-closure $\bOmega_v$ is the closure of $\Omega_v$. We say that $w$ is $G$-isomorphic to $v$ if $w \in \Omega_v$. We say that $w$ is a degeneration of $v$ if $w \in \bOmega_v$.
+
+Typically $V$ is a vector space, but the definition applies more generally with $V$ any topological space.
+\end{definition}
+
+If $G$ is a complex algebraic group acting algebraically on an algebraic variety $V$ (typically an affine space) then the closure defining $\bOmega_v$ can be taken equivalently in the Zariski or the Euclidean topology, see, e.g., \cite[Thm. 2.33]{Mum76}.
+
+One can give an apparently different definition of degeneration, in terms of formal power series. Let $\bbC[[\eps]]$ be the ring of formal power series in one variable $\eps$, and let $\bbC((\eps))$ denote its quotient field, that is the field of Laurent series in $\eps$. For a vector space $V$ over $\bbC$, let $V^{[\eps]} = V \otimes_{\bbC} \bbC((\eps))$, which is a $\bbC((\eps))$-vector space. If $G$ acts on $V$, then the action extends to the action of a group $G^{[\eps]}$ on $V^{[\eps]}$: when $G$ is algebraic, then $G^{[\eps]}$ is the group of the $\bbC((\eps))$-points of $G$. 
+\begin{definition}
+\label{introduction-definition-formaldegenerations}
+Let $G$ be a linear algebraic group acting linearly on a vector space $V$. Let $v,w \in V$. We say that $w$ is a \emph{formal $G$-degeneration} of $v$ if there exists an element $g_\eps \in G^{[\eps]}$ such that
+\[
+g_\eps \cdot v = w + \eps w_1 + \cdots .
+\]
+\end{definition}
+In contrast with \ref{introduction-definition-formaldegenerations}, the degeneration defined in \ref{introduction-definition-orbitsdegenerations} is sometimes called \emph{topological degeneration}. It turns out that the two definitions are equivalent.
+\begin{theorem}
+\label{introduction-theorem-degenerationsequivalence}
+Let $G$ be a linear algebraic group acting linearly on a space $V$. Let $v,w \in V$. The following are equivalent:
+\begin{itemize}
+ \item $w$ is a (topological) $G$-degeneration of $v$;
+ \item $w$ is a formal $G$-degeneration of $v$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+The proof is given in \cite[Sec.20.6]{BCS97} in the case of a product of general linear groups acting on a tensor space. In \cite[Sec.2.3]{Kra84}, the proof is given for the action of $\GL(V)$ on an arbitrary vector space. A sketch of the general proof is given in \cite[Rmk.4.4]{CGZ23}.
+\end{proof}
+
+

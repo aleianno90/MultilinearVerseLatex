@@ -1,0 +1,7 @@
+*
+!texfiles
+texfiles/*
+!texfiles/*.tex
+!texfiles/*.bib
+!.gitignore
+!README.md

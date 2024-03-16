@@ -1,0 +1,81 @@
+\documentclass[oneside]{book}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+ \usepackage{verbatim}
+ 
+ \usepackage[all]{xy}
+ 
+ \xyoption{2cell}
+ \UseAllTwocells
+ 
+ 
+ \usepackage{lmodern}
+ \usepackage[T1]{fontenc}
+ 
+
+ \usepackage{hyperref}
+ \usepackage{enumerate} 
+
+
+%\usepackage{amsthm}
+ 
+ \theoremstyle{plain}
+ \newtheorem{theorem}{Theorem}[section]
+ \newtheorem{proposition}[theorem]{Proposition}
+ \newtheorem{lemma}[theorem]{Lemma}
+ \newtheorem{corollary}[theorem]{Corollary} 
+ 
+ \theoremstyle{definition} 
+ \newtheorem{definition}[theorem]{Definition}
+ \newtheorem{example}[theorem]{Example}
+  \newtheorem{remark}[theorem]{Remark}
+ 
+ \numberwithin{equation}{subsection}
+
+
+ \usepackage{amsthm}
+
+ \input{tensorsShortcuts.tex}
+
+\begin{document}
+
+\part{Introduction}
+\label{part-introduction}
+\input{part-introduction.tex}
+
+\part{Classical Geometry}
+\label{part-classicalAG}
+\input{part-classicalAG.tex}
+
+\part{Representation Theory}
+\label{part-RepTheory}
+\input{part-repTheory.tex}
+
+\part{Optimization Theory}
+\label{part-optimization}
+
+\chapter{Introduction}
+\label{optimization-chapter-intro}
+
+\part{Complexity Theory}
+\label{part-complexitytheory}
+
+\chapter{Introduction}
+\label{complexitytheory-chapter-intro}
+
+\part{Quantum Physics}
+\label{part-quantumph}
+
+\chapter{Introduction}
+\label{quantumph-chapter-intro}
+
+\part{Data Science}
+\label{part-datascience}
+
+\chapter{Introduction}
+\label{datascience-chapter-intro}
+
+\bibliographystyle{amsalpha}
+\bibliography{tensor}
+\end{document}
