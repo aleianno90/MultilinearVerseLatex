@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: aleianno90/MultilinearVerse
-        token: ${{ secrets.WEBSITE_REPO_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         path: MultilinearVerse
 
     - name: Copy texfiles folder
