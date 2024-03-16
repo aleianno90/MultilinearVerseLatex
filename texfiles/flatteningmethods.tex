@@ -1,0 +1,32 @@
+A typical Zariski closed condition is the boundedness of the rank of a matrix. We refer to \emph{flattening method} for any method which yields modules of equations via rank condition on a matrix. More precisely, a \emph{generalized flattening} of a space $V$ is any (polynomial) map 
+\[
+\Flat : V \to \Hom ( E,F)
+\]
+for two vector spaces $E,F$. More generally, one can consider a section of a bundle $\calHom(\calE,\calF)$ where $\calE,\calF$ are two vector bundles over $\bbP V$, see e.g. \cite{EH88}.
+
+We say that a module of equations for a variety $X$ arises from a flattening if, for every $x \in X$, $\Flat(x)$ is a matrix of rank at most $r_X$. The equations can be described explicitly as the minors of size $r_X+1$ of $\Flat(v)$, which are polynomials in the element $v \in V$.
+
+Tautologically, the variety $\sigma_r( \bbP E \times \bbP F)$ of matrices of rank at most $r$ has (ideal-theoretic) equations arising from a flattening. Similarly, the standard flattenings introduced in \ref{introduction-section-representingtensors} are examples of flattening maps; it is a classical fact that they yield equations for Segre-Veronese varieties:
+\begin{proposition}
+ \label{flattenings-proposition-standardFlatrank1}
+ Let $T \in \bbP (V_1 \ootimes V_k)$ be a tensor. Then $T \in \bbP V_1 \ttimes \bbP V_k$ belongs to the Segre variety if and only if all flattenings $T_i : V_i^* \to \bigotimes _{j \neq i} V_j$ have rank $1$.
+\end{proposition}
+The same statement for Segre-Veronese varieties is immediate. A similar result holds for more general \emph{rational homogeneous varieties}, and it is discussed in [Section:KostantThm:TBW].
+
+\section{Flattenings for secant varieties}
+\label{RepTheory-section-flatteningsSecants}
+
+When the flattening map $\Flat : V \to \Hom(E,F)$ is linear, then rank conditions for a variety $X$ yield rank conditions for the secant varieties of $X$. We state this formally following \cite[Prop. 4.1.1]{LO13}.
+\begin{lemma}
+ \label{flattenings-lemma-LO}
+ Let $X \subseteq \bbP V$ be a variety and let $\Flat : V \to \Hom(E,F)$ be a linear map. Let 
+ \[
+ r_X = \max \{ r : \rank ( \Flat(x)) = r \text{ for some $x \in X$}\}.
+ \]
+If $p \in \sigma_r(X)$, then $\rank(\Flat(p)) \leq r \cdot r_X$. In particular, if $\rank(\Flat(p)) = s$, then $p \notin \sigma_r (X)$ for $r = \lceil s / r_X \rceil$.
+\end{lemma}
+In \cite{LO13}, equations for secant varieties of Segre varieties are constructed via \ref{flattenings-lemma-LO} in a representation theoretic setting. We present the construction here in slightly broader generality. Let $G$ be a group and let $V$ be a $G$-representation. Suppose $E,F$ are $G$-representations with the property that $E^* \otimes F$ contains $V$ as a subrepresentation. The Young flattening of $V$, associated to the pair $(E,F)$ is the linear map $\YFlat^V_{E,F} : V \to \Hom( E,F)$ mapping the element $v \in V$ to the composition
+\begin{align*}
+E \xto{\otimes v} E \otimes V \to E \otimes E^* \otimes F \xto{\lrcorner \Id_E} F
+\end{align*}
+where the first map is tensorising by $v$, the second is the inclusion $V \subseteq E^* \otimes F$ and the third map is contraction by the identigy element $\Id_E \in E \otimes E^*$.
