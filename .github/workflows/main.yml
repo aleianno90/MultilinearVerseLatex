@@ -20,7 +20,7 @@ jobs:
     - name: Checkout MultilinearVerse repository
       uses: actions/checkout@v2
       with:
-        repository: aleianno90/MultilinearVersee
+        repository: aleianno90/MultilinearVerse
         path: MultilinearVerse
         token: ${{ secrets.MULTILINEAR_VERSE_TOKEN }}
 
