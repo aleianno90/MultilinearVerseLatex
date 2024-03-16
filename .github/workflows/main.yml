@@ -20,9 +20,9 @@ jobs:
     - name: Checkout MultilinearVerse repository
       uses: actions/checkout@v2
       with:
-        repository: aleianno90/MultilinearVerse
-        token: ${{ secrets.MULTILINEAR_VERSE_TOKEN }}
+        repository: aleianno90/MultilinearVersee
         path: MultilinearVerse
+        token: ${{ secrets.MULTILINEAR_VERSE_TOKEN }}
 
     - name: Copy texfiles folder
       run: |
