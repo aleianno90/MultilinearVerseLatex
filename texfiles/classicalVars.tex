@@ -1,0 +1,44 @@
+We start with some definitions of classical algebraic varieties in the space of tensors.
+\begin{definition}
+\label{classicalAG-definition-Segre}
+Let $V_1 \vvirg V_d$ be vector spaces. The Segre embedding is the algebraic map defined by 
+\begin{align*}
+\Seg: \bbP V_1 \ttimes \bbP V_d &\to \bbP (V_1 \ootimes V_d) \\
+(v_1 \vvirg v_d) &\mapsto v_1 \ootimes v_d.
+\end{align*}
+The image of the Segre embedding is the \emph{Segre variety} of rank one tensors:
+\[
+\Seg( \bbP V_1 \ttimes \bbP V_d) =\{ v_1 \ootimes v_d : v_j \in \bbP V_j\}.
+\]
+\end{definition}
+When $d = 2$, the Segre variety is the variety of rank one matrices in $\bbP (V_1 \otimes V_2) = \bbP ( \Hom(V_1^* , V_2))$.
+
+\begin{definition}
+\label{classicalAG-definition-Veronese}
+Let $V$ be vector spaces. The $d$-th Veronese embedding is the algebraic map defined by 
+\begin{align*}
+\nu_d : \bbP V &\to \bbP S^d V \\
+v &\mapsto v^{\otimes d}.
+\end{align*}
+The image of the Veronese embedding is the \emph{Veronese variety}:
+\[
+\nu_d( \bbP V ) =\{ v^d :  v \in \bbP V\}.
+\]
+\end{definition}
+When $\dim V= 2$, then $\bbP V = \bbP^1$. In this case $\nu_d( \bbP^1)$ is a curve in $\bbP S^d V = \bbP^d$: it coincides with the rational normal curve of degree $d$.
+
+\begin{definition}
+\label{classicalAG-definition-SegreVeronese}
+Let $V_1 \vvirg V_k$ be vector spaces. The Segre-Veronese embedding of multidegree $(d_1 \vvirg d_k)$ s the algebraic map defined by 
+\begin{align*}
+\nu_{d_1 \vvirg d_k} : \bbP V_1 \ttimes \bbP V_k &\to \bbP (S^{d_1} V_1 \ootimes S^{d_k} V_k) \\
+(v_1 \vvirg v_k) &\mapsto v_1^{\otimes d_1} \ootimes v_k^{\otimes d_k}.
+\end{align*}
+The image of the Segre-Veronese embedding is the \emph{Segre-Veronese variety}:
+\[
+\nu_{d_1 \vvirg d_k}( \bbP V_1 \ttimes \bbP V_k ) =\{ v_1^{\otimes d_1} \ootimes v_k^{\otimes d_k} :  v_j \in \bbP V_j\}.
+\]
+\end{definition}
+
+Note that the Segre variety is a Segre-Veronese variety of multidegree $(1 \vvirg 1)$. The Veronese variety is a Segre-Veronese variety of multidegree $(d)$.
+

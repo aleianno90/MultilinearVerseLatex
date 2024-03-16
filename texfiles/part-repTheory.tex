@@ -1,0 +1,40 @@
+We assume some background on representation theory, to the level of \cite[Ch.6]{Lan12}; for a detailed introduction, we refer to \cite{FH91}. We introduce some notation and important facts.
+
+Let $\GL(V)$ denote the general linear group of a vector space $V$ and $\SL(V)$ denote the special linear group. Let $\frakS_d$ denote the symmetric group on $d$ elements. 
+
+A representation of a group $G$ is a group homomorphism $\rho : G \to \GL(V)$ for some vector space $V$. We use the word \emph{representation} to refer to the space $V$ itself. 
+
+A partition $\lambda = (\lambda_1 \vvirg \lambda_n)$ is a non-increasing sequence of positive integers. We say that $\lambda$ is a partition of $d$ if $\sum_i \lambda_i = d$; we say that $n$ is the length of $\lambda$, and we write $n = \ell(\lambda)$. Write $\lambda \partinto_n d$ to mean that $\lambda$ is a partition of $d$ of length at most $n$.
+
+The (polynomial) irreducible representations of the general linear group of a vector space of dimension $n$ are indexed by partitions of length at most $n$. Let $\bbS_\lambda V$ be the irreducible representation associated to the partition $n$; this is the Schur module of $\GL(V)$ associated to $\lambda$.
+
+The irreducible representations of the symmetric group $\frakS_d$ are indexed by partitions of $d$. Let $[\lambda]$ be the irreducible representation associated to the partition $\lambda$; this is the Specht module of $\frakS_d$ of type $\lambda$. 
+
+The vector space $V^{\otimes d}$ is acted on naturally by $\frakS_d$, which permutes the tensor factors, and $\GL(V)$ which acts diagonally on all tensor factors; these two actions commute and the Schur-Weyl decomposition theorem expresses the spaces as a direct sum of irreducible representations for $\frakS_d \times \GL(V)$. Such decomposition is as follows:
+\[
+V^{\otimes d} = \bigoplus_{\lambda \partinto_n d} [\lambda] \otimes \bbS_{\lambda} V.
+\]
+A fundamental result which will prove useful numerous times is Schur's Lemma. Given $V,W$ representations for an algebraic group $G$, and a linear map $\phi : V \to W$, we say that $\phi$ is $G$-equivariant if it commutes with the action of $G$, that is $\phi( g \cdot v) = g \cdot \phi(v)$ for every $v \in V$, $g \in G$.
+\begin{lemma}[Schur's Lemma]
+\label{repTheory-lemma-Schur}
+Let $G$ be a group, and let $\phi : V \to W$ be an equivariant map between two $G$-representations. Then $\ker(\phi)$ and $\image(\phi)$ are $G$-representations. In particular, if $V$ is irreducible, then $\phi = 0$ or $\phi$ is injective. If $V= W$ then $\phi = \lambda \Id_V$ for some $\lambda \in \bbC$.
+\end{lemma}
+
+\chapter{Equations via representation theory}
+\label{RepTheory-chapter-equations}
+\input{equationsRepTheory.tex}
+
+\chapter{Flattening methods}
+\label{RepTheory-chapter-flattenings}
+\input{flatteningmethods.tex}
+
+\chapter{Classification results}
+\label{RepTheory-chapter-classifications}
+\input{orbit-classification.tex}
+
+% \chapter{The GCT approach}
+% \label{RepTheory-chapter-GCT}
+% 
+\chapter{Invariant theory}
+\label{RepTheory-chapter-invariantTheory}
+
