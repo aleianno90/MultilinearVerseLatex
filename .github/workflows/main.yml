@@ -34,8 +34,9 @@ jobs:
         cd MultilinearVerse
         git config user.name "${{ github.event.pull_request.user.login }}"
         git config user.email "${{ github.event.pull_request.user.email }}"
+        git status
         git fetch 
-        git checkout -f latex-contribution
+        git checkout latex-contribution
         git add .
         git commit -m "Update texfiles with commit: ${{ github.event.pull_request.title }}"
         git push
