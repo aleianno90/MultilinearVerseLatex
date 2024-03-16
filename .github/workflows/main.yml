@@ -21,20 +21,23 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: aleianno90/MultilinearVerse
-        token: ${{ secrets.WEBSITE_REPO_TOKEN }}
         path: MultilinearVerse
+        token: ${{ secrets.MULTILINEAR_VERSE_TOKEN }}
 
     - name: Copy texfiles folder
       run: |
-        rm -r MultilinearVerse/texfiles/!("tags")
-        cp -r MultilinearVerseLatex/texfiles/* MultilinearVerse/texfiles
+        cd MultilinearVerse
+        git fetch
+        git checkout latex-contribution
+        cd texfiles && ls | grep -v 'tags' | xargs rm -rf && cd ..
+        cd ..
+        cp -rf MultilinearVerseLatex/texfiles/* MultilinearVerse/texfiles
 
     - name: Commit and push changes
       run: |
         cd MultilinearVerse
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git checkout latex-contribution
+        git config user.name "${{ github.event.pull_request.user.login }}"
+        git config user.email "${{ github.event.pull_request.user.email }}"
         git add texfiles
-        git commit -m "Update texfiles folder"
+        git commit -m "Update texfiles with commit: ${{ github.event.pull_request.title }}"
         git push
