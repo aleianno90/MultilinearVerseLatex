@@ -26,7 +26,11 @@ jobs:
 
     - name: Copy texfiles folder
       run: |
-        cd MultilinearVerse/texfiles && ls | grep -v 'tags' | xargs rm -rf && cd ../..
+        cd MultilinearVerse
+        git fetch
+        git checkout latex-contribution
+        cd texfiles && ls | grep -v 'tags' | xargs rm -rf && cd ..
+        cd ..
         cp -rf MultilinearVerseLatex/texfiles/* MultilinearVerse/texfiles
 
     - name: Commit and push changes
@@ -35,8 +39,5 @@ jobs:
         git config user.name "${{ github.event.pull_request.user.login }}"
         git config user.email "${{ github.event.pull_request.user.email }}"
         git add texfiles
-        git status
-        git fetch 
-        git checkout latex-contribution
         git commit -m "Update texfiles with commit: ${{ github.event.pull_request.title }}"
         git push
