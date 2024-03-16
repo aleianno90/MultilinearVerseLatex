@@ -1,0 +1,40 @@
+name: Copy texfiles to website repository
+
+on:
+  pull_request:
+    branches: [master]
+    types: [closed]
+    paths:
+      - 'texfiles/**'
+
+jobs:
+  copy-texfiles:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout MultilinearVerseLatex repository
+      uses: actions/checkout@v2
+      with:
+        path: MultilinearVerseLatex
+
+    - name: Checkout MultilinearVerse repository
+      uses: actions/checkout@v2
+      with:
+        repository: aleianno90/MultilinearVerse
+        token: ${{ secrets.WEBSITE_REPO_TOKEN }}
+        path: MultilinearVerse
+
+    - name: Copy texfiles folder
+      run: |
+        rm -r MultilinearVerse/texfiles/!("tags")
+        cp -r MultilinearVerseLatex/texfiles/* MultilinearVerse/texfiles
+
+    - name: Commit and push changes
+      run: |
+        cd MultilinearVerse
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git checkout latex-contribution
+        git add texfiles
+        git commit -m "Update texfiles folder"
+        git push
