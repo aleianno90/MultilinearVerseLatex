@@ -1,11 +1,12 @@
 name: Copy texfiles to website repository
 
 on:
-  pull_request:
+  pull_request_target:
     branches: [master]
     types: [closed]
     paths:
       - 'texfiles/**'
+  workflow_dispatch:
 
 jobs:
   copy-texfiles:
