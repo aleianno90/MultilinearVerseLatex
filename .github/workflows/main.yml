@@ -22,7 +22,7 @@ jobs:
       with:
         repository: aleianno90/MultilinearVerse
         path: MultilinearVerse
-        token: ${{ secrets.MULTILINEAR_VERSE_TOKEN }}
+        token: ${{ secrets.MULTILINEAR_VERSE_TOKEN || github.token }}
 
     - name: Copy texfiles folder
       run: |
