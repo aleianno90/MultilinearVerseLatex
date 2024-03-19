@@ -5,3 +5,4 @@ texfiles/*
 !texfiles/*.bib
 !.gitignore
 !README.md
+!ContributorsInstructions
