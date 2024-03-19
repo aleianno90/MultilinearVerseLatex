@@ -23,7 +23,7 @@ jobs:
       with:
         repository: aleianno90/MultilinearVerse
         path: MultilinearVerse
-        token: ${{ secrets.MULTILINEAR_VERSE_TOKEN || github.token }}
+        token: ${{ secrets.MULTILINEAR_VERSE_TOKEN }}
 
     - name: Copy texfiles folder
       run: |
@@ -37,8 +37,8 @@ jobs:
     - name: Commit and push changes
       run: |
         cd MultilinearVerse
-        git config user.name "${{ github.event.pull_request.user.login }}"
-        git config user.email "${{ github.event.pull_request.user.email }}"
+        git config user.name "${{ github.event.pull_request.user.login || 'GitHub Actions'}}"
+        git config user.email "${{ github.event.pull_request.user.email || 'actions@github.com' }}"
         git add texfiles
-        git commit -m "Update texfiles with commit: ${{ github.event.pull_request.title }}"
+        git commit -m "Update texfiles with commit: ${{ github.event.pull_request.title || 'manual workflow' }}"
         git push
