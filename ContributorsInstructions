@@ -1,0 +1,124 @@
+Your contribution is very welcome and we are extremely happy that you decided to help us to build the MultilinearVerse. Contributors are invited to write a new section following the guidelines specified in this file. These guidelines are a just a draft and you are invited to propose ways to make them better.
+
+At this early stage of the development, you are invited to contact the developers before starting to work on a new section. This will avoid multiple people from unknowingly working on the same or tightly related sections.
+
+Instructions on how to submit new contributions is described at
+
+https://multilinearverse.com/contribute
+
+At this stage, if you wish to contribute, you should:
++ Fork your own copy of the MultilinearVerse LaTeX repository, that is the one where you find this file!
++ If your contribution is a new section, you are invited to use a new tex file, and follow the instructions described below.
++ Once your contribution is ready, open a pull request to the MultilinearVerse LaTeX repository, submitting it to the MultilinearVerse.
++ The pull request will be reviewed by the developers, and when accepted it will be merged into the MultilinearVerse website.
+
+If you prefer, you can email your contribution directly to one of the developers. Please, follow the direction below regarding your latex document.
+
+LATEX INSTRUCTIONS
+
+You can use your own LaTeX compiler to produce a pdf of the full MultilinearVerse document. Be aware that some features will only be displayed on the website: in particular, you should not worry too much about the numbering of the section, the template of the references and of the citations, and many other details of this sort when you prepare your contribution. The pdf should only be used as a reference to make sure the matematical content is what you wish to include and that the LaTeX source compiles with no errors.
+
+Avoid using packages different from the ones already included in the preamble. If you need to use a different package, discuss it with the developers. We currently have issues running some very useful pacakages (e.g. tikz, graphicx), and we hope to make these available soon.
+
+You are discouraged from introducing new macros. If you need new macros, avoid few-letter-macros and do not use renewcommand.
+
+
+Document structure
+------------------
+
+The latex document is structured as
+
+- part
+- chapter
+- section
+
+Environments are numbered after sections. Environment names are appreciated.
+All parts, chapters, sections, environments are labeled.
+
+Subsections, where present, are unnumbered, and unlabeled.
+
+
+
+Equations and displays
+----------------------
+
+Displays are delimited with \[ ... \].
+Use the equation environment only if the equation should be numbered and referred to. If this is the case, insert a label.
+
+For displays spanning multiple lines use the following framework:
+\[
+\begin{aligned}
+first math line \\
+second math line
+\end{aligned}
+\]
+
+
+
+Environments
+------------
+
+The possible environments are 'theorem', 'proposition', 'lemma', 'corollary', 'remark', 'definition', 'example'.
+
+Every definition defines something. The object being defined appears in italics, following the pattern {\it ...}.
+
+'proof' environments immediately follow the environment containing the statement that is being proved.
+
+Do not insert footnotes.
+
+
+Labels
+------------
+
+A typical label is defined in the tex files by a line of the form
+
+\label{classicalAG-lemma-terracini}
+
+Here 
+- classicalAG is the name of the 'part' where the label is
+- lemma is the type of the environment to which the label refers
+- terracini is an identifier that refers to the labeled object
+
+Place the label on its own line after the beginning of the environment being labeled.
+Use the dash character to separate words. Capitalization is allowed. 
+
+
+References
+----------
+
+To refer to a label use
+
+\ref{<label>}
+
+This has the effect of an 'autoref' or 'Cref' command on the website. For instance,
+
+\ref{classicalAG-lemma-terracini}
+
+will result in 'Lemma 2.2.1.2' in the html file. Hence, do not insert 'Lemma' before \ref.
+
+If you want to refer to an environment outside the section that you are writing,
+you can browse the other tex files to find the corresponding label.
+
+
+Bibliography
+------------
+
+The bibliography is contained in the file tensor.bib. All bibtex entries have the format
+entry = {content of the entry}
+
+The entries 'title', 'booktitle', 'series' are protected with double braces {{ ... }}.
+
+Authors' names are separated by 'and' and have the format 
+FirstName M. LastName
+where M. is the initial of the middle name.
+
+doi should be included if available
+
+All bibitems are in alphabetical order by bibkey.
+- items with single author have the bibkey Xxx00, where Xxx are the first three letters of the author's last name and 00 is the year of the publication.
+- items with 2-to-5 authors have the bibkey XXX00 where XXX are the initials of the last name of the authors, and 00 is the year of publication.
+- items with 6 or more authors have the bibkey XX+00 where XX are the initals of the last name of the first two authors, and 00 is the year of publication.
+
+If you include a new bibitem first double-check it is not present in tensor.bib already. If you would like to change the version or the edition of a bibitem, contact the developers.
+
+
