@@ -1,6 +1,6 @@
 \begin{definition}[Join of varieties]
-\label{secantVarieties-definition-join}
-Let $X,Y \subseteq \mathbb{P}^N$ be two algebraic varieties. The (geometric) join of $X$ and $Y$ is 
+\label{classicalAG-definition-join}
+Let $X,Y \subseteq \mathbb{P}^N$ be two algebraic varieties. The {\it (geometric) join} of $X$ and $Y$ is 
 \[
 \bbJ(X,Y) =  \overline{ \{ p \in \mathbb{P}^N : p \in \langle x , y \rangle \text{ for some $x \in X, y \in Y$}\}}
 \]
@@ -19,8 +19,8 @@ and let $A\bbJ(X_1 \vvirg X_s) = \overline{A\bbJ^\circ(X_1 \vvirg X_s)}$ be its 
 
 
 \begin{definition}[Secant variety]
-\label{secantVarieties-definition-secantvariety}
-Let $X \subseteq \mathbb{P}^N$ be an algebraic variety. The $r$-th secant variety of $X$ is 
+\label{classicalAG-definition-secantvariety}
+Let $X \subseteq \mathbb{P}^N$ be an algebraic variety. The $r$-th {\it secant variety} of $X$ is 
 \[
 \sigma_r(X) = \overline{\{ p \in \mathbb{P}^N : p \in \langle x_1 , \ldots ,  x_r \rangle \text{ for some $x_1 , \ldots , x_r \in X$}
 \}}
@@ -35,7 +35,7 @@ A\sigma^\circ_r(X) = \{ (Z , p  ) \in X^{(\cdot r)} \times \bbP^N : p \in \langl
 and let $A\sigma_r(X) = \overline{ A \sigma^\circ_r(X)}$. As in the case of joins, the projection of $A\sigma_r(X) \to \bbP^N$ surjects onto $\sigma_r(X)$ whereas the projection $A\sigma_r(X) \to X^{(\cdot r)}$ is, on an open set, a $\bbP^{r-1}$-bundle. In particular, if $X$ is irreducible, then $A\sigma_r(X)$ and $\sigma_r(X)$ are irreducible as well.
 
 \begin{lemma}
-\label{secantVarieties-lemma-expecteddimension}
+\label{classicalAG-lemma-expecteddimension}
 Let $X_1,X_2$ be two varieties in $\bbP^N$ with $\dim X_1 = n_1, \dim X_2 = n_2$. Then 
 \[
 \dim \bbJ(X_1,X_2) \leq \min\{ N, n_1 + n_2 + 1\}.
@@ -51,19 +51,19 @@ It is easy to verify that $\dim A \bbJ(X_1,X_2) =  n_1 + n_2 + 1$, which immedia
 Given varieties $X_1,X_2 \subseteq \bbP^N$ with $\dim X_i = n_i$, we say that the join $\bbJ(X_1,X_2)$ has the expected dimension if $\dim \bbJ(X_1,X_2) =  \min\{ N, n_1 + n_2 + 1\}$ and we say that it is defective otherwise. Similar terminology is used in the case of secant varieties: we say that $\sigma_r(X)$ has the expected dimension if $\dim \sigma_r(X) = \min\{ N , r \dim X + r-1\}$; we say that $\sigma_r(X)$ is defective, or that $X$ is $r$-defective, if it does not have the expected dimension. 
 
 \section{Dimension of secant varieties}
-\label{secantVarieties-section-dimension}
+\label{classicalAG-section-dimension}
 
-Throughout more than a century, a great deal of research was devoted in the study of dimension of secant varieties, and in the classification of defective varieties. A very first result in this direction is \ref{secantVarieties-lemma-palatini} which appears already in \cite{Pal09}. 
+Throughout more than a century, a great deal of research was devoted in the study of dimension of secant varieties, and in the classification of defective varieties. A very first result in this direction is \ref{classicalAG-lemma-palatini} which appears already in \cite{Pal09}. 
 
 \begin{lemma}[Palatini's Lemma]
-\label{secantVarieties-lemma-palatini}
+\label{classicalAG-lemma-palatini}
 Let $X \subseteq \bbP^N$ be an algebraic variety with $\codim X \geq 2$ and let $C \subseteq \bbP^N$ be a linearly non-degenerate algebraic curve. Then either $\dim \bbJ(X,C) = \dim X + 2$. In particular, all secant varieties of algebraic curves have the expected dimension.
 \end{lemma}
 
 
 A fundamental tool in the study of dimension of secant varieties is Terracini's Lemma, dating back to \cite{Ter11}.
 \begin{lemma}[Terracini's Lemma]
-\label{secantVarieties-lemma-terracini}
+\label{classicalAG-lemma-terracini}
 Let $X, Y \subseteq \mathbb{P}^N$ be algebraic varieties and let $\bbJ(X,Y)$ be their join. Let $z \in \bbJ(X,Y)$ be a smooth point such that $z \in \langle x , y \rangle$ for smooth points $x \in X$ and $y \in Y$. Then
 \[
 T_{z} \bbJ(X,Y) = \langle T_x X , T_y Y\rangle.
@@ -76,7 +76,7 @@ for generic points $x_1 \vvirg x_r \in X$.
 \end{lemma}
 This result offers a \emph{dual} point of view to the problem of determining the dimension of secant varieties via interpolation of fat points. Let $X$ be an algebraic variety and let $\calL$ be a (very ample) line bundle on $X$. Let $\phi_\calL : X \to \bbP H^0(X, \calL)^\vee$ be the embedding defined by $\calL$. 
 \begin{proposition}
- \label{secantVarieties-proposition-interpolationfatpoints}
+ \label{classicalAG-proposition-interpolationfatpoints}
  Let $X$ be an irreducible algebraic variety, $\calL$ a very ample line bundle on $X$. Then
  \[
  \dim \sigma_r( \phi_\calL(X)) = h^0(\calL)-1 - h^0( \calI_{Z} \otimes \calL)
