@@ -8,7 +8,7 @@ We say that a module of equations for a variety $X$ arises from a flattening if,
 
 Tautologically, the variety $\sigma_r( \bbP E \times \bbP F)$ of matrices of rank at most $r$ has (ideal-theoretic) equations arising from a flattening. Similarly, the standard flattenings introduced in \ref{introduction-section-representingtensors} are examples of flattening maps; it is a classical fact that they yield equations for Segre-Veronese varieties:
 \begin{proposition}
- \label{flattenings-proposition-standardFlatrank1}
+ \label{RepTheory-proposition-standardFlatrank1}
  Let $T \in \bbP (V_1 \ootimes V_k)$ be a tensor. Then $T \in \bbP V_1 \ttimes \bbP V_k$ belongs to the Segre variety if and only if all flattenings $T_i : V_i^* \to \bigotimes _{j \neq i} V_j$ have rank $1$.
 \end{proposition}
 The same statement for Segre-Veronese varieties is immediate. A similar result holds for more general \emph{rational homogeneous varieties}, and it is discussed in [Section:KostantThm:TBW].
@@ -18,7 +18,7 @@ The same statement for Segre-Veronese varieties is immediate. A similar result h
 
 When the flattening map $\Flat : V \to \Hom(E,F)$ is linear, then rank conditions for a variety $X$ yield rank conditions for the secant varieties of $X$. We state this formally following \cite[Prop. 4.1.1]{LO13}.
 \begin{lemma}
- \label{flattenings-lemma-LO}
+ \label{RepTheory-lemma-LandsbergOttaviani411}
  Let $X \subseteq \bbP V$ be a variety and let $\Flat : V \to \Hom(E,F)$ be a linear map. Let 
  \[
  r_X = \max \{ r : \rank ( \Flat(x)) = r \text{ for some $x \in X$}\}.
@@ -30,3 +30,20 @@ In \cite{LO13}, equations for secant varieties of Segre varieties are constructe
 E \xto{\otimes v} E \otimes V \to E \otimes E^* \otimes F \xto{\lrcorner \Id_E} F
 \end{align*}
 where the first map is tensorising by $v$, the second is the inclusion $V \subseteq E^* \otimes F$ and the third map is contraction by the identigy element $\Id_E \in E \otimes E^*$.
+
+Over time, strong \emph{barriers} for flattening methods for secant varieties have been proved. This means that they can only provide equations for secant varieties up to a certain value $r$, much smaller than the value $r_{\gen}$ of the generic rank. These barriers are discussed in \cite{EGOW18} from the point of view of complexity theory. A geometric reason is provided in \cite{Gal17}, in conjunction with results on the value of generic and maximum cactus rank \cite{BR13,BBG19}. 
+
+\section{Equations for Chow varieties}
+\label{RepTheory-section-chowvarieties}
+
+Let $V$ be a vector space. The Chow variety of completely reducible forms of degree $d$ is
+\[
+\Ch_d(V) = \{ \ell_1 \cdots \ell_d : \ell_i \in \bbP V\} \subseteq \bbP S^d V.
+\]
+It is not hard to see that $\Ch_d(V)$ is an algebraic variety. 
+
+Note that if $\dim V = 2$, then $\Ch_d(V) = \bbP S^d V$. Brill \cite{Bri98} and Gordan \cite{Gor94} determined set-theoretic equations for $\Ch_d(V)$ which are now known as Brill's equations in terms of a flattening map. In this section, we describe Brill's equations following \cite{Lan12,Gua18}. In particular, they are based on the construction of a flattening map $S^d V \to \Hom(S^{d(d-1)} V, \bbS_{(d,d)} V )$, which is identically $0$ on $\Ch_d$. 
+
+
+
+
