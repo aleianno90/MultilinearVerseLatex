@@ -11,7 +11,7 @@ Tautologically, the variety $\sigma_r( \bbP E \times \bbP F)$ of matrices of ran
  \label{RepTheory-proposition-standardFlatrank1}
  Let $T \in \bbP (V_1 \ootimes V_k)$ be a tensor. Then $T \in \bbP V_1 \ttimes \bbP V_k$ belongs to the Segre variety if and only if all flattenings $T_i : V_i^* \to \bigotimes _{j \neq i} V_j$ have rank $1$.
 \end{proposition}
-The same statement for Segre-Veronese varieties is immediate. A similar result holds for more general \emph{rational homogeneous varieties}, and it is discussed in [Section:KostantThm:TBW].
+A similar statement holds for Segre-Veronese varieties and it is discussed in \ref{RepTheory-section-flatteningsSecants} together with an extension to its secant varieties.
 
 \section{Flattenings for secant varieties}
 \label{RepTheory-section-flatteningsSecants}
@@ -25,13 +25,71 @@ When the flattening map $\Flat : V \to \Hom(E,F)$ is linear, then rank condition
  \]
 If $p \in \sigma_r(X)$, then $\rank(\Flat(p)) \leq r \cdot r_X$. In particular, if $\rank(\Flat(p)) = s$, then $p \notin \sigma_r (X)$ for $r = \lceil s / r_X \rceil$.
 \end{lemma}
-In \cite{LO13}, equations for secant varieties of Segre varieties are constructed via \ref{flattenings-lemma-LO} in a representation theoretic setting. We present the construction here in slightly broader generality. Let $G$ be a group and let $V$ be a $G$-representation. Suppose $E,F$ are $G$-representations with the property that $E^* \otimes F$ contains $V$ as a subrepresentation. The Young flattening of $V$, associated to the pair $(E,F)$ is the linear map $\YFlat^V_{E,F} : V \to \Hom( E,F)$ mapping the element $v \in V$ to the composition
+\ref{RepTheory-proposition-standardFlatrank1} is a particular case of \ref{RepTheory-lemma-LandsbergOttaviani411}. We discuss it here in the case of Segre-Veronese varieties. Fix spaces $V_1 \vvirg V_k$ and integers $d_1 \vvirg d_k, e_1 \vvirg e_k$ with $e_i \leq d_i$. Consider the flattening map 
+\[
+\begin{aligned}
+\Flat_{(d_1 \vvirg d_k)}^{(e_1 \vvirg e_k)} : S^{d_1} V_1 \ootimes S^{d_k}V_k &\to \Hom ( S^{e_1} V_1^* \ootimes S^{e_k}V_k^* , S^{d_1 - e_1} V_1 \ootimes S^{d_k- e_k}V_k ) \\ 
+f_1 \ootimes f_k &\mapsto \left[ \eta_1 \ootimes \eta_k \mapsto  \eta_1(f_1) \ootimes \eta_k(f_k) \right] .
+\end{aligned}
+\]
+Then the following holds:
+\begin{lemma}
+\label{RepTheory-lemma-catalecticantSegreVeronese}
+ Let $T \in  S^{d_1} V_1 \ootimes S^{d_k}V_k$. The following are equivalent:
+ \begin{enumerate}[(i)]
+  \item $T$ is an element of the Segre-Veronese variety $\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k)$;
+  \item for every $(e_1 \vvirg e_k)$, $\Flat_{(d_1 \vvirg d_k)}^{(e_1 \vvirg e_k)}(T)$ has rank one, as a linear map. 
+ \end{enumerate}
+In particular, the $2 \times 2$ minors of the standard flattenings give set-theoretic equations for $\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k)$. Moreover, if $T \in \sigma_r(\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k))$ then $\rk(\Flat_{(d_1 \vvirg d_k)}^{(e_1 \vvirg e_k)}(T)) \leq r$.
+\end{lemma}
+The converse of \ref{RepTheory-lemma-catalecticantSegreVeronese} in the case of higher secant varieties is false, except in particular cases. An important case is the one of the second secant variety: in this case the converse was proved in \cite[Theorem 5.1]{LM04} in the case of Segre variety; the results of \cite{BL14} and in particular the classification results for elements of the second secant variety allow one to extend it to every Segre-Veronese variety.
+\begin{theorem}
+ \label{RepTheory-theorem-LandsbergManivelSigma2}
+ Let $T \in  S^{d_1} V_1 \ootimes S^{d_k}V_k$. The following are equivalent:
+ \begin{enumerate}[(i)]
+  \item $T \in \sigma_2(\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k))$;
+  \item for every $(e_1 \vvirg e_k)$, $\rank( \Flat_{(d_1 \vvirg d_k)}^{(e_1 \vvirg e_k)}(T) ) \leq 2$. 
+ \end{enumerate} 
+ In particular, $3 \times 3$ minors of the standard flattenings give set-theoretic equations for $ \sigma_2(\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k))$.
+\end{theorem}
+Another particular case is the one of the rational normal curve, that is the case where $k = 1$ and $\dim V = 2$. The result is classical, see e.g. \cite[Chapter 7]{IK99}.
+\begin{theorem}
+ \label{RepTheory-theorem-rationalnormalcurves}
+ Let $f \in  S^{d} V$ with $\dim V = 2$. The following are equivalent:
+ \begin{enumerate}[(i)]
+  \item $f \in \sigma_r(\nu_{d} \bbP V)$;
+  \item for every $e$ with $0 \leq e \leq d$, $\rank( \Flat_d^e(f))  \leq r$. 
+ \end{enumerate} 
+ In particular, $(r+1) \times (r+1)$ minors of the standard flattenings give set-theoretic equations for $\sigma_r(\nu_d(\bbP^1))$.
+\end{theorem}
+More generally, only partial results are known. However, in \cite{LO13}, equations for secant varieties of Segre varieties are constructed via \ref{RepTheory-lemma-LandsbergOttaviani411} in a representation theoretic setting, with the introduction of more interesting flattening maps. We present the construction here in slightly broader generality. Let $G$ be a group and let $V$ be a $G$-representation. Suppose $E,F$ are $G$-representations with the property that $E^* \otimes F$ contains $V$ as a subrepresentation. The Young flattening of $V$, associated to the pair $(E,F)$ is the linear map $\YFlat^V_{E,F} : V \to \Hom( E,F)$ mapping the element $v \in V$ to the composition
 \begin{align*}
 E \xto{\otimes v} E \otimes V \to E \otimes E^* \otimes F \xto{\lrcorner \Id_E} F
 \end{align*}
 where the first map is tensorising by $v$, the second is the inclusion $V \subseteq E^* \otimes F$ and the third map is contraction by the identigy element $\Id_E \in E \otimes E^*$.
 
+We record explicitly the construction of Koszul-Young flattenings for tensors of order three. In several settings, classical equations for secant varieties can be reinterpreted in terms of this construction: this is the case of the classical Aronhold invariant of ternaty cubics \cite[Prop. 4.4.7]{Stu93} and for Strassen's equations for higher secant varieties \cite{Str83,LO13}.
+
+Let $V_1,V_2,V_3$ be vector spaces with $\dim V_i = n_i+1$. Fix $p \leq n_1$. For $T \in V_1 \otimes V_2 \otimes V_3$, let $T_1^{\wedge p} $ be the composition
+\[
+\Lambda^p V_1 \otimes V_2^*  \xto{\id_{\Lambda^p V_1} \boxtimes T} \Lambda^p V_1 \otimes V_1 \otimes V_3 \to \Lambda^{p+1} V_1 \otimes V_3.
+\]
+In this case, one has the following result.
+\begin{proposition}
+ \label{RepTheory-proposition-KoszulFlat}
+ Let $T \in V_1 \otimes V_2 \otimes V_3$ be a tensor. If $T \in \bbP V_1 \times \bbP V_2 \times \bbP V_3$, then $\rank( T_1^{\wedge p}) = \binom{n}{p}$. In particular, if $\rank ( T_1^{\wedge p} ) \geq R$, then 
+ \[
+T \notin \sigma_r ( \bbP V_1 \times \bbP V_2 \times \bbP V_3) 
+ \]
+ for $r = \left \lfloor \frac{R}{\binom{n}{p}} \right \rfloor$; in other words $\uR(T) \geq r+1$.
+\end{proposition}
+
+
+
 Over time, strong \emph{barriers} for flattening methods for secant varieties have been proved. This means that they can only provide equations for secant varieties up to a certain value $r$, much smaller than the value $r_{\gen}$ of the generic rank. These barriers are discussed in \cite{EGOW18} from the point of view of complexity theory. A geometric reason is provided in \cite{Gal17}, in conjunction with results on the value of generic and maximum cactus rank \cite{BR13,BBG19}. 
+
+
+
 
 \section{Equations for Chow varieties}
 \label{RepTheory-section-chowvarieties}
@@ -42,7 +100,39 @@ Let $V$ be a vector space. The Chow variety of completely reducible forms of deg
 \]
 It is not hard to see that $\Ch_d(V)$ is an algebraic variety. 
 
-Note that if $\dim V = 2$, then $\Ch_d(V) = \bbP S^d V$. Brill \cite{Bri98} and Gordan \cite{Gor94} determined set-theoretic equations for $\Ch_d(V)$ which are now known as Brill's equations in terms of a flattening map. In this section, we describe Brill's equations following \cite{Lan12,Gua18}. In particular, they are based on the construction of a flattening map $S^d V \to \Hom(S^{d(d-1)} V, \bbS_{(d,d)} V )$, which is identically $0$ on $\Ch_d$. 
+Note that if $\dim V = 2$, then $\Ch_d(V) = \bbP S^d V$. Brill \cite{Bri98} and Gordan \cite{Gor94} determined set-theoretic equations for $\Ch_d(V)$ which are now known as Brill's equations in terms of a flattening map. In this section, we describe Brill's equations following \cite{Lan12,Gua18}. In particular, they are based on the construction of a flattening map $S^d V \to \Hom(S^{d(d-1)} V^*, \bbS_{(d,d)} V )$, which is identically $0$ on $\Ch_d$. 
+
+In order to describe Brill's map, we introduce the following notatio. Let $\dim V = n+1$.
+\begin{itemize}
+ \item $\pi_{(d,d)}: S^d V \otimes S^d V \to \bbS_{(d,d)} V$ is the equivariant projection onto the component $ \bbS_{(d,d)}$ of $S^d V \otimes S^d V$ which is unique by \ref{RepTheory-proposition-Pieri}.
+ \item For every $k$, and every $e$, define
+ \[
+ \begin{aligned}
+ E_k : S^e V &\to S^{k} V \otimes S^{k(e-1)}V  \\
+ f &\mapsto \sum_{\alpha \in \bbN^{n+1}, |\alpha| = k} \binom{k}{\alpha}^{-1} \bfx^\alpha \otimes \left( f^{k-1}\textstyle \frac{\partial^k}{\partial \bfx^\alpha} f \right)
+\end{aligned}
+ \]
+ which is a polynomial map. Elements in the image of $E_k$ can be multiplied according to the natural product 
+ \[
+( S^a V \otimes S^{a(e-1)} ) \times ( S^b V \otimes S^{b(e-1)} )  \to ( S^{a+b} V \otimes S^{(a+b)(e-1)} ).
+\]
+ \item Let $\calP_d ( e_1 \vvirg e_d)$ be the polynomial expression of the power sum polynomial of degree $d$ in terms of the elementary symmetric functions $e_1 \vvirg e_d$. 
+ \item Let 
+ \[
+ \begin{aligned}
+ \calQ_{d} : S^d V \to S^d V \otimes S^{d(d-1)}V \\
+ f \mapsto \calP_d ( E_1(f) \vvirg E_d(f)).
+ \end{aligned}
+ \]
+\end{itemize}
+Define the Brill map $\calB(f) \in \Hom ( S^{d(d-1)}V^* , \bbS_{(d,d)} V)$ associated to $f \in S^d V$ to be the composition
+\[
+\begin{array}{rcccl}
+S^{d(d-1)}V^* &\to & S^{d(d-1)}V^* \otimes S^d V \otimes S^d V \otimes S^{d(d-1)} V & \to & \bbS_{(d,d)} V \\
+\Delta &\mapsto &\Delta \otimes f \otimes Q_d(f)  & &\\
+& & \Delta \otimes g \otimes h \otimes H &\mapsto & D(H) \cdot \pi_{(d,d)} (g \otimes h)
+\end{array}
+ \]
 
 
 
