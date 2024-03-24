@@ -36,12 +36,14 @@ In particular, if $c^\nu_{\lambda,\mu} \neq 0$, then $|\nu| = |\lambda|+|\mu|$.
 
 Littlewood-Richardson coefficients are hard to compute \cite{Nar06} even though there are polynomial-time algorithms to decide whether they are zero or nonzero as observed in \cite{MNS12} following \cite{KT99}. However, there are several special cases for which they are easy to determine. For instance, when $\mu$ is a partition consisting of a single row of a single column, we have the following classical result.
 \begin{proposition}[Pieri's rule]
+\label{RepTheory-proposition-Pieri}
  Let $\lambda$ be a partition and let $d \geq 0$. Then 
  \[
  \bbS_{\lambda} V \otimes S^d V = \bigoplus_{\nu \in R} \bbS_{\nu} V, \qquad  \bbS_{\lambda} V \otimes \Lambda^d V = \bigoplus_{\nu \in C} \bbS_{\nu} V.
  \]
 Here $R$ (resp. $C$) is the set of partitions of $|\lambda|+d$ obtained from $\lambda$ by adding $d$ boxes, no two of them on the same column (resp. row).
 \end{proposition}
+There are variants of \ref{RepTheory-proposition-Pieri} for other groups, such as the orthogonal group or the symplectic group.
 
 \chapter{Equations via representation theory}
 \label{RepTheory-chapter-equations}
