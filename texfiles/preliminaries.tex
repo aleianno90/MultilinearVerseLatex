@@ -3,31 +3,74 @@ In this chapter, we introduce all basic notions, terminologies and notations tha
 \section{Representing tensors}
 \label{introduction-section-representingtensors}
 
-For a vector space $V$, let $V^*$ denote its dual space. Given finite-dimensional vector spaces $V ,W$, let $V \otimes W$ denotes the tensor product of $V$ and $W$; it can be equivalently be identified with the space of linear maps $\Hom(V^*,W) \simeq \Hom(W^*,V)$ or with the space of bilinear map $V \times W \to \bbC$. Given spaces $V_1 \vvirg V_d$, let $V_1 \ootimes V_d$ denote their tensor product, which is identified with the space of multilinear maps $V_1^* \ttimes V_d^* \to \bbC$.
+\begin{definition}[Tensor product]\label{introduction-definition-tensor_product}
+Let $V,W$ be finite dimensional $\Bbbk$-vector spaces.
+\begin{itemize}
+    \item Let $\Hom(V,W)$ denote the vector space of linear functions from $V$ to $W$.
+    \item Let $V^* = \Hom(V,\Bbbk)$ denote the \emph{dual space} of $V$.
+    \item Let $V \otimes W$ denote the tensor product of $V$ and $W$: it can be equivalently identified with the space of linear maps $\Hom(V^*,W) \simeq \Hom(W^*,V)$ or with the space of bilinear map $V \times W \to \bbC$.
+\end{itemize}
+Given $\Bbbk$-vector spaces $V_1 \vvirg V_d$, let $V_1 \ootimes V_d$ denote their tensor product, which is identified with the space of multilinear maps $V_1^* \ttimes V_d^* \to \bbC$. If $V_1 = \cdots = V_d = V$, then we write for short $V^{\otimes d}$. 
 
-In coordinates, if $v_0^{(i)} \vvirg v^{(i)}_{n_i}$ is a basis of $V_i$, then 
+The elements of a tensor product of $d$ vector spaces are called \emph{tensors} of \emph{order $d$}.
+
+In coordinates, if $\{v_0,\ldots,v_m\}$ is a basis of $V$ and $\{w_0,\ldots,w_n\}$ is a basis of $W$, then $\{v_i \otimes w_j ~:~ i \in \{0,\ldots,m\}, j \in \{0,\ldots,n\}$ is a basis of $V\otimes W$. Therefore, any element $T \in V\otimes W$ can be written uniquely as 
 \[
-T = \sum t_{i_1 \vvirg i_d} v^{(1)}_{i_1} \ootimes v^{(d)}_{i_d}
+    T = \sum_{i,j} t_{i,j}v_i\otimes w_j;
 \]
-can be thought of as a $d$-dimensional array of numbers, with entries $t_{i_1 \vvirg i_d}$. 
-
-For every $K \subseteq \{1 \vvirg d\}$, a tensor $T \in V_1 \ootimes V_d$ defines a linear map 
+therefore, the choice of basis gives an identification of the space $V\otimes W$ with the space of $m\times n$ \emph{matrices} with coefficients in $\Bbbk$. In general, if $\{v_0^{(i)},\ldots,v_{n_i}^{(i)}\}$ is a basis of $V_i$, then any element $T \in V_1 \ootimes V_d$ can be written uniquely as 
 \[
-T_K : \bigotimes_{k \in K} V_{k}^* \to  \bigotimes_{k' \notin K} V_{k'}
+    T = \sum_{i_1,\ldots,i_d} t_{i_1,\ldots,i_d}v_{i_1}^{(1)}\ootimes v_{i_d}^{(d)};
 \]
-called \emph{flattening} of $T$. The subscript $K$ will be omitted unless it is important to stress which flattening is being considered. It is easy to see that $T_K = T_{K^c}^\bft$, where $K^c$ denotes the complement in $\{1 \vvirg d\}$. A tensor $T$ is \emph{concise} if the flattenings $T_k : V_k^* \to \bigotimes_{k' \neq k} V_{k'}$ are injective. 
+therefore, the choice of basis gives an identification of the space $V_1 \ootimes V_d$ with the space of $d$-dimensional arrays of size $n_1 \times\cdots\times n_d$. 
+\end{definition}
 
-
-For $d \geq 0$, let $V^{\otimes d}$ denote the $d$-th tensor power of $V$. Then $S^d V \subseteq V^{\otimes d}$ denotes the subspace of symmetric tensors, which are those tensors invariant under the action of the symmetric group $\frakS_d$ acting by permutation on the tensor factors; if the base field has characteristic $0$, $S^d V$ can be identified with the space of homogeneous polynomials of degree $d$ on $V^*$. 
-
-A tensor $T \in W \otimes S^{d-1} V$ can be regarded as a $(\dim W)$-uple of elements of $S^{d-1} V$. If $F \in S^d V$ is a symmetric tensor, with $v_0 \vvirg v_n$ basis of $V$, then 
+\begin{definition}[Flattenings]\label{introduction-definition-flattenings}
+For every $K \subseteq \{1 \vvirg d\}$, let $K^c = \{1\vvirg d\} \smallsetminus K$. Then, a tensor $T \in V_1 \ootimes V_d$ defines a linear map 
 \[
-F = \sum_{j=0}^n v_j \otimes \textstyle\frac{\partial }{\partial v_j} F
+    \Flat_K(T): \bigotimes_{k \in K} V_{k}^* \to  \bigotimes_{k' \in K^c} V_{k'}
 \]
-can be regarded as an element of $V \otimes S^{d-1} V$; the corresponding $(n+1)$-tuple of elements of $S^{d-1} V$ can be identified with the gradient of $V$.
+called \emph{flattening} of $T$. It is easy to see that $\Flat_K(T) = (\Flat_{K^c}(T))^\bft$. 
+\end{definition}
 
-A tensor $T \in V_1 \ootimes V_d$ can be identified with the image of its flattening $T : V_1^* \to V_2 \ootimes V_d$, up to a change of coordinates on the space $V_1$. In other words, if $T,T'$ are two tensors such that the image of their first flattening is the same subspace of $V_2 \ootimes V_d$, then there exists an element $g \in \GL(V_1)$ such that $T = g\cdot T'$. Similar statements hold with respect to the other simple flattenings.
+\begin{definition}[Concise tensors]\label{introduction-definition-concise}
+    A tensor $T$ is \emph{concise} if the flattenings $T_k : V_k^* \to \bigotimes_{k' \neq k} V_{k'}$ are injective. 
+\end{definition}
 
+A tensor $T \in V_1 \ootimes V_d$ can be identified with the image of its flattening $T : V_1^* \to V_2 \ootimes V_d$, up to a change of coordinates on the space $V_1$. Here, we consider the action of $\GL(V_1)$ on $V_1 \ootimes V_d$: for more about group actions, see \ref{introduction-section-groupactions}. In other words, if $T,T'$ are two tensors such that the image of their first flattening is the same subspace of $V_2 \ootimes V_d$, then there exists an element $g \in \GL(V_1)$ such that $T = g\cdot T'$. Similar statements hold with respect to the other simple flattenings.
+
+\subsection{Symmetric Tensors}\label{introduction-subsection-symmetric_tensors}
+On the space of tensors $V^{\otimes d}$, we consider the action of the \emph{symmetric group} $\frakS_d$ which acts by permuting the tensor factors: if $T = (t_{i_1,\ldots,i_d}) \in V^{\otimes d}$, then, for any $\sigma \in \frakS_d$, then $(\sigma \cdot T)_{i_1,\ldots,i_d} = t_{i_{\sigma(1)},\ldots,i_{\sigma(d)}}$ for any multi-index $(i_1,\ldots,i_d)$. 
+\begin{definition}[Symmetric tensors]\label{introduction-definition-symmetric_tensors}
+    A tensor $T \in V^{\otimes d}$ which is invariant under the action of $\frakS_d$ is said to be \emph{symmetric}. Let $S^d V \subseteq V^{\otimes d}$ denote the space of symmetric tensors. 
+
+    If the base field has characteristic $0$, then $S^d V$ can be identified with the space of \emph{homogeneous polynomials} of degree $d$ on $V^*$. 
+    
+    For example, the monomial $xy^2$ is identified with the symmetric tensor $\frac{1}{3}\left(x\otimes y \otimes y + y\otimes x \otimes y + y\otimes y \otimes x\right)$.
+\end{definition}
+
+\subsection{Partially Symmetric Tensors}\label{introduction-subsection-partially_symmetric_tensors}
+On the space of tensors $V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$, we consider the action of the \emph{symmetric group} $\frakS_{d_1} \ttimes \frakS_{d_m}$ which acts by permuting the tensor factors accordingly to the partition: namely, if $T = T_1 \ootimes T_m \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$, with $T_i \in V_i^{\otimes d_i}$, then, for any $\sigma = (\sigma_1,\ldots,\sigma_m)\in \frakS_{d_1} \ttimes \frakS_{d_m}$, then $\sigma \cdot T = (\sigma_1\cdot T_1) \ootimes (\sigma_m\cdot T_m) \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$, where each $\sigma_i$ acts permuting the factors of $T_i$ as explained in \ref{introduction-definition-symmetric_tensors}.
+\begin{definition}[Partially symmetric tensors]\label{introduction-definition-partially_symmetric_tensors}
+    A tensor $T \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$ which is invariant under the action of $\frakS_{d_1} \ttimes \frakS_{d_m}$ is said to be \emph{partially symmetric}. Let $S^{d_1,\ldots,d_m}(V_1,\ldots,V_m) = S^{d_1} V_1 \ootimes S^{d_m}V_m \subseteq V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$ denote the space of partially symmetric tensors. 
+
+    If the base field has characteristic $0$, then $S^{d_1} V_1 \ootimes S^{d_m}V_m \subseteq V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$ can be identified with the space of \emph{multi-homogeneous polynomials} of multi-degree $(d_1,\ldots,d_m)$ on $V^*_1 \ttimes V^*_m$. 
+\end{definition}
+
+Inside the space of tensors $V^{\otimes d}$, we have all possible spaces of partially symmetric tensors $S^{\underline{d}}(V)$ for all partitions $\underline{d} = (d_1,\ldots,d_m)\vdash d$. In particular, $S^{\underline{d}}(V) \subset S^{\underline{d'}}(V)$ if $\underline{d}'$ is a refinement of $\underline{d}$.
+
+Fixed a basis $\{w_0,\ldots,w_m\}$ of $W$, any tensor $T \in W \otimes S^{d-1} V$ can be written as $T = \sum_{i=1}^m w_i \otimes T_i$ and then identified with the $m$-tuple $\{T_1,\ldots,T_m\}$ of elements of $S^{d-1} V$. This is also a set of generators for the image of the first flattening $\Flat_1(T)$, see \ref{introduction-definition-flattenings}.
+
+For example, if $F \in S^d V$ is a symmetric tensor, with $\{v_0 \vvirg v_n\}$ basis of $V$, then $F$ is regarded as the element in $S^{(1,d-1)}(V)$ given by 
+\[
+    \sum_{j=0}^n v_j \otimes \textstyle\frac{\partial }{\partial v_j} F
+\]
+where the corresponding $(n+1)$-tuple of elements of $S^{d-1} V$ can be identified with the gradient of the homogeneous polynomial $F$.
+\subsection{Skew-symmetric Tensors}\label{introduction-subsection-skew_symmetric_tensors}
+On the space of tensors $V^{\otimes d}$, we consider the skew-symmetric action of the symmetric group $\frakS_d$: if $T = (t_{i_1,\ldots,i_d}) \in V^{\otimes d}$, then, for any $\sigma \in \frakS_d$, then $(\sigma \cdot T)_{i_1,\ldots,i_d} = \sgn(\sigma)t_{i_{\sigma(1)},\ldots,i_{\sigma(d)}}$ for any multi-index $(i_1,\ldots,i_d)$.
+\begin{definition}[Skew symmetric tensors]\label{introduction-definition-skew_symmetric_tensors}
+    A tensor $T \in V^{\otimes d}$ which is invariant under the skew-symmetric action of $\frakS_d$ is said to be \emph{skew symmetric}. Let $\Wedge^d V \subseteq V^{\otimes d}$ denote the space of skew-symmetric tensors. 
+\end{definition}
 
 \section{Group actions, restrictions and degenerations}
 \label{introduction-section-groupactions}
@@ -66,4 +109,58 @@ Let $G$ be a linear algebraic group acting linearly on a space $V$. Let $v,w \in
 The proof is given in \cite[Sec.20.6]{BCS97} in the case of a product of general linear groups acting on a tensor space. In \cite[Sec.2.3]{Kra84}, the proof is given for the action of $\GL(V)$ on an arbitrary vector space. A sketch of the general proof is given in \cite[Rmk.4.4]{CGZ23}.
 \end{proof}
 
+\section{Decomposable tensors and classical algebraic varieties}
+\begin{definition}[Decomposable tensor]\label{introduction-definition-decomposable_tensor}
+    In $V_1\ootimes V_d$, tensors that are products of vectors, e.g., $T = v_1 \ootimes v_d$, are called \emph{decomposable tensors} or \emph{rank-one tensors}.
+\end{definition}
+Decomposable tensors parametrize classical algebraic varieties. Since the property of being decomposable is clearly invariant under scalar multiples, these algebraic varieties are naturally defined inside \emph{projective spaces}.
 
+\begin{definition}[Segre variety]
+\label{introduction-definition-Segre}
+Let $V_1 \vvirg V_d$ be vector spaces. The \emph{Segre embedding} is the algebraic map defined by 
+\begin{align*}
+\Seg: \bbP V_1 \ttimes \bbP V_d &\to \bbP (V_1 \ootimes V_d) \\
+(v_1 \vvirg v_d) &\mapsto v_1 \ootimes v_d.
+\end{align*}
+The image of the Segre embedding is the \emph{Segre variety} of rank-one tensors:
+\[
+\Seg( \bbP V_1 \ttimes \bbP V_d) =\{ v_1 \ootimes v_d : v_j \in \bbP V_j\}.
+\]
+\end{definition}
+When $d = 2$, the Segre variety is the variety of rank-one matrices in $\bbP (V_1 \otimes V_2)$.
+
+\begin{definition}[Veronse variety]
+\label{introduction-definition-Veronese}
+Let $V$ be vector spaces. The \emph{$d$-th Veronese embedding} is the algebraic map defined by 
+\begin{align*}
+    \nu_d : \bbP V &\to \bbP S^d V \\
+    v &\mapsto v^{\otimes d}.
+\end{align*}
+The image of the Veronese embedding is the \emph{Veronese variety}:
+\[
+    \nu_d( \bbP V ) =\{ v^d :  v \in \bbP V\}.
+\]
+\end{definition}
+When $\dim V = 2$, then $\bbP V = \bbP^1$ and $\nu_d( \bbP^1)$ is the \emph{rational degree-$d$ normal curve} in $\bbP S^d V = \bbP^d$.
+
+\begin{definition}[Segre-Veronese variety]
+\label{introduction-definition-SegreVeronese}
+Let $V_1 \vvirg V_m$ be vector spaces. The \emph{Segre-Veronese embedding} of multidegree $\underline{d} = (d_1 \vvirg d_m)$ is the algebraic map defined by 
+\begin{align*}
+\nu_{\underline{d}} : \bbP V_1 \ttimes \bbP V_m &\to \bbP S^{\underline{d}}(V_1,\ldots,V_m) \\
+(v_1 \vvirg v_m) &\mapsto v_1^{\otimes d_1} \ootimes v_m^{\otimes d_m}.
+\end{align*}
+The image of the Segre-Veronese embedding is the \emph{Segre-Veronese variety}:
+\[
+\nu_{\underline{d}}( \bbP V_1 \ttimes \bbP V_k ) = \{ v_1^{\otimes d_1} \ootimes v_k^{\otimes d_k} :  v_j \in \bbP V_j\}.
+\]
+\end{definition}
+Note that the Segre variety is a Segre-Veronese variety of multidegree $(1 \vvirg 1)$, while the Veronese variety is a Segre-Veronese variety of multidegree $(d)$.
+
+\begin{definition}[Grassmannian]\label{introduction-definition-Grassmannian}
+    Let $V$ be a vector space. The \emph{Grassmannian} $\Gr(d,V)$ is the set of $d$-dimensional subspaces of $V$: this is identified with the set of decomposable skew-symmetric tensors in $\Wedge^dV$. The Grassmannian can be embedded as an algebraic subvariety of $\bbP \Wedge^dV$ via the \emph{Pl\"ucker embedding} given by 
+    \begin{align*}
+    \wedge_{d} : \bbP V \ttimes \bbP V &\to \bbP \Wedge^{d}V \\
+    (v_1 \vvirg v_d) &\mapsto v_1 \wwedge v_d.
+    \end{align*}
+\end{definition}    
