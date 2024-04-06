@@ -2,6 +2,7 @@ In a number of settings, algebraic varieties of interest are invariant under the
 
 \begin{definition}
  \label{repTheory-definition-Gvariety}
+% Author: Fulvio Gesmundo
  Let $G$ be a group and let $V$ be a $G$-representation. We say that a variety $X \subseteq \bbP V$ is a $G$-variety if $X$ is invariant under the action of $G$, that is $G \cdot X = X$. 
 \end{definition}
 We point out that the points of a $G$-variety $X$ are not in general fixed by the action of $G$. If this is the case, we say that $X$ is point-wise invariant by the action of $G$.
@@ -15,6 +16,7 @@ g \cdot F = F \circ g^{-1}.
 If the action is linear, it restricts to the homogeneous components of $\bbC[V] = \bigoplus_{d \geq 0} S^d V^*$. If $X$ is a $G$-variety, then the homogeneous components of its ideal are $G$-representations as well.
 \begin{lemma}
 \label{repTheory-lemma-GactionOnIdeal}
+% Author: Fulvio Gesmundo
  Let $X \subseteq \bbP V$ be a $G$-variety. Let $I(X) \subseteq \bbC[V]$ be the ideal of $X$. Then for every $g \in G$ and every $F \in \bbC[V]$, we have that $F \in I(X)$ if and only if $g \cdot F \in I(X)$. In particular, the homogeneous components $I(X)_d \subseteq  S^d V^*$ are subrepresentations of $G$.
 \end{lemma}
 Because of this result, every equation $F$ of a $G$-variety yields a \emph{module} of equations, that is the smallest $G$-subrepresentation containing $F$. The term equation is often used loosely, in the general sense of \emph{Zariski closed condition}.
@@ -32,6 +34,7 @@ In fact, it is often possible to realize the homogeneous components of the ideal
 
 \section{The Foulkes map and the ideal of the Chow variety}
 \label{RepTheory-section-foulkes}
+% Author: Fulvio Gesmundo
 
 Let $V$ be a vector space. The Chow variety of completely reducible forms of degree $d$ is 
 \[
@@ -46,6 +49,7 @@ where $x_1 \vvirg x_d$ are $d$ vectors of $V$ in general linear position; in par
 Since $\Ch^d(V)$ is a $\GL(V)$-variety, by \ref{repTheory-lemma-GactionOnIdeal}, the homogeneous components $I(\Ch^d(V))_e \subseteq S^e S^d V^*$ of the ideal of the Chow variety are subrepresentations of $ S^e S^d V^*$. These representations are hard to understand and they are related to long standing problems in representation theory and combinatorics. In particular, the components $I(\Ch^d(V))_e$ can be described in terms of the kernel of a natural map:
 \begin{definition}
  \label{RepTheory-definition-foulkesmap}
+% Author: Fulvio Gesmundo
  Let $d,e$ be positive integers. Index the tensor factors of $V^{\otimes de}$ with pairs $(i,j) \in [d]\times [e]$. Let $\pi_{d,e}$ be the composition
  \[
 \bigotimes_{(i,j)} V_{(i,j)} \to (S^e V_{(1,\ast)}) \ootimes (S^eV_{(d,\ast)}) \to S^d S^e V  
@@ -59,6 +63,7 @@ Since $\Ch^d(V)$ is a $\GL(V)$-variety, by \ref{repTheory-lemma-GactionOnIdeal},
 This map was introduced by Hermite in the case $\dim V = 2$ \cite{Her56}, and it was observed that in that case it is an isomorphism; this result is called Hermite reciprocity today. Hadamard studied it in general and proved that it completely controls the ideal of the Chow varieties \cite{Had97}.
 \begin{theorem}
  \label{RepTheory-theorem-foulkeskerChow}
+% Author: Fulvio Gesmundo
 Let $V$ be a vector space. Let $d,e$ be nonnegative integers. Then 
 \[
 I(\Ch^d (V)) _ e = \ker \rmFH_{d,e}.
@@ -72,6 +77,7 @@ I(\Ch^d (V)) _ e = \ker \rmFH_{d,e}.
 In particular, one recovers Hermite's result:
 \begin{corollary}[Hermite reciprocity]
 \label{RepTheory-corollary-hermiteReciprocity}
+% Author: Fulvio Gesmundo
 If $\dim V = 2$, then the Foulkes-Howe map $\rmFH_{d,e}$ is an isomorphism.
 \end{corollary}
 \begin{proof}
@@ -81,6 +87,7 @@ By the Fundamental Theorem of Algebra, every binary form splits as product of li
 Another immediate consequence of \ref{RepTheory-theorem-foulkeskerChow} is the following:
 \begin{corollary}
 \label{RepTheory-corollary-foulkesplethysmbound}
+% Author: Fulvio Gesmundo
 Let $V$ be a vector space with $\dim V =n$. Let $d,e$ be nonnegative integers and let $\lambda$ be a partition of $ed$ with $\ell(\lambda) \leq n$. If $a_\lambda(e,d) > a_\lambda(d,e)$ then $I(\Ch_d(V))_e \neq 0$.
 \end{corollary}
 A special case of \ref{RepTheory-corollary-foulkesplethysmbound} is the one where $\ell(\lambda) > d$. In this case, a consequence of Pieri's rule (see \ref{RepTheory-proposition-Pieri}) is that $a_\lambda(e,d) = 0$. Therefore the entire isotypic component of type $\lambda$ in $S^e S^d V^*$ is contained in $I(\Ch_d(V))_e$. In fact, this is also a consequence of the fact that, by construction, $\Ch_d(V)$, regarded as a subvariety of $V^{\otimes d}$, is contained in the subspace variety of tensors whose multilinear ranks are $d$, hence all modules in $S^eS^d V^*$ of type $\lambda$ with $\ell(\lambda) \geq d$ vanish on $\Ch_d(V)$.
@@ -90,11 +97,14 @@ A special case of \ref{RepTheory-corollary-foulkesplethysmbound} is the one wher
 Results on inequalities between different structure coefficients in representation theory are of interest in algebraic combinatorics. For plethysm coefficients, several results are known in the asymptotic setting. A fundamental conjecture is due to Foulkes:
 \begin{conjecture}
  \label{RepTheory-conjecture-Foulkes}
+% Author: Fulvio Gesmundo
  Let $e \geq d$ be nonnegative integers and let $\lambda$ be a partition of $ed$. Then $a_\lambda (e,d) \geq a_\lambda(d,e)$.
 \end{conjecture}
 A stronger conjecture was posed by Hadamard, predicting that $\rmFH_{d,e}$ is injective for $e \leq d$ and it is known by the Foulkes-Howe conejcture. Proving this stronger conjecture of a specific pair $(e,d)$ clearly proves \ref{RepTheory-conjecture-Foulkes} for the same pair. However, in \cite{MN05}, it was shown that Hadamard's conjecture is false: $\rmFH_{5,5}$ has nontrivial kernel. The situation is far from understood in general:
+
 \begin{question}
  \label{RepTheory-question-whenfoulkesmap}
+% Author: Fulvio Gesmundo
 For what pairs $(e,d)$ is $\rmFH_{d,e}$ injective? Equivalently, what is the minimal degree of equations of the Chow variety?
 \end{question}
 In this section we review [to be inserted]

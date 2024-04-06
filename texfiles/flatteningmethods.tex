@@ -8,23 +8,27 @@ We say that a module of equations for a variety $X$ arises from a flattening if,
 
 Tautologically, the variety $\sigma_r( \bbP E \times \bbP F)$ of matrices of rank at most $r$ has (ideal-theoretic) equations arising from a flattening. Similarly, the standard flattenings introduced in \ref{introduction-section-representingtensors} are examples of flattening maps; it is a classical fact that they yield equations for Segre-Veronese varieties:
 \begin{proposition}
- \label{RepTheory-proposition-standardFlatrank1}
+% Author: Fulvio Gesmundo
+\label{RepTheory-proposition-standardFlatrank1}
  Let $T \in \bbP (V_1 \ootimes V_k)$ be a tensor. Then $T \in \bbP V_1 \ttimes \bbP V_k$ belongs to the Segre variety if and only if all flattenings $T_i : V_i^* \to \bigotimes _{j \neq i} V_j$ have rank $1$.
 \end{proposition}
 A similar statement holds for Segre-Veronese varieties and it is discussed in \ref{RepTheory-section-flatteningsSecants} together with an extension to its secant varieties.
 
 \section{Flattenings for secant varieties}
 \label{RepTheory-section-flatteningsSecants}
+% Author: Fulvio Gesmundo
 
 When the flattening map $\Flat : V \to \Hom(E,F)$ is linear, then rank conditions for a variety $X$ yield rank conditions for the secant varieties of $X$. We state this formally following \cite[Prop. 4.1.1]{LO13}.
 \begin{lemma}
  \label{RepTheory-lemma-LandsbergOttaviani411}
+% Author: Fulvio Gesmundo
  Let $X \subseteq \bbP V$ be a variety and let $\Flat : V \to \Hom(E,F)$ be a linear map. Let 
  \[
  r_X = \max \{ r : \rank ( \Flat(x)) = r \text{ for some $x \in X$}\}.
  \]
 If $p \in \sigma_r(X)$, then $\rank(\Flat(p)) \leq r \cdot r_X$. In particular, if $\rank(\Flat(p)) = s$, then $p \notin \sigma_r (X)$ for $r = \lceil s / r_X \rceil$.
 \end{lemma}
+
 \ref{RepTheory-proposition-standardFlatrank1} is a particular case of \ref{RepTheory-lemma-LandsbergOttaviani411}. We discuss it here in the case of Segre-Veronese varieties. Fix spaces $V_1 \vvirg V_k$ and integers $d_1 \vvirg d_k, e_1 \vvirg e_k$ with $e_i \leq d_i$. Consider the flattening map 
 \[
 \begin{aligned}
@@ -35,6 +39,7 @@ f_1 \ootimes f_k &\mapsto \left[ \eta_1 \ootimes \eta_k \mapsto  \eta_1(f_1) \oo
 Then the following holds:
 \begin{lemma}
 \label{RepTheory-lemma-catalecticantSegreVeronese}
+% Author: Fulvio Gesmundo
  Let $T \in  S^{d_1} V_1 \ootimes S^{d_k}V_k$. The following are equivalent:
  \begin{enumerate}[(i)]
   \item $T$ is an element of the Segre-Veronese variety $\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k)$;
@@ -45,6 +50,7 @@ In particular, the $2 \times 2$ minors of the standard flattenings give set-theo
 The converse of \ref{RepTheory-lemma-catalecticantSegreVeronese} in the case of higher secant varieties is false, except in particular cases. An important case is the one of the second secant variety: in this case the converse was proved in \cite[Theorem 5.1]{LM04} in the case of Segre variety; the results of \cite{BL14} and in particular the classification results for elements of the second secant variety allow one to extend it to every Segre-Veronese variety.
 \begin{theorem}
  \label{RepTheory-theorem-LandsbergManivelSigma2}
+% Author: Fulvio Gesmundo
  Let $T \in  S^{d_1} V_1 \ootimes S^{d_k}V_k$. The following are equivalent:
  \begin{enumerate}[(i)]
   \item $T \in \sigma_2(\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k))$;
@@ -55,6 +61,7 @@ The converse of \ref{RepTheory-lemma-catalecticantSegreVeronese} in the case of 
 Another particular case is the one of the rational normal curve, that is the case where $k = 1$ and $\dim V = 2$. The result is classical, see e.g. \cite[Chapter 7]{IK99}.
 \begin{theorem}
  \label{RepTheory-theorem-rationalnormalcurves}
+% Author: Fulvio Gesmundo
  Let $f \in  S^{d} V$ with $\dim V = 2$. The following are equivalent:
  \begin{enumerate}[(i)]
   \item $f \in \sigma_r(\nu_{d} \bbP V)$;
@@ -77,11 +84,12 @@ Let $V_1,V_2,V_3$ be vector spaces with $\dim V_i = n_i+1$. Fix $p \leq n_1$. Fo
 In this case, one has the following result.
 \begin{proposition}
  \label{RepTheory-proposition-KoszulFlat}
+% Author: Fulvio Gesmundo
  Let $T \in V_1 \otimes V_2 \otimes V_3$ be a tensor. If $T \in \bbP V_1 \times \bbP V_2 \times \bbP V_3$, then $\rank( T_1^{\wedge p}) = \binom{n}{p}$. In particular, if $\rank ( T_1^{\wedge p} ) \geq R$, then 
  \[
 T \notin \sigma_r ( \bbP V_1 \times \bbP V_2 \times \bbP V_3) 
  \]
- for $r = \left \lfloor \frac{R}{\binom{n}{p}} \right \rfloor$; in other words $\uR(T) \geq r+1$.
+for $r = \Bigl\lfloor R / \binom{n}{p} \Bigr\rfloor$. In other words $\uR(T) \geq r+1$.
 \end{proposition}
 
 
@@ -93,6 +101,7 @@ Over time, strong \emph{barriers} for flattening methods for secant varieties ha
 
 \section{Equations for Chow varieties}
 \label{RepTheory-section-chowvarieties}
+% Author: Fulvio Gesmundo
 
 Let $V$ be a vector space. The Chow variety of completely reducible forms of degree $d$ is
 \[
@@ -102,7 +111,7 @@ It is not hard to see that $\Ch_d(V)$ is an algebraic variety.
 
 Note that if $\dim V = 2$, then $\Ch_d(V) = \bbP S^d V$. Brill \cite{Bri98} and Gordan \cite{Gor94} determined set-theoretic equations for $\Ch_d(V)$ which are now known as Brill's equations in terms of a flattening map. In this section, we describe Brill's equations following \cite{Lan12,Gua18}. In particular, they are based on the construction of a flattening map $S^d V \to \Hom(S^{d(d-1)} V^*, \bbS_{(d,d)} V )$, which is identically $0$ on $\Ch_d$. 
 
-In order to describe Brill's map, we introduce the following notatio. Let $\dim V = n+1$.
+In order to describe Brill's map, we introduce the following notation. Let $\dim V = n+1$.
 \begin{itemize}
  \item $\pi_{(d,d)}: S^d V \otimes S^d V \to \bbS_{(d,d)} V$ is the equivariant projection onto the component $ \bbS_{(d,d)}$ of $S^d V \otimes S^d V$ which is unique by \ref{RepTheory-proposition-Pieri}.
  \item For every $k$, and every $e$, define
