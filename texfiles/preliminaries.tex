@@ -2,8 +2,11 @@ In this chapter, we introduce all basic notions, terminologies and notations tha
 
 \section{Representing tensors}
 \label{introduction-section-representingtensors}
+% Author: Fulvio Gesmundo, Alessandro Oneto
 
-\begin{definition}[Tensor product]\label{introduction-definition-tensor_product}
+\begin{definition}[Tensor product]
+\label{introduction-definition-tensor_product}
+% Author: Fulvio Gesmundo, Alessandro Oneto
 Let $V,W$ be finite dimensional $\Bbbk$-vector spaces.
 \begin{itemize}
     \item Let $\Hom(V,W)$ denote the vector space of linear functions from $V$ to $W$.
@@ -25,7 +28,9 @@ therefore, the choice of basis gives an identification of the space $V\otimes W$
 therefore, the choice of basis gives an identification of the space $V_1 \ootimes V_d$ with the space of $d$-dimensional arrays of size $n_1 \times\cdots\times n_d$. 
 \end{definition}
 
-\begin{definition}[Flattenings]\label{introduction-definition-flattenings}
+\begin{definition}[Flattenings]
+\label{introduction-definition-flattenings}
+% Author: Fulvio Gesmundo, Alessandro Oneto
 For every $K \subseteq \{1 \vvirg d\}$, let $K^c = \{1\vvirg d\} \smallsetminus K$. Then, a tensor $T \in V_1 \ootimes V_d$ defines a linear map 
 \[
     \Flat_K(T): \bigotimes_{k \in K} V_{k}^* \to  \bigotimes_{k' \in K^c} V_{k'}
@@ -33,7 +38,9 @@ For every $K \subseteq \{1 \vvirg d\}$, let $K^c = \{1\vvirg d\} \smallsetminus 
 called \emph{flattening} of $T$. It is easy to see that $\Flat_K(T) = (\Flat_{K^c}(T))^\bft$. 
 \end{definition}
 
-\begin{definition}[Concise tensors]\label{introduction-definition-concise}
+\begin{definition}[Concise tensors]
+\label{introduction-definition-concise}
+% Author: Fulvio Gesmundo, Alessandro Oneto
     A tensor $T$ is \emph{concise} if the flattenings $T_k : V_k^* \to \bigotimes_{k' \neq k} V_{k'}$ are injective. 
 \end{definition}
 
@@ -41,24 +48,26 @@ A tensor $T \in V_1 \ootimes V_d$ can be identified with the image of its flatte
 
 \subsection{Symmetric Tensors}
 \label{introduction-subsection-symmetric_tensors}
+% Author: Alessandro Oneto
 
 On the space of tensors $V^{\otimes d}$, we consider the action of the \emph{symmetric group} $\frakS_d$ which acts by permuting the tensor factors: if $T = (t_{i_1,\ldots,i_d}) \in V^{\otimes d}$, then, for any $\sigma \in \frakS_d$, then \[(\sigma \cdot T)_{i_1,\ldots,i_d} = t_{i_{\sigma(1)},\ldots,i_{\sigma(d)}}\] for any multi-index $(i_1,\ldots,i_d)$. 
 \begin{definition}[Symmetric tensors]
-    \label{introduction-definition-symmetric_tensors}
+\label{introduction-definition-symmetric_tensors}
+% Author: Alessandro Oneto
+A tensor $T \in V^{\otimes d}$ which is invariant under the action of $\frakS_d$ is said to be \emph{symmetric}. Let $S^d V \subseteq V^{\otimes d}$ denote the space of symmetric tensors. 
 
-    A tensor $T \in V^{\otimes d}$ which is invariant under the action of $\frakS_d$ is said to be \emph{symmetric}. Let $S^d V \subseteq V^{\otimes d}$ denote the space of symmetric tensors. 
-
-    If the base field has characteristic $0$, then $S^d V$ can be identified with the space of \emph{homogeneous polynomials} of degree $d$ on $V^*$. For example, the monomial $xy^2$ is identified with the symmetric tensor $\frac{1}{3}\left(x\otimes y \otimes y + y\otimes x \otimes y + y\otimes y \otimes x\right)$.
+If the base field has characteristic $0$, then $S^d V$ can be identified with the space of \emph{homogeneous polynomials} of degree $d$ on $V^*$. For example, the monomial $xy^2$ is identified with the symmetric tensor $\frac{1}{3}\left(x\otimes y \otimes y + y\otimes x \otimes y + y\otimes y \otimes x\right)$.
 \end{definition}
 
 \subsection{Partially Symmetric Tensors}
 \label{introduction-subsection-partially_symmetric_tensors}
-
+% Author: Alessandro Oneto
 On the space of tensors $V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$, we consider the action of the \emph{symmetric group} $\frakS_{d_1} \ttimes \frakS_{d_m}$ which acts by permuting the tensor factors accordingly to the partition: namely, if $T = T_1 \ootimes T_m \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$, with $T_i \in V_i^{\otimes d_i}$, then, for any $\sigma = (\sigma_1,\ldots,\sigma_m)\in \frakS_{d_1} \ttimes \frakS_{d_m}$, then \[\sigma \cdot T = (\sigma_1\cdot T_1) \ootimes (\sigma_m\cdot T_m) \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m},\] where each $\sigma_i$ acts permuting the factors of $T_i$ as explained in \ref{introduction-definition-symmetric_tensors}.
+
 \begin{definition}[Partially symmetric tensors]
-    \label{introduction-definition-partially_symmetric_tensors}
-    
-    A tensor $T \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$ which is invariant under the action of $\frakS_{d_1} \ttimes \frakS_{d_m}$ is said to be \emph{partially symmetric}. Let $S^{d_1,\ldots,d_m}(V_1,\ldots,V_m) = S^{d_1} V_1 \ootimes S^{d_m}V_m \subseteq V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$ denote the space of partially symmetric tensors. 
+\label{introduction-definition-partially_symmetric_tensors}    
+% Author: Alessandro Oneto
+A tensor $T \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$ which is invariant under the action of $\frakS_{d_1} \ttimes \frakS_{d_m}$ is said to be \emph{partially symmetric}. Let $S^{d_1,\ldots,d_m}(V_1,\ldots,V_m) = S^{d_1} V_1 \ootimes S^{d_m}V_m \subseteq V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$ denote the space of partially symmetric tensors. 
 
     If the base field has characteristic $0$, then $S^{d_1} V_1 \ootimes S^{d_m}V_m \subseteq V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$ can be identified with the space of \emph{multi-homogeneous polynomials} of multi-degree $(d_1,\ldots,d_m)$ on $V^*_1 \ttimes V^*_m$. 
 \end{definition}
@@ -72,17 +81,24 @@ For example, if $F \in S^d V$ is a symmetric tensor, with $\{v_0 \vvirg v_n\}$ b
     \sum_{j=0}^n v_j \otimes \textstyle\frac{\partial }{\partial v_j} F
 \]
 where the corresponding $(n+1)$-tuple of elements of $S^{d-1} V$ can be identified with the gradient of the homogeneous polynomial $F$.
-\subsection{Skew-symmetric Tensors}\label{introduction-subsection-skew_symmetric_tensors}
+
+\subsection{Skew-symmetric Tensors}
+\label{introduction-subsection-skew_symmetric_tensors}
+% Author: Alessandro Oneto
 On the space of tensors $V^{\otimes d}$, we consider the skew-symmetric action of the symmetric group $\frakS_d$: if $T = (t_{i_1,\ldots,i_d}) \in V^{\otimes d}$, then, for any $\sigma \in \frakS_d$, then $(\sigma \cdot T)_{i_1,\ldots,i_d} = \sgn(\sigma)t_{i_{\sigma(1)},\ldots,i_{\sigma(d)}}$ for any multi-index $(i_1,\ldots,i_d)$.
-\begin{definition}[Skew symmetric tensors]\label{introduction-definition-skew_symmetric_tensors}
-    A tensor $T \in V^{\otimes d}$ which is invariant under the skew-symmetric action of $\frakS_d$ is said to be \emph{skew symmetric}. Let $\Wedge^d V \subseteq V^{\otimes d}$ denote the space of skew-symmetric tensors. 
+\begin{definition}[Skew symmetric tensors]
+\label{introduction-definition-skew_symmetric_tensors}
+% Author: Alessandro Oneto
+A tensor $T \in V^{\otimes d}$ which is invariant under the skew-symmetric action of $\frakS_d$ is said to be \emph{skew symmetric}. Let $\Lambda^d V \subseteq V^{\otimes d}$ denote the space of skew-symmetric tensors. 
 \end{definition}
 
 \section{Group actions, restrictions and degenerations}
 \label{introduction-section-groupactions}
+% Author: Fulvio Gesmundo
 
 \begin{definition}
 \label{introduction-definition-orbitsdegenerations}
+% Author: Fulvio Gesmundo
 Let $G$ be a group acting on a space $V$ and let $v \in V$. The $G$-orbit of $v$ is 
 \[
 \Omega_v = \{ g(v) : g \in G \}.
@@ -97,7 +113,7 @@ If $G$ is a complex algebraic group acting algebraically on an algebraic variety
 One can give an apparently different definition of degeneration, in terms of formal power series. Let $\bbC[[\eps]]$ be the ring of formal power series in one variable $\eps$, and let $\bbC((\eps))$ denote its quotient field, that is the field of Laurent series in $\eps$. For a vector space $V$ over $\bbC$, let $V^{[\eps]} = V \otimes_{\bbC} \bbC((\eps))$, which is a $\bbC((\eps))$-vector space. If $G$ acts on $V$, then the action extends to the action of a group $G^{[\eps]}$ on $V^{[\eps]}$: when $G$ is algebraic, then $G^{[\eps]}$ is the group of the $\bbC((\eps))$-points of $G$. 
 \begin{definition}
 \label{introduction-definition-formaldegenerations}
-
+% Author: Fulvio Gesmundo
 Let $G$ be a linear algebraic group acting linearly on a vector space $V$. Let $v,w \in V$. We say that $w$ is a \emph{formal $G$-degeneration} of $v$ if there exists an element $g_\eps \in G^{[\eps]}$ such that
 \[
 g_\eps \cdot v = w + \eps w_1 + \cdots .
@@ -106,7 +122,7 @@ g_\eps \cdot v = w + \eps w_1 + \cdots .
 In contrast with \ref{introduction-definition-formaldegenerations}, the degeneration defined in \ref{introduction-definition-orbitsdegenerations} is sometimes called \emph{topological degeneration}. It turns out that the two definitions are equivalent.
 \begin{theorem}
 \label{introduction-theorem-degenerationsequivalence}
-
+% Author: Fulvio Gesmundo
 Let $G$ be a linear algebraic group acting linearly on a space $V$. Let $v,w \in V$. The following are equivalent:
 \begin{itemize}
  \item $w$ is a (topological) $G$-degeneration of $v$;
@@ -119,7 +135,7 @@ The proof is given in \cite[Sec.20.6]{BCS97} in the case of a product of general
 
 \section{Decomposable tensors and classical algebraic varieties}
 \label{introduction-section-decomposable_tensors}
-
+% Author: Alessandro Oneto
 \begin{definition}[Decomposable tensor]\label{introduction-definition-decomposable_tensor}
     In $V_1\ootimes V_d$, tensors that are products of vectors, e.g., $T = v_1 \ootimes v_d$, are called \emph{decomposable tensors} or \emph{rank-one tensors}.
 \end{definition}
@@ -129,7 +145,7 @@ We follow the usual notation $[v] \in \bbP V$ for the projective point correspon
 
 \begin{definition}[Segre variety]
 \label{introduction-definition-Segre}
-
+% Author: Alessandro Oneto
 Let $V_1 \vvirg V_d$ be vector spaces. The \emph{Segre embedding} is the algebraic map defined by 
 \begin{align*}
 \Seg: \bbP V_1 \ttimes \bbP V_d &\to \bbP (V_1 \ootimes V_d) \\
@@ -144,7 +160,7 @@ When $d = 2$, the Segre variety is the variety of rank-one matrices in $\bbP (V_
 
 \begin{definition}[Veronese variety]
 \label{introduction-definition-Veronese}
-
+% Author: Alessandro Oneto
 Let $V$ be vector spaces. The \emph{$d$-th Veronese embedding} is the algebraic map defined by 
 \begin{align*}
     \nu_d : \bbP V &\to \bbP S^d V \\
@@ -161,7 +177,7 @@ When $\dim V = 2$, then $\bbP V = \bbP^1$ and $\nu_d( \bbP^1)$ is the \emph{rati
 
 \begin{definition}[Segre-Veronese variety]
 \label{introduction-definition-SegreVeronese}
-
+% Author: Alessandro Oneto
 Let $V_1 \vvirg V_m$ be vector spaces. The \emph{Segre-Veronese embedding} of multidegree $\underline{d} = (d_1 \vvirg d_m)$ is the algebraic map defined by 
 \begin{align*}
 \nu_{\underline{d}} : \bbP V_1 \ttimes \bbP V_m &\to \bbP S^{\underline{d}}(V_1,\ldots,V_m) \\
@@ -174,12 +190,15 @@ The image of the Segre-Veronese embedding is the \emph{Segre-Veronese variety}:
 \end{definition}
 Note that the Segre variety is a Segre-Veronese variety of multidegree $(1 \vvirg 1)$, while the Veronese variety is a Segre-Veronese variety of multidegree $(d)$.
 
-\begin{definition}[Grassmannian]\label{introduction-definition-Grassmannian}
-    Let $V$ be a vector space. The \emph{Grassmannian} $\Gr(d,V)$ is the set of $d$-dimensional subspaces of $V$: this is identified with the set of decomposable skew-symmetric tensors in $\Wedge^dV$. The Grassmannian can be embedded as an algebraic subvariety of $\bbP \Wedge^dV$ via the \emph{Pl\"ucker embedding} given by 
+\begin{definition}[Grassmannian]
+\label{introduction-definition-Grassmannian}
+% Author: Alessandro Oneto
+    Let $V$ be a vector space. The \emph{Grassmannian} $\Gr(d,V)$ is the set of $d$-dimensional subspaces of $V$. The Grassmannian is a projective variety and it has a natural embedding in $\bbP \Lambda^d V$, called the \emph{Pl\"ucker embedding}. It is given by
     \begin{align*}
-    \wedge_{d} : \bbP V \ttimes \bbP V &\to \bbP \Wedge^{d}V \\
-    ([v_1] \vvirg [v_d]) &\mapsto [v_1 \wwedge v_d].
+    \wedge_{d} : \Gr(d,V) &\to \bbP \Lambda^{d}V \\
+    \langle v_1 \vvirg v_d \rangle &\mapsto [v_1 \wwedge v_d].
     \end{align*}
 \end{definition}    
 
+%%% Important to add that skew tensors of rank 1 are not tensors of rank one, unlike the other cases.
 %%% AleO: to be added: these are orbit closures

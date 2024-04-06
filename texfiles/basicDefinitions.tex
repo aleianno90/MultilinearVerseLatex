@@ -2,98 +2,92 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Secant varieties}
 \label{classicalAG-section-secants}
+% Author: Alessandro Oneto
 
 \begin{definition}[Join of varieties]
 \label{classicalAG-definition-join}
+% Author: Alessandro Oneto
 Let $X,Y \subseteq \mathbb{P}^N$ be two algebraic varieties. Consider the incidence correspondence 
 \[
-    Join^\circ(X,Y) = \{(x,y,p) ~:~ x \neq y,~p \in \langle x,y \rangle\} \subset X \times Y \times \bbP^N.
+    \itJoin^\circ(X,Y) = \{(x,y,p) ~:~ x \neq y,~p \in \langle x,y \rangle\} \subset X \times Y \times \bbP^N.
 \]
-This is a quasi-projective variety and its Zariski closure is the \emph{abstract join} $Join(X,Y) = \overline{Join^\circ(X,Y)}$ of $X$ and $Y$. If we consider the projections 
+This is a quasi-projective variety and its Zariski closure is the {\it abstract join} $\itJoin(X,Y) = \overline{\itJoin^\circ(X,Y)}$ of $X$ and $Y$. Consider the projections 
 \[
     \xymatrix{
         X \times Y \times \bbP^N \ar[d]^{\pi_1} \ar[r]^(0.65){\pi_2} & \bbP^N\\
-        X \times Y & 
+        X \times Y & .
     }
 \]
-then, we define the \emph{join} of $X$ and $Y$ as the scheme-theoretic image 
+The \emph{join} of $X$ and $Y$ is the scheme-theoretic image 
 \[
-    j(X,Y) = \pi_2(Join(X,Y))
+    j(X,Y) = \pi_2(\itJoin(X,Y))
 \]
-This can also be regarded as the the union of all possible lines joining a point of $X$ and a different point of $Y$, i.e.,
+This can also be regarded as the the closure of the union of all possible lines joining a point of $X$ and a point of $Y$, i.e.,
 \[
     j(X,Y) = \overline{ \bigcup_{\substack{x \in X, y \in Y \\ x \neq y}} \langle x,y \rangle} \subset \bbP^N.
     % \{ p \in \mathbb{P}^N : p \in \langle x , y \rangle \text{ for some $x \in X, y \in Y$}\}}
 \]
-Note that the projection $\pi_1$ realizes, locally, $Join(X,Y)$ as a $\bbP^1$-bundle over (an open subset) of $X \times Y$. In particular, this shows that if $X$ and $Y$ are irreducible, than $Join(X,Y)$ is irreducible and, consequently, also $j(X,Y)$ is irreducible.
+The projection $\pi_1$ realizes, locally, $\itJoin(X,Y)$ as a $\bbP^1$-bundle over (an open subset) of $X \times Y$. In particular, if $X$ and $Y$ are irreducible, than $Join(X,Y)$ is irreducible and, consequently, $j(X,Y)$ is irreducible as well.
 
 Given varieties $X_1 \vvirg X_s \subseteq \bbP^N$, one can define their join recursively
 \[
     j( X_1 \vvirg X_s) = j( j(X_1 \vvirg X_{s-1}), X_s);
 \]
-geometrically that is 
+geometrically this is 
 \[
     j( X_1 \vvirg X_s) = \overline{\bigcup_{\substack{x_1 \in X_1,\ldots,x_s \in X_s \\ \{x_1,\ldots,x_s\} \text{ indipendent}}} \langle x_1,\ldots,x_s \rangle} \subset \bbP^N.
 \]
 \end{definition}
-% There is a standard construction which realizes the join of varieties as the image of an \emph{incidence correspondence}. Given varieties $X_1 \vvirg X_s \subseteq \bbP^N$, consider the set
-% \[
-% A\bbJ^\circ(X_1 \vvirg X_s) = \{ (x_1 \vvirg x_s, p) \in X_1 \ttimes X_s \times \bbP^N : p \in \langle x_1 \vvirg x_s\rangle\}
-% \]
-% and let $A\bbJ(X_1 \vvirg X_s) = \overline{A\bbJ^\circ(X_1 \vvirg X_s)}$ be its closure in $X_1 \ttimes X_s \times \bbP^N$. The variety $A\bbJ(X_1 \vvirg X_s)$ is called the \emph{abstract join} of $X_1 \vvirg X_s$. The natural projection $A\bbJ(X_1 \vvirg X_s)  \to \bbP^N$ surjects onto $\bbJ(X_1 \vvirg X_s)$. On the other hand, the projection $A\bbJ(X_1 \vvirg X_s) \to X_1 \ttimes X_s$ realizes, locally, $A\bbJ^\circ(X_1 \vvirg X_s)$ as a $\bbP^{s-1}$-bundle over (and open subset of) $X_1 \ttimes X_s$. In particular, this shows that if $X_1 \vvirg X_s$ are irreducible, then $\bbJ(X_1 \vvirg X_s)$ is irreducible as well.
+
 Secant varieties are obtained by consecutive joins of a variety with itself.
 \begin{definition}[Secant variety]
 \label{classicalAG-definition-secantvariety}
-Let $X \subseteq \mathbb{P}^N$ be an algebraic variety. The \emph{$s$-th secant variety} of $X$ is 
+% Author: Alessandro Oneto
+Let $X \subseteq \mathbb{P}^N$ be an algebraic variety. The {\it $s$-th secant variety} of $X$ is 
 \[
-    \sigma_s(X) = \overline{\bigcup_{\substack{x_1,\ldots,x_s \in X \\ \{x_1,\ldots,x_s\} \text{ indipendent}}} \langle x_1,\ldots,x_s \rangle} \subset \bbP^N.
+\sigma_s(X) = \overline{\bigcup_{\substack{x_1,\ldots,x_s \in X \\ \{x_1,\ldots,x_s\} \text{ indipendent}}} \langle x_1,\ldots,x_s \rangle} \subset \bbP^N.
 \]
-Recursively, $\sigma_0(X) = X$ and $\sigma_s(X) = j(X,\sigma_{s-1}(X))$.
+Recursively, $\sigma_1(X) = X$ and $\sigma_s(X) = j(X,\sigma_{s-1}(X))$.
 
-The abstract $s$-th secant variety of $X$ could be defined as the abstract join of $s$-copies of $X$ as defined above. However, if is often convenient to consider a symmetrized version. Namely, let $X^s = X^{\times s} / \frakS_s$ be the symmetrized product of $s$ copies of $X$. Then, we define the \emph{abstract $s$-th secant variety} of $X$ as 
+The abstract $s$-th secant variety of $X$ can be defined as the abstract join of $s$-copies of $X$ as defined above. However, if is often convenient to consider a symmetrized version. Let $X^{\cdot s} = X^{\times s} / \frakS_s$ be the symmetrized product of $s$ copies of $X$. Then, the {\it abstract $s$-th secant variety} of $X$ is 
 \[
-    Sec_s(X) = \overline{\left\{(\{x_1,\ldots,x_s\},p) ~:~ \substack{\{x_1,\ldots,x_s\} \text{ independent} \\ p \in \langle x_1,\ldots,x_s \rangle}\right\}} \subset X^s \times \bbP^N.
+    \Sec_s(X) = \overline{\left\{(\{x_1,\ldots,x_s\},p) ~:~ \substack{\{x_1,\ldots,x_s\} \text{ independent} \\ p \in \langle x_1,\ldots,x_s \rangle}\right\}} \subset X^s \times \bbP^N.
 \]
-Then, $\sigma_s(X) = \pi_2(Sec_s(X))$, where $\pi_2 : X^s \times \bbP^N \rightarrow \bbP^N$ is the projection on the last factor.
+Then, $\sigma_s(X) = \pi_2(\Sec_s(X))$, where $\pi_2 : X^s \times \bbP^N \rightarrow \bbP^N$ is the projection on the last factor.
 \end{definition}
-% Similarly to the case of join, one can define an incidence correspondence realizing $\sigma_r(X)$ as the image of a projective morphism. Clearly, this can be done considering the abstract join $A\bbJ( X \vvirg X)$. However, it is often convenient to consider a symmetrized version of it. Let $X^{(\cdot r)} = X^{\times r} /\frakS_r$ be the symmetrized product of $r$ copies of $X$. Define 
-% \[
-% A\sigma^\circ_r(X) = \{ (Z , p  ) \in X^{(\cdot r)} \times \bbP^N : p \in \langle Z \rangle \text{ for some } Z \in X^{\cdot r}\}
-% \]
-% and let $A\sigma_r(X) = \overline{ A \sigma^\circ_r(X)}$. As in the case of joins, the projection of $A\sigma_r(X) \to \bbP^N$ surjects onto $\sigma_r(X)$ whereas the projection $A\sigma_r(X) \to X^{(\cdot r)}$ is, on an open set, a $\bbP^{r-1}$-bundle. In particular, if $X$ is irreducible, then $A\sigma_r(X)$ and $\sigma_r(X)$ are irreducible as well.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Expected Dimension}
 \label{classicalAG-section-expectedDimension}
+% Author: Alessandro Oneto
 A first question we might ask on an algebraic variety is its dimension. 
 
 \begin{lemma}
 \label{classicalAG-lemma-expecteddimension}
+% Author: Alessandro Oneto
 Let $X_1\vvirg X_s \subseteq \bbP^N$ be algebraic varieties. Then 
 \[
     \dim j(X_1\vvirg X_s) \leq \min\{ N, \smallsum_{i=1}^s \dim(X_i) + s-1\}.
 \]
-In particular, if $X \subseteq \bbP^N$ is a variety, then 
+In particular, for any $X \subseteq \bbP^N$ algebraic variety, then 
 \[
     \dim \sigma_s(X) \leq \min\{ N , s\dim(X) + s - 1\}.
 \]
-\begin{proof}
-    As they can be obtained as projection, the join $j(X_1,\ldots,X_s)$ and the secant variety $\sigma_s(X)$ have dimension smaller than their abstract analogous.
-
-    The dimension of the abstract join $Join(X_1,\ldots,X_s)$, as defined in \ref{classicalAG-section-secants}, easily follows from the fact that locally it can be interpreted as a $\bbP^{s-1}$-bundle over $X_1 \ttimes X_s$: then, 
-    \[
-        \dim Join(X_1,\ldots,X_s) = \sum_{i=1}^s \dim(X_i) + s-1.
-    \]
-    In particular, $\dim Sec_s(X) = s\dim(X) + s-1$.
-\end{proof}
 \end{lemma}
-% \begin{proof}
-% It is easy to verify that $\dim A \bbJ(X_1,X_2) =  n_1 + n_2 + 1$, which immediately yields the result.
-% \end{proof}
-Ideally, we might {\it expect} that the upper bound of \label{classicalAG-lemma-expecteddimension} is the actual dimension. This leads the the following definition. 
+\begin{proof}
+As they can be obtained as projection, the join $j(X_1,\ldots,X_s)$ and the secant variety $\sigma_s(X)$ have dimension smaller than their abstract analogous.
+
+The dimension of the abstract join $\itJoin(X_1,\ldots,X_s)$, as defined in \ref{classicalAG-section-secants}, easily follows from the fact that locally it can be interpreted as a $\bbP^{s-1}$-bundle over $X_1 \ttimes X_s$: therefore, 
+    \[
+        \dim \itJoin(X_1,\ldots,X_s) = \sum_{i=1}^s \dim(X_i) + s-1.
+    \]
+    In particular, $\dim \Sec_s(X) = s\dim(X) + s-1$.
+\end{proof}
+One may {\it expect} that the upper bound of \ref{classicalAG-lemma-expecteddimension} is the actual dimension. This leads the the following definition. 
 \begin{definition}
 \label{classicalAG-definition-expecteddimension}
-    Let $X_1\vvirg X_s \subseteq \bbP^N$ be algebraic varieties. We call \emph{virtual dimension} of $j(X_1,\ldots,X_s)$ the dimension of the abstract join and we call \emph{expected dimension} the minimum between the virtual dimension and the dimension of the ambient space. Namely, 
+% Author: Alessandro Oneto
+    Let $X_1\vvirg X_s \subseteq \bbP^N$ be algebraic varieties. The {\it virtual dimension} of $j(X_1,\ldots,X_s)$ is the dimension of the abstract join. Its {\it expected dimension} is the minimum between the virtual dimension and the dimension of the ambient space. In other words,
     \begin{align*}
         \virdim j(X_1,\ldots,X_s) & = \sum_{i=1}^s \dim(X_i) + s-1; \\ 
         \expdim j(X_1,\ldots,X_s) & = \min \{N,\virdim j(X_1,\ldots,X_s)\}.
@@ -103,48 +97,52 @@ Ideally, we might {\it expect} that the upper bound of \label{classicalAG-lemma-
         \virdim \sigma_s(X) & = s\dim(X) + s-1; \\ 
         \expdim \sigma_s(X) & = \min \{N,\virdim \sigma_r(X)\}.
     \end{align*}
-    We have seen in \ref{classicalAG-lemma-expecteddimension} that the expected dimension is always an upper bound for the actual dimension of secant varieties. We say that the algebraic variety $X$ is \emph{$s$-defective} if $\dim \sigma_s(X) < \expdim\sigma_s(X)$. 
+By \ref{classicalAG-lemma-expecteddimension} the expected dimension is always an upper bound for the dimension of a secant variety. We say that the algebraic variety $X$ is \emph{$s$-defective} if $\dim \sigma_s(X) < \expdim\sigma_s(X)$. 
 \end{definition}
-% Given varieties $X_1,X_2 \subseteq \bbP^N$ with $\dim X_i = n_i$, we say that the join $\bbJ(X_1,X_2)$ has the expected dimension if $\dim \bbJ(X_1,X_2) =  \min\{ N, n_1 + n_2 + 1\}$ and we say that it is defective otherwise. Similar terminology is used in the case of secant varieties: we say that $\sigma_r(X)$ has the expected dimension if $\dim \sigma_r(X) = \min\{ N , r \dim X + r-1\}$; we say that $\sigma_r(X)$ is defective, or that $X$ is $r$-defective, if it does not have the expected dimension. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Rank and Border Rank}
 \label{classicalAG-section-rank}
+% Author: Alessandro Oneto
 
-One of the main motivation of interest to secant varieties in relation to tensors is because they allow for a geometric definition of {\it rank} with respect to any algebraic variety and, in particular, to the ones defined in \ref{introduction-section-decomposable_tensors}.
+One of the main motivations to study secant varieties in relation to tensors is because they allow for a geometric definition of {\it rank} with respect to any algebraic variety and, in particular, to the ones defined in \ref{introduction-section-decomposable_tensors}.
 
 \begin{definition}
 \label{classicalAG-definition-Xrank}
-    Let $X \subseteq \bbP^N$ be an algebraic variety. The \emph{$X$-rank} of any point $p \in \bbP^N$ is the smallest number of points whose linear span contains $p$, i.e., 
+% Author: Alessandro Oneto
+    Let $X \subseteq \bbP^N$ be an algebraic variety and let $p \in \bbP^N$. The \emph{$X$-rank} of $p$ is the smallest number of points of $X$ whose linear span contains $p$. In other words,
     \[
         \rank_X(p) = \min\{s ~:~ \exists x_1,\ldots,x_s \in X, ~ p \in \langle x_1,\ldots,x_s \rangle\}.
     \]
 \end{definition}
 
-If we consider as variety $X$ one of the varieties of decomposable tensors in \ref{introduction-section-decomposable_tensors} we obtain the following notions of ranks for tensors.
+If $X$ is one of the varieties of decomposable tensors defined in \ref{introduction-section-decomposable_tensors}, we obtain the following notions of ranks for tensors.
 
 \begin{definition}[Tensor rank]
 \label{classicalAG-definition-tensor_rank}
-    The \emph{tensor rank} is the rank of $T \in V_1 \ootimes V_d$ with respect to the Segre variety $\Seg(V_1,\ldots,V_d)$ (see \ref{introduction-definition-Segre}); i.e., 
+% Author: Alessandro Oneto
+    The \emph{tensor rank} is the rank of a tensor $T \in V_1 \ootimes V_d$ with respect to the Segre variety $\Seg(V_1,\ldots,V_d)$ (see \ref{introduction-definition-Segre}); i.e., 
     \[
         \rank(T) = \min\left\{s ~:~ T = \sum_{i=1}^s v_{i,1}\ootimes v_{i,d}, ~ v_{i,j} \in V_j\right\}.
     \]
     \begin{example}
-        In the case of matrices ($d=2$), the notion of tensor rank coincides exactly with the usual notion of rank of matrices.
+        In the case of matrices, that is when $d=2$, the notion of tensor rank coincides with the usual notion of rank of matrices.
     \end{example}
 \end{definition}
 
 \begin{definition}[Symmetric tensor rank]
 \label{classicalAG-definition-symmetric_tensor_rank}
-    The \emph{symmetric tensor rank} is the rank of $T \in S^d(V)$ with respect to the Veronese variety $\nu_d(\bbP V)$ (see \ref{introduction-definition-Veronese}); i.e., 
+% Author: Alessandro Oneto
+    The \emph{symmetric tensor rank} is the rank of a tensor $T \in S^d(V)$ with respect to the Veronese variety $\nu_d(\bbP V)$ (see \ref{introduction-definition-Veronese}); i.e., 
     \[
         \rank_d(T) = \min\left\{s ~:~ T = \sum_{i=1}^s v_{i}^{\otimes d}, ~ v_{i} \in V\right\}.
     \]
-    By interpreting symmetric tensors as homogeneous polynomials, as explained in \ref{introduction-subsection-symmetric_tensors}, this corresponds to the \emph{Waring rank}, i.e., the smallest length of a decompositions as sum of powers of linear forms.
+    By interpreting symmetric tensors as homogeneous polynomials, as explained in \ref{introduction-subsection-symmetric_tensors}, the symmetric tensor rank is often called \emph{Waring rank}: this is the smallest possible length of a decompositions of a homogeneous polynomial as sum of powers of linear forms.
 \end{definition}  
 
 \begin{definition}[Partially-symmetric tensor rank]
 \label{classicalAG-definition-partially_symmetric_tensor_rank}
+% Author: Alessandro Oneto
     The \emph{partially-symmetric tensor rank} is the rank of $T \in S^{d_1,\ldots,d_m}(V_1,\ldots,V_m)$ with respect to the Segre-Veronese variety $\nu_{d_1,\ldots,d_m}(V_1,\ldots,V_m)$ (see \ref{introduction-definition-SegreVeronese}); i.e., 
     \[
         \rank_{(d_1,\ldots,d_m)}(T) = \min\left\{s ~:~ T = \sum_{i=1}^s v_{i,1}^{d_1}\ootimes v_{i,m}^{d_m}, ~ v_{i,j} \in V_j\right\}.
@@ -153,25 +151,30 @@ If we consider as variety $X$ one of the varieties of decomposable tensors in \r
 
 \begin{definition}[Skew-symmetric tensor rank]
 \label{classicalAG-definition-skewsymmetric_tensor_rank}
-    The \emph{skew-symmetric tensor rank} is the rank of $T \in \Lambda^dV$ with respect to the Grassmannian $\Gr_d(V)$ (see \ref{introduction-definition-Grassmannian}); i.e., 
+% Author: Alessandro Oneto
+    The \emph{skew-symmetric tensor rank} is the rank of $T \in \Lambda^dV$ with respect to the Grassmannian $\Gr_d(V)$ (see \ref{introduction-definition-Grassmannian}), in its Pl\"ucker embedding; i.e., 
     \[
         \rank_{\wedge}(T) = \min\left\{s ~:~ T = \sum_{i=1}^s v_{i,1}\wwedge v_{i,d}, ~ v_{i,j} \in V_j\right\}.
     \]
 \end{definition}
 
-Clearly, if a point $p \in \bbP^N$ has $X$-rank equal to $r$, then $p \in \sigma_r(X)$. The opposite is not always true. 
+Clearly, if a point $p \in \bbP^N$ has $X$-rank equal to $r$, then $p \in \sigma_r(X)$. The converse is not true in general. The followign example is classical.
 
 \begin{example}[$X$-rank is not always lower semicontinuous]
-    Let $X = \nu_3(\bbP^1) \subset \bbP^3$ be the rational normal cubic. If we identify the ambient space with the projective space of degree-$3$ binary homogeneous polynomials $\bbP(S^3\Bbbk^2)$, then $X$ is the variety of cubes of binary linear forms. Consider $xy^2 \in S^3\Bbbk^2$. Then, 
-    \[
-        xy^2 = \lim_{t \to 0} \frac{1}{3t}\left( x^3 - (x-ty)^3\right),
-    \]
-    in particular, $xy^2 \in \sigma_2(X)$ since it is the limit of points lying on secant lines. However, it is possible to check that $\rank_3(xy^2) = 3$. In particular, we conclude that the rank with respect to the Veronese variety is not always lower semicontinuous. 
+\label{classicalAG-example-Xranksemicontinuous}
+% Author: Alessandro Oneto
+  Let $X = \nu_3(\bbP^1) \subset \bbP^3$ be the rational normal cubic. If we identify the ambient space with the projective space of degree-$3$ binary homogeneous polynomials $\bbP(S^3\Bbbk^2)$, then $X$ is the variety of cubes of binary linear forms. Consider $xy^2 \in S^3\Bbbk^2$. Then, 
+  \[
+     xy^2 = \lim_{t \to 0} \frac{1}{3t}\left( x^3 - (x-ty)^3\right),
+\]
+ in particular, $xy^2 \in \sigma_2(X)$ since it is the limit of points lying on secant lines. However, it is possible to check that $\rank_3(xy^2) = 3$. This example shows that the rank with respect to the Veronese variety is not always lower semicontinuous. 
 \end{example}
-This observation motivates the following definition. 
+
+The existence of examples as the one of \ref{example:Xranksemicontinuous} motivate the following definition.
 \begin{definition}[Border rank]
+% Author: Alessandro Oneto
     \label{classicalAG-definition-border_rank}
-    Let $X \subseteq \bbP^N$ be an algebraic variety. The \emph{border $X$-rank} of any point $p \in \bbP^N$ corresponds to the first secant variety that $p$ belongs to, i.e., 
+    Let $X \subseteq \bbP^N$ be an algebraic variety and let $p \in \bbP^N$. The \emph{border $X$-rank} $p$ is the smallest $s$ such that $p$ belongs to the $s$-th secant variety of $X$, that is 
     \[
         \brank_X(p) = \min\{s ~:~ p \in \sigma_s(X)\}.
     \]
