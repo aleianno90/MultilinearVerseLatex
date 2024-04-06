@@ -37,7 +37,7 @@ called \emph{flattening} of $T$. It is easy to see that $\Flat_K(T) = (\Flat_{K^
     A tensor $T$ is \emph{concise} if the flattenings $T_k : V_k^* \to \bigotimes_{k' \neq k} V_{k'}$ are injective. 
 \end{definition}
 
-A tensor $T \in V_1 \ootimes V_d$ can be identified with the image of its flattening $T : V_1^* \to V_2 \ootimes V_d$, up to a change of coordinates on the space $V_1$. Here, we consider the action of $\GL(V_1)$ on $V_1 \ootimes V_d$: for more about group actions, see Section \ref{introduction-section-groupactions}. In other words, if $T,T'$ are two tensors such that the image of their first flattening is the same subspace of $V_2 \ootimes V_d$, then there exists an element $g \in \GL(V_1)$ such that $T = g\cdot T'$. Similar statements hold with respect to the other simple flattenings.
+A tensor $T \in V_1 \ootimes V_d$ can be identified with the image of its flattening $T : V_1^* \to V_2 \ootimes V_d$, up to a change of coordinates on the space $V_1$. Here, we consider the action of $\GL(V_1)$ on $V_1 \ootimes V_d$: for more about group actions, see \ref{introduction-section-groupactions}. In other words, if $T,T'$ are two tensors such that the image of their first flattening is the same subspace of $V_2 \ootimes V_d$, then there exists an element $g \in \GL(V_1)$ such that $T = g\cdot T'$. Similar statements hold with respect to the other simple flattenings.
 
 \subsection{Symmetric Tensors}
 \label{introduction-subsection-symmetric_tensors}
@@ -54,7 +54,7 @@ On the space of tensors $V^{\otimes d}$, we consider the action of the \emph{sym
 \subsection{Partially Symmetric Tensors}
 \label{introduction-subsection-partially_symmetric_tensors}
 
-On the space of tensors $V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$, we consider the action of the \emph{symmetric group} $\frakS_{d_1} \ttimes \frakS_{d_m}$ which acts by permuting the tensor factors accordingly to the partition: namely, if $T = T_1 \ootimes T_m \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$, with $T_i \in V_i^{\otimes d_i}$, then, for any $\sigma = (\sigma_1,\ldots,\sigma_m)\in \frakS_{d_1} \ttimes \frakS_{d_m}$, then \[\sigma \cdot T = (\sigma_1\cdot T_1) \ootimes (\sigma_m\cdot T_m) \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m},\] where each $\sigma_i$ acts permuting the factors of $T_i$ as explained in Definition \ref{introduction-definition-symmetric_tensors}.
+On the space of tensors $V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$, we consider the action of the \emph{symmetric group} $\frakS_{d_1} \ttimes \frakS_{d_m}$ which acts by permuting the tensor factors accordingly to the partition: namely, if $T = T_1 \ootimes T_m \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$, with $T_i \in V_i^{\otimes d_i}$, then, for any $\sigma = (\sigma_1,\ldots,\sigma_m)\in \frakS_{d_1} \ttimes \frakS_{d_m}$, then \[\sigma \cdot T = (\sigma_1\cdot T_1) \ootimes (\sigma_m\cdot T_m) \in V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m},\] where each $\sigma_i$ acts permuting the factors of $T_i$ as explained in \ref{introduction-definition-symmetric_tensors}.
 \begin{definition}[Partially symmetric tensors]
     \label{introduction-definition-partially_symmetric_tensors}
     
@@ -65,7 +65,7 @@ On the space of tensors $V_1^{\otimes d_1}\ootimes V_m^{\otimes d_m}$, we consid
 
 Inside the space of tensors $V^{\otimes d}$, we have all possible spaces of partially symmetric tensors $S^{\underline{d}}(V) = S^{d_1} V \ootimes S^{d_m}V$ for all partitions $\underline{d} = (d_1,\ldots,d_m)\vdash d$. In particular, $S^{\underline{d}}(V) \subset S^{\underline{d'}}(V)$ if $\underline{d}'$ is a refinement of $\underline{d}$.
 
-Fixed a basis $\{w_0,\ldots,w_m\}$ of $W$, any tensor $T \in W \otimes S^{d-1} V$ can be written as $T = \sum_{i=1}^m w_i \otimes T_i$ and then identified with the $m$-tuple $\{T_1,\ldots,T_m\}$ of elements of $S^{d-1} V$. This is also a set of generators for the image of the first flattening $\Flat_1(T)$, see Definition \ref{introduction-definition-flattenings}.
+Fixed a basis $\{w_0,\ldots,w_m\}$ of $W$, any tensor $T \in W \otimes S^{d-1} V$ can be written as $T = \sum_{i=1}^m w_i \otimes T_i$ and then identified with the $m$-tuple $\{T_1,\ldots,T_m\}$ of elements of $S^{d-1} V$. This is also a set of generators for the image of the first flattening $\Flat_1(T)$, see \ref{introduction-definition-flattenings}.
 
 For example, if $F \in S^d V$ is a symmetric tensor, with $\{v_0 \vvirg v_n\}$ basis of $V$, then $F$ is regarded as the element in $S^{(1,d-1)}(V)$ given by 
 \[

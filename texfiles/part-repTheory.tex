@@ -1,49 +1,12 @@
-We assume some background on representation theory, to the level of \cite[Ch.6]{Lan12}; for a detailed introduction, we refer to \cite{FH91}. We introduce some notation and important facts.
+Representation theory is the systematic study of symmetries of geometric and algebraic objects. Typically, in the presence of symmetries, computational tasks, proofs, and more generally the study of a mathematical object become easier and more structured because of a group action.
 
-Let $\GL(V)$ denote the general linear group of a vector space $V$ and $\SL(V)$ denote the special linear group. Let $\frakS_d$ denote the symmetric group on $d$ elements. 
+The varieties introduced in \ref{introduction-section-decomposable_tensors}, their secant varieties, and varieties contructed \emph{functorially} from them are examples of varieties invariant under group actions. Representation theory plays a crucial role in the study of their equations and more generally their algebraic properties.
 
-A representation of a group $G$ is a group homomorphism $\rho : G \to \GL(V)$ for some vector space $V$. We use the word \emph{representation} to refer to the space $V$ itself. 
+We assume some background on representation theory, to the level of \cite[Ch.6]{Lan12}; for a detailed introduction, we refer to \cite{FH91}. In \ref{reptheory-chapter-preliminaries}, we introduce some notation and important facts that will be used throughout. We refer to \ref{introduction-section-groupactions} for some notation on group actions
 
-A partition $\lambda = (\lambda_1 \vvirg \lambda_n)$ is a non-increasing sequence of positive integers. We say that $\lambda$ is a partition of $d$ if $\sum_i \lambda_i = d$, and we write $|\lambda| = d$; we say that $n$ is the length of $\lambda$ and we write $n = \ell(\lambda)$. Write $\lambda \partinto_n d$ to mean that $\lambda$ is a partition of $d$ of length at most $n$.
-
-The (polynomial) irreducible representations of the general linear group of a vector space of dimension $n$ are indexed by partitions of length at most $n$. Let $\bbS_\lambda V$ be the irreducible representation associated to the partition $n$; this is the Schur module of $\GL(V)$ associated to $\lambda$.
-
-The irreducible representations of the symmetric group $\frakS_d$ are indexed by partitions of $d$. Let $[\lambda]$ be the irreducible representation associated to the partition $\lambda$; this is the Specht module of $\frakS_d$ of type $\lambda$. 
-
-The vector space $V^{\otimes d}$ is acted on naturally by $\frakS_d$, which permutes the tensor factors, and $\GL(V)$ which acts diagonally on all tensor factors; these two actions commute and the Schur-Weyl decomposition theorem expresses the spaces as a direct sum of irreducible representations for $\frakS_d \times \GL(V)$. Such decomposition is as follows:
-\[
-V^{\otimes d} = \bigoplus_{\lambda \partinto_n d} [\lambda] \otimes \bbS_{\lambda} V.
-\]
-A fundamental result which will prove useful numerous times is Schur's Lemma. Given $V,W$ representations for an algebraic group $G$, and a linear map $\phi : V \to W$, we say that $\phi$ is $G$-equivariant if it commutes with the action of $G$, that is $\phi( g \cdot v) = g \cdot \phi(v)$ for every $v \in V$, $g \in G$. The subset of $\Hom(V,W)$ consisting of $G$-equivariant maps is a linear subspace, and it is denoted by $\Hom_G(V,W)$. 
-\begin{lemma}[Schur's Lemma]
-\label{repTheory-lemma-Schur}
-Let $G$ be a group, and let $\phi : V \to W$ be an equivariant map between two $G$-representations. Then $\ker(\phi)$ and $\image(\phi)$ are $G$-representations. In particular, if $V$ is irreducible, then $\phi = 0$ or $\phi$ is injective. If $V= W$ then $\phi = \lambda \Id_V$ for some $\lambda \in \bbC$, that is $\dim \Hom _G(V,W) = 1$.
-\end{lemma}
-
-By \ref{repTheory-lemma-Schur}, the Schur-Weyl decomposition shows $\dim \Hom_{\GL(V)} ( \bbS_\lambda V, V^{\otimes d}) = \dim [\lambda]$. More generally, a fundamental problem in representation theory and algebraic combinatorics consists in determining the decomposition of the tensor product of two (or more) irreducible representations. For representations of the general linear group we have the following:
-\begin{definition}[Littlewood-Richardson coefficients]
- \label{RepTheory-definition-LRcoefficient}
- Let $\lambda,\mu,\nu$ be three partitions. The {\it Littlewood-Richardson coefficient} associated to $(\lambda,\mu;\nu)$ is
- \[
-c^\nu_{\lambda,\mu} = \dim \Hom_{\GL(V)} (\bbS_\nu V,  \bbS_\lambda V \otimes \bbS_\mu V ).
-\]
-\end{definition}
-Via \ref{repTheory-lemma-Schur}, the Littlewood-Richardson coefficient $c^\nu_{\lambda,\mu} $ coincides with the multiplicity of $\bbS_\nu V$ as a subrepresentation of $ \bbS_\lambda V \otimes \bbS_\mu V $, that is 
-\[
- \bbS_\lambda V \otimes \bbS_\mu V  = \bigoplus_{\nu } (\bbS_{\nu} V )^{\oplus c^\nu_{\lambda,\mu} }.
-\]
-In particular, if $c^\nu_{\lambda,\mu} \neq 0$, then $|\nu| = |\lambda|+|\mu|$.
-
-Littlewood-Richardson coefficients are hard to compute \cite{Nar06} even though there are polynomial-time algorithms to decide whether they are zero or nonzero as observed in \cite{MNS12} following \cite{KT99}. However, there are several special cases for which they are easy to determine. For instance, when $\mu$ is a partition consisting of a single row of a single column, we have the following classical result.
-\begin{proposition}[Pieri's rule]
-\label{RepTheory-proposition-Pieri}
- Let $\lambda$ be a partition and let $d \geq 0$. Then 
- \[
- \bbS_{\lambda} V \otimes S^d V = \bigoplus_{\nu \in R} \bbS_{\nu} V, \qquad  \bbS_{\lambda} V \otimes \Lambda^d V = \bigoplus_{\nu \in C} \bbS_{\nu} V.
- \]
-Here $R$ (resp. $C$) is the set of partitions of $|\lambda|+d$ obtained from $\lambda$ by adding $d$ boxes, no two of them on the same column (resp. row).
-\end{proposition}
-There are variants of \ref{RepTheory-proposition-Pieri} for other groups, such as the orthogonal group or the symplectic group.
+\chapter{Preliminaries on representation theory}
+\label{reptheory-chapter-preliminaries}
+\input{repTheoryPreliminaries.tex}
 
 \chapter{Equations via representation theory}
 \label{RepTheory-chapter-equations}
