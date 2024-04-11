@@ -1,0 +1,120 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Expected Dimension}
+\label{geometrySecants-section-expectedDimension}
+% Author: Alessandro Oneto
+A first question we might ask on an algebraic variety is its dimension. 
+
+\begin{lemma}
+\label{geometrySecants-lemma-expecteddimension}
+% Author: Alessandro Oneto
+Let $X_1\vvirg X_s \subseteq \bbP^N$ be algebraic varieties. Then 
+\[
+    \dim j(X_1\vvirg X_s) \leq \min\{ N, \smallsum_{i=1}^s \dim(X_i) + s-1\}.
+\]
+In particular, for any $X \subseteq \bbP^N$ algebraic variety, then 
+\[
+    \dim \sigma_s(X) \leq \min\{ N , s\dim(X) + s - 1\}.
+\]
+\end{lemma}
+\begin{proof}
+As they can be obtained as projection, the join $j(X_1,\ldots,X_s)$ and the secant variety $\sigma_s(X)$ have dimension smaller than their abstract analogous.
+
+The dimension of the abstract join $\itJoin(X_1,\ldots,X_s)$, as defined in \ref{geometrySecants-section-secants}, easily follows from the fact that locally it can be interpreted as a $\bbP^{s-1}$-bundle over $X_1 \ttimes X_s$: therefore, 
+    \[
+        \dim \itJoin(X_1,\ldots,X_s) = \sum_{i=1}^s \dim(X_i) + s-1.
+    \]
+    In particular, $\dim \Sec_s(X) = s\dim(X) + s-1$.
+\end{proof}
+One may {\it expect} that the upper bound of \ref{geometrySecants-lemma-expecteddimension} is the actual dimension. This leads the the following definition. 
+\begin{definition}
+\label{geometrySecants-definition-expecteddimension}
+% Author: Alessandro Oneto
+    Let $X_1\vvirg X_s \subseteq \bbP^N$ be algebraic varieties. The {\it virtual dimension} of $j(X_1,\ldots,X_s)$ is the dimension of the abstract join. Its {\it expected dimension} is the minimum between the virtual dimension and the dimension of the ambient space. In other words,
+    \begin{align*}
+        \virdim j(X_1,\ldots,X_s) & = \sum_{i=1}^s \dim(X_i) + s-1; \\ 
+        \expdim j(X_1,\ldots,X_s) & = \min \{N,\virdim j(X_1,\ldots,X_s)\}.
+    \end{align*}
+    In particular, if $X \subseteq \bbP^N$ is an algebraic variety, 
+    \begin{align*}
+        \virdim \sigma_s(X) & = s\dim(X) + s-1; \\ 
+        \expdim \sigma_s(X) & = \min \{N,\virdim \sigma_r(X)\}.
+    \end{align*}
+By \ref{geometrySecants-lemma-expecteddimension} the expected dimension is always an upper bound for the dimension of a secant variety. We say that the algebraic variety $X$ is \emph{$s$-defective} if $\dim \sigma_s(X) < \expdim\sigma_s(X)$. 
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{First geometric properties}
+\label{geometrySecants-section-first_properties}
+
+We collect here the first properties on secant varieties. 
+
+The following lemmas were all classically know, see \cite{Pal09}. For a recent reference, we refer to \cite{Rus16}.
+
+First of all, we observe that linear spaces are the \emph{idempotent} varieties in terms of secant varieties. 
+
+\begin{lemma}
+    \label{geometrySecants-lemma-palatini_1}
+    Let $X\subset \bbP^N$ be an algebraic variety. If $\sigma_{r+1}(X) = \sigma_r(X)$, then $\sigma_r(X)$ is a projective linear space. 
+\end{lemma}
+
+\begin{lemma}
+    \label{geometrySecants-lemma-palatini_2}
+    Let $X\subset \bbP^N$ be an algebraic variety. If $\dim\sigma_{r+1}(X) = \dim\sigma_r(X)+1$, then $\sigma_{r+1}(X)$ is a projective linear space. 
+\end{lemma}
+
+An immediate but meaningful corollary is the fact that, if $X$ is \emph{non-degenerate}, i.e., it is not contained in any proper linear subspace, then the secant varieties of $X$ eventually fill the ambient space. 
+
+\begin{lemma}
+    \label{geometrySecants-lemma-secants_of_non_degenerate}
+    Let $X\subset \bbP^N$ be a non-degenerate algebraic variety. Then, 
+    \[
+        X \subsetneq \sigma_2(X) \subsetneq \cdots \subsetneq \sigma_r(X) = \bbP^N.
+    \]
+\end{lemma}
+
+Another important corollary is that \emph{curves are never defective.}
+\begin{lemma}
+    \label{geometrySecants-lemma-palatini_curves}
+    Let $X\subset \bbP^N$ be an algebraic curve. Then, $\dim \sigma_s(X) = \min\{N, 2s+1\}$.
+\end{lemma}
+
+
+
+
+
+% Throughout more than a century, a great deal of research was devoted in the study of dimension of secant varieties, and in the classification of defective varieties. 
+
+% A very first result in this direction is \ref{geometrySecants-lemma-palatini} which appears already in \cite{Pal09}. 
+
+% \begin{lemma}[Palatini's Lemma]
+% \label{geometrySecants-lemma-palatini}
+% Let $X \subseteq \bbP^N$ be an algebraic variety with $\codim X \geq 2$ and let $C \subseteq \bbP^N$ be a linearly non-degenerate algebraic curve. Then either $\dim \bbJ(X,C) = \dim X + 2$. In particular, all secant varieties of algebraic curves have the expected dimension.
+% \end{lemma}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Terracini's Lemma}
+\label{geometrySecants-section-Terracini}
+
+A fundamental tool in the study of dimension of secant varieties is Terracini's Lemma, dating back to \cite{Ter11}.
+\begin{lemma}[Terracini's Lemma]
+\label{geometrySecants-lemma-terracini}
+Let $X, Y \subseteq \mathbb{P}^N$ be algebraic varieties and let $\bbJ(X,Y)$ be their join. Let $z \in \bbJ(X,Y)$ be a smooth point such that $z \in \langle x , y \rangle$ for smooth points $x \in X$ and $y \in Y$. Then
+\[
+T_{z} \bbJ(X,Y) = \langle T_x X , T_y Y\rangle.
+\]
+In particular 
+\[
+\dim \sigma_r(X) = \dim \langle T_{x_1} X \vvirg T_{x_r} X\rangle
+\]
+for generic points $x_1 \vvirg x_r \in X$.
+\end{lemma}
+This result offers a \emph{dual} point of view to the problem of determining the dimension of secant varieties via interpolation of fat points. Let $X$ be an algebraic variety and let $\calL$ be a (very ample) line bundle on $X$. Let $\phi_\calL : X \to \bbP H^0(X, \calL)^\vee$ be the embedding defined by $\calL$. 
+
+\begin{proposition}
+ \label{geometrySecants-proposition-interpolationfatpoints}
+ Let $X$ be an irreducible algebraic variety, $\calL$ a very ample line bundle on $X$. Then
+ \[
+ \dim \sigma_r( \phi_\calL(X)) = h^0(\calL)-1 - h^0( \calI_{Z} \otimes \calL)
+ \]
+ where $Z$ is the union of $r$ double points supported at generic points of $X$.
+\end{proposition}
