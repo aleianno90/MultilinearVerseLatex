@@ -1,4 +1,7 @@
-In a number of settings, algebraic varieties of interest are invariant under the action of an algebraic group. In these cases, representation theory, and in particular \ref{repTheory-lemma-Schur} can be of great help in the study of equations for the variety of interest.
+\section{$G$-varieties and equations}
+ \label{repTheory-section-Gvarieties}
+% Author: Fulvio Gesmundo
+In a number of settings, algebraic varieties of interest are invariant under the action of an algebraic group. In these cases, representation theory, and in particular \ref{introduction-lemma-Schur} can be of great help in the study of equations for the variety of interest.
 
 \begin{definition}
  \label{repTheory-definition-Gvariety}
@@ -7,7 +10,7 @@ In a number of settings, algebraic varieties of interest are invariant under the
 \end{definition}
 We point out that the points of a $G$-variety $X$ are not in general fixed by the action of $G$. If this is the case, we say that $X$ is point-wise invariant by the action of $G$.
 
-The Segre-Veronese varieties $\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k)$ of \ref{introduction-definition-SegreVeronese}, their secant varieties (see \ref{classicalAG-definition-secantvariety}), tangential varieties, joins of such, and more generally varieties constructed \emph{functorially} from them are $G$-varieties, with $G = \GL(V_1) \ttimes \GL(V_d)$. Orbit-closures for the action of a group $G$, in the sense of \ref{introduction-definition-orbitsdegenerations}, are $G$-variaties as well.
+The Segre-Veronese varieties $\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k)$ of \ref{introduction-definition-SegreVeronese}, their secant varieties (see \ref{geometrySecants-chapter-BasicDefinitions}), tangential varieties, joins of such, and more generally varieties constructed \emph{functorially} from them are $G$-varieties, with $G = \GL(V_1) \ttimes \GL(V_d)$. Orbit-closures for the action of a group $G$, in the sense of \ref{introduction-definition-orbitsdegenerations}, are $G$-variaties as well.
 
 The action of a group $G$ on a space $V$ induces an action of the polynomial ring $\bbC[V]$ via pull-back: given $F \in \bbC[V]$, $g \in G$, one has 
 \[
@@ -23,14 +26,37 @@ Because of this result, every equation $F$ of a $G$-variety yields a \emph{modul
 
 In fact, it is often possible to realize the homogeneous components of the ideals of a $G$-variety as kernels (or images) of $G$-equivariant maps defined naturally.  A typical example is the one of equations arising from flattenings, discussed in \ref{RepTheory-chapter-flattenings}, which are particularly effective to find equations of secant varieties. We discuss here two other examples:
 \begin{itemize}
- \item Kostant Theorem, which determines equations for rational homogeneous varieties in purely representation theoretic terms;
+ \item Kostant's Theorem, which determines equations for rational homogeneous varieties in purely representation theoretic terms;
  \item the Foulkes map, which appears in algebraic combinatorics and whose kernel describes the ideal of the Chow variety of completely reducible forms.
 \end{itemize}
 
-\section{Kostant Theorem}
+\section{Kostant's Theorem}
 \label{RepTheory-section-kostant}
+% Author: Fulvio Gesmundo
+We say that a $G$-variety $X$ is \emph{homogeneous} for the action of $G$ if the group $G$ acts transitively on $X$. Important examples of homogeneous varieties include the varieties of rank one elements introduced in \ref{introduction-section-decomposable_tensors}. In fact, those varieties are examples of rational homogeneous varieties.
+\begin{definition}
+ \label{reptheory-definition-rationalhomogeneousvariety}
+ Let $X \subseteq \bbP V$ be a $G$-variety, with $V$ irreducible representation of a semisimple algebraic group $G$. We say that $X$ is a {\it rational homogeneous variety} if $X$ is the $G$-orbit of an element $p \in \bbP V$.
+\end{definition}
+A rational homogeneous variety $X \subseteq \bbP V$ is uniquely characterized by the highest weight $\lambda$ of the $G$-representation $V$. Indeed, if $v \in V$ is a highest weight vector, then it is easy to see $X = G \cdot [v]$. 
 
-[details to add]
+\begin{example}
+ \label{reptheory-example-RHV}
+% Author: Fulvio Gesmundo
+ The Segre-Veronese variety $X = \nu_{d_1 \vvirg d_k} (\bbP V_1 \ttimes \bbP V_k) \subseteq \bbP (S^{d_1} V_1 \ootimes S^{d_k}V_k)$ is a rational homogeneous variety under the action of $G = \GL(V_1) \ttimes \GL(V_k)$. Indeed, up to the choice of a torus in $\GL(V_i)$ any vector $v_i \in V_i$ can be regarded as a highest weight vector: then $X = G \cdot (v_1^{d_1} \ootimes v_k^{d_k})$. 
+\end{example}
+
+By \ref{repTheory-lemma-GactionOnIdeal}, the ideal of a rational homogeneous variety is a $G$-representation $I(X) \subseteq \Sym( V^*)$. Kostant's Theorem characterizes such ideal:
+\begin{theorem}
+ \label{reptheory-theorem-kostant}
+% Author: Fulvio Gesmundo
+Let $G$ be a semisimple algebraic group and let $V_\lambda$ be the irreducible $G$-representation of highest weight $\lambda$. Let $X \subseteq \bbP V_\lambda$ be the rational homogeneous variety in $\bbP V_\lambda$. Then, for every $d \geq 1$, 
+\[
+I(X)_d = V_{d\lambda}^\perp \subseteq S^d V_\lambda^*.
+\]
+Moreover, $I(X)_2$ generates the ideal $I(X)$.
+\end{theorem}
+We refer to \cite[Ch.16]{Lan12}
 
 \section{The Foulkes map and the ideal of the Chow variety}
 \label{RepTheory-section-foulkes}
@@ -90,22 +116,17 @@ Another immediate consequence of \ref{RepTheory-theorem-foulkeskerChow} is the f
 % Author: Fulvio Gesmundo
 Let $V$ be a vector space with $\dim V =n$. Let $d,e$ be nonnegative integers and let $\lambda$ be a partition of $ed$ with $\ell(\lambda) \leq n$. If $a_\lambda(e,d) > a_\lambda(d,e)$ then $I(\Ch_d(V))_e \neq 0$.
 \end{corollary}
-A special case of \ref{RepTheory-corollary-foulkesplethysmbound} is the one where $\ell(\lambda) > d$. In this case, a consequence of Pieri's rule (see \ref{RepTheory-proposition-Pieri}) is that $a_\lambda(e,d) = 0$. Therefore the entire isotypic component of type $\lambda$ in $S^e S^d V^*$ is contained in $I(\Ch_d(V))_e$. In fact, this is also a consequence of the fact that, by construction, $\Ch_d(V)$, regarded as a subvariety of $V^{\otimes d}$, is contained in the subspace variety of tensors whose multilinear ranks are $d$, hence all modules in $S^eS^d V^*$ of type $\lambda$ with $\ell(\lambda) \geq d$ vanish on $\Ch_d(V)$.
+A special case of \ref{RepTheory-corollary-foulkesplethysmbound} is the one where $\ell(\lambda) > d$. In this case, a consequence of Pieri's rule (see \ref{introduction-proposition-Pieri}) is that $a_\lambda(e,d) = 0$. Therefore the entire isotypic component of type $\lambda$ in $S^e S^d V^*$ is contained in $I(\Ch_d(V))_e$. In fact, this is also a consequence of the fact that, by construction, $\Ch_d(V)$, regarded as a subvariety of $V^{\otimes d}$, is contained in the subspace variety of tensors whose multilinear ranks are $d$, hence all modules in $S^eS^d V^*$ of type $\lambda$ with $\ell(\lambda) \geq d$ vanish on $\Ch_d(V)$.
 
 \subsection{Inequalities between plethysm coefficients}
-
+\label{RepTheory-subsection-plethysmInequalities}
+% Author: Fulvio Gesmundo
 Results on inequalities between different structure coefficients in representation theory are of interest in algebraic combinatorics. For plethysm coefficients, several results are known in the asymptotic setting. A fundamental conjecture is due to Foulkes:
 \begin{conjecture}
  \label{RepTheory-conjecture-Foulkes}
 % Author: Fulvio Gesmundo
  Let $e \geq d$ be nonnegative integers and let $\lambda$ be a partition of $ed$. Then $a_\lambda (e,d) \geq a_\lambda(d,e)$.
 \end{conjecture}
-A stronger conjecture was posed by Hadamard, predicting that $\rmFH_{d,e}$ is injective for $e \leq d$ and it is known by the Foulkes-Howe conejcture. Proving this stronger conjecture of a specific pair $(e,d)$ clearly proves \ref{RepTheory-conjecture-Foulkes} for the same pair. However, in \cite{MN05}, it was shown that Hadamard's conjecture is false: $\rmFH_{5,5}$ has nontrivial kernel. The situation is far from understood in general:
+A stronger conjecture was posed by Hadamard, predicting that $\rmFH_{d,e}$ is injective for $e \leq d$ and it is known by the Foulkes-Howe conejcture. Proving this stronger conjecture of a specific pair $(e,d)$ clearly proves \ref{RepTheory-conjecture-Foulkes} for the same pair. However, in \cite{MN05}, it was shown that Hadamard's conjecture is false: $\rmFH_{5,5}$ has nontrivial kernel. The situation is far from understood in general and a better understanding would shed light on structural properties of the ideal of Chow varieties.
 
-\begin{question}
- \label{RepTheory-question-whenfoulkesmap}
-% Author: Fulvio Gesmundo
-For what pairs $(e,d)$ is $\rmFH_{d,e}$ injective? Equivalently, what is the minimal degree of equations of the Chow variety?
-\end{question}
-In this section we review [to be inserted]
 

@@ -1,0 +1,38 @@
+Algebraic complexity theory studies the complexity of performing algebraic tasks, such as evaluating polynomials, performing multiplication in an algebraic structure or solving polynomial systems. 
+
+\section{Complexity classes of polynomials} 
+\label{complexitytheory-section-complexityclassespolynomials}
+% Author: Fulvio Gesmundo
+The definition of p-family is central. We consider the ring of polynomials $R = \bigcup_{n\in \bbN} \bbC[x_1 \vvirg x_n]$ in finitely many variables. With abuse of notation, we will regard polynomials in different set of variables as elements of $R$. Given a polynomial $f$, let $\var(f)$ be the number of variables appearing in $f$.
+\begin{definition}
+ \label{complexityTheory-definition-pfamily}
+% Author: Fulvio Gesmundo
+ Let $(f_n)_{n \in \bbN}$ be a sequence of polynomials. We say that $f_n$ is a {\it p-family} if the sequences $\deg(f_n)$ and $\var(f_n)$ are polynomially bounded functions of $n$. 
+\end{definition}
+
+\begin{example}
+ \label{complexityTheory-example-pfamily}
+% Author: Fulvio Gesmundo
+For every $r ,d$, define $\pow_{n,d} = x_1^d + \cdots + x_r^d$. Then $( \pow_{n,n})_{n \in \bbN}$ is a p-family. On the other hand $(\pow_{1,2^k} = x_1^{2^k})_{k \in \bbN}$ is not a p-family.
+\end{example}
+
+\begin{definition}
+ \label{complexitytheory-definition-complexityclasses}
+% Author: Fulvio Gesmundo
+Let $c : R \to \bbR$ be any function. The {\it polynomial complexity class} defined by $c$ is 
+\[
+\calC_{\poly, c} = \{ (p_n) _{n \in \bbN} : (p_n) \text{ is a p-family and $c( f_n)$ is bounded by a polynomial function of $n$}\}.
+\] 
+\end{definition}
+One thinks of the function $c$ in \ref{complexitytheory-definition-complexityclasses} as a complexity measure. For a sequence $(a_n)_{n \in \bbN}$, we say that $a_n$ is poly-bounded if it is bounded by a polynomial function of $n$. Classically, algebraic complexity measures are given in terms of \emph{number of operations} needed to evaluate a certain polynomial in a given model of computation; these are usually described in terms of algebraic circuits, which are directed graphs encoding scalar operations between constants or variables \cite{Val79,Tod92}. Today, some of these complexity measures, especially in the setting of homogeneous polynomials, can be described algebraically and geometrically in terms of \emph{complete sequences}. 
+
+We record some examples of complexity classes given in terms of circuit complexity.
+\begin{itemize}
+ \item $\bfVP = \{ (f_n) _{n \in \bbN} : \text{p-families such that} f_n \text{has a circuit of poly-bounded circuit size}\}$;
+ \item $\bfVBP = \{ (f_n) _{n \in \bbN} : \text{p-families such that} f_n \text{has a skew circuit of poly-bounded circuit size}\}$;
+ \item $\bfVF = \{ (f_n) _{n \in \bbN} : \text{p-families such that} $f_n$ \text{has a formula of poly-bounded circuit size}\}$.
+\end{itemize}
+It is often non-restrictive to consider p-families of homogeneous polynomials although there is some technicality in certain settings. [details to be added]
+
+[Hardness and completeness to be discussed]
+
