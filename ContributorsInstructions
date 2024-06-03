@@ -1,4 +1,4 @@
-Your contribution is very welcome and we are extremely happy that you decided to help us to build the MultilinearVerse. Contributors are invited to write a new section following the guidelines specified in this file. These guidelines are a just a draft and you are invited to propose ways to make them better.
+We are extremely happy that you decided to help us to build the MultilinearVerse. Your contribution is very welcome. Contributors are invited to write a new section following the guidelines specified in this file. These guidelines are just a draft and you are invited to propose ways to make them better.
 
 At this early stage of the development, you are invited to contact the developers before starting to work on a new section. This will avoid multiple people from unknowingly working on the same or tightly related sections.
 
@@ -31,12 +31,10 @@ The latex document is structured as
 - part
 - chapter
 - section
+- subsection
 
 Environments are numbered after sections. Environment names are appreciated.
-All parts, chapters, sections, environments are labeled.
-
-Subsections, where present, are unnumbered, and unlabeled.
-
+All parts, chapters, sections, subsections, and all environments are labeled.
 
 
 Equations and displays
@@ -58,7 +56,7 @@ second math line
 Environments
 ------------
 
-The possible environments are 'theorem', 'proposition', 'lemma', 'corollary', 'remark', 'definition', 'example'.
+The possible environments are 'theorem', 'proposition', 'lemma', 'corollary', 'remark', 'definition', 'example', 'conjecture', 'question'.
 
 Every definition defines something. The object being defined appears in italics, following the pattern {\it ...}.
 
@@ -81,6 +79,10 @@ Here
 
 Place the label on its own line after the beginning of the environment being labeled.
 Use the dash character to separate words. Capitalization is allowed. 
+
+The line immediately after the label should be commented and have the form:
+% Author: AuthorKey
+where AuthorKey is the author's unique identifier; it should be the same for all contributions of the same author. 
 
 
 References

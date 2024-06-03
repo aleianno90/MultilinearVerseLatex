@@ -29,13 +29,15 @@ When the flattening map $\Flat : V \to \Hom(E,F)$ is linear, then rank condition
 If $p \in \sigma_r(X)$, then $\rank(\Flat(p)) \leq r \cdot r_X$. In particular, if $\rank(\Flat(p)) = s$, then $p \notin \sigma_r (X)$ for $r = \lceil s / r_X \rceil$.
 \end{lemma}
 
-\ref{RepTheory-proposition-standardFlatrank1} is a particular case of \ref{RepTheory-lemma-LandsbergOttaviani411}. We discuss it here in the case of Segre-Veronese varieties. Fix spaces $V_1 \vvirg V_k$ and integers $d_1 \vvirg d_k, e_1 \vvirg e_k$ with $e_i \leq d_i$. Consider the flattening map 
+\ref{RepTheory-proposition-standardFlatrank1} is a particular case of \ref{RepTheory-lemma-LandsbergOttaviani411}. We discuss it here in the case of Segre-Veronese varieties. In this setting, the standard flattenings defined in \ref{introduction-definition-flattenings} can be written as follows. Fix spaces $V_1 \vvirg V_k$ and integers $d_1 \vvirg d_k, e_1 \vvirg e_k$ with $e_i \leq d_i$; then there is a natural flattening map
 \[
 \begin{aligned}
 \Flat_{(d_1 \vvirg d_k)}^{(e_1 \vvirg e_k)} : S^{d_1} V_1 \ootimes S^{d_k}V_k &\to \Hom ( S^{e_1} V_1^* \ootimes S^{e_k}V_k^* , S^{d_1 - e_1} V_1 \ootimes S^{d_k- e_k}V_k ) \\ 
 f_1 \ootimes f_k &\mapsto \left[ \eta_1 \ootimes \eta_k \mapsto  \eta_1(f_1) \ootimes \eta_k(f_k) \right] .
 \end{aligned}
 \]
+In the symmetric setting, the map $\Flat_e : S^e V^* \to S^{d-e} V$ is called \emph{catalecticant map} of $f$.
+
 Then the following holds:
 \begin{lemma}
 \label{RepTheory-lemma-catalecticantSegreVeronese}
@@ -47,7 +49,7 @@ Then the following holds:
  \end{enumerate}
 In particular, the $2 \times 2$ minors of the standard flattenings give set-theoretic equations for $\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k)$. Moreover, if $T \in \sigma_r(\nu_{d_1 \vvirg d_k} ( \bbP V_1 \ttimes \bbP V_k))$ then $\rk(\Flat_{(d_1 \vvirg d_k)}^{(e_1 \vvirg e_k)}(T)) \leq r$.
 \end{lemma}
-The converse of \ref{RepTheory-lemma-catalecticantSegreVeronese} in the case of higher secant varieties is false, except in particular cases. An important case is the one of the second secant variety: in this case the converse was proved in \cite[Theorem 5.1]{LM04} in the case of Segre variety; the results of \cite{BL14} and in particular the classification results for elements of the second secant variety allow one to extend it to every Segre-Veronese variety.
+The converse of \ref{RepTheory-lemma-catalecticantSegreVeronese} in the case of higher secant varieties is false, except in particular cases. An important case is the one of the second secant variety: in this case the converse was proved in \cite[Theorem 5.1]{LM04} in the case of Segre variety, whereas in the setting of Veronese varieties it is classical; the results of \cite{BL14} and in particular the classification results for elements of the second secant variety allow one to extend it to every Segre-Veronese variety.
 \begin{theorem}
  \label{RepTheory-theorem-LandsbergManivelSigma2}
 % Author: Fulvio Gesmundo
@@ -113,7 +115,7 @@ Note that if $\dim V = 2$, then $\Ch_d(V) = \bbP S^d V$. Brill \cite{Bri98} and 
 
 In order to describe Brill's map, we introduce the following notation. Let $\dim V = n+1$.
 \begin{itemize}
- \item $\pi_{(d,d)}: S^d V \otimes S^d V \to \bbS_{(d,d)} V$ is the equivariant projection onto the component $ \bbS_{(d,d)}$ of $S^d V \otimes S^d V$ which is unique by \ref{RepTheory-proposition-Pieri}.
+ \item $\pi_{(d,d)}: S^d V \otimes S^d V \to \bbS_{(d,d)} V$ is the equivariant projection onto the component $ \bbS_{(d,d)}$ of $S^d V \otimes S^d V$ which is unique by \ref{introduction-proposition-Pieri}.
  \item For every $k$, and every $e$, define
  \[
  \begin{aligned}

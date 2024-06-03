@@ -18,14 +18,14 @@
  \usepackage{enumerate} 
 
 
-%  \usepackage{amsthm}
+ \usepackage{amsthm}
  
  \theoremstyle{plain}
  \newtheorem{theorem}{Theorem}[section]
- \newtheorem{proposition}[theorem]{Proposition}
- \newtheorem{lemma}[theorem]{Lemma}
  \newtheorem{corollary}[theorem]{Corollary} 
  \newtheorem{conjecture}[theorem]{Conjecture} 
+ \newtheorem{proposition}[theorem]{Proposition}
+ \newtheorem{lemma}[theorem]{Lemma}
  
  \theoremstyle{definition} 
  \newtheorem{definition}[theorem]{Definition}
@@ -35,8 +35,7 @@
  
  \numberwithin{equation}{subsection}
 
-
- \usepackage{amsthm}
+ % \usepackage{amsthm}
 
  \input{tensorsShortcuts.tex}
 
@@ -50,6 +49,10 @@
 \label{part-geometrySecants}
 \input{part-geometrySecants.tex}
 
+\part{Tensor ranks}
+\label{part-tensorRank}
+\input{part-tensorRank.tex}
+
 \part{Representation Theory}
 \label{part-RepTheory}
 \input{part-repTheory.tex}
@@ -61,10 +64,8 @@
 \label{optimization-chapter-intro}
 
 \part{Complexity Theory}
-\label{part-complexitytheory}
-
-\chapter{Introduction}
-\label{complexitytheory-chapter-intro}
+\label{part-complexityTheory}
+\input{part-complexitytheory.tex}
 
 \part{Quantum Physics}
 \label{part-quantumph}
