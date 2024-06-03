@@ -11,7 +11,7 @@ Let $V,W$ be finite dimensional $\Bbbk$-vector spaces.
 \begin{itemize}
     \item Let $\Hom(V,W)$ denote the vector space of linear functions from $V$ to $W$.
     \item Let $V^* = \Hom(V,\Bbbk)$ denote the \emph{dual space} of $V$.
-    \item Let $V \otimes W$ denote the tensor product of $V$ and $W$: it can be equivalently identified with the space of linear maps $\Hom(V^*,W) \simeq \Hom(W^*,V)$ or with the space of bilinear map $V \times W \to \bbC$.
+    \item Let $V \otimes W$ denote the tensor product of $V$ and $W$: it can be equivalently identified with the space of linear maps $\Hom(V^*,W) \simeq \Hom(W^*,V)$ or with the space of bilinear maps $V^* \times W^* \to \bbC$.
 \end{itemize}
 Given $\Bbbk$-vector spaces $V_1 \vvirg V_d$, let $V_1 \ootimes V_d$ denote their tensor product, which is identified with the space of multilinear maps $V_1^* \ttimes V_d^* \to \bbC$. If $V_1 = \cdots = V_d = V$, then we write for short $V^{\otimes d}$. 
 
@@ -35,7 +35,7 @@ For every $K \subseteq \{1 \vvirg d\}$, let $K^c = \{1\vvirg d\} \smallsetminus 
 \[
     \Flat_K(T): \bigotimes_{k \in K} V_{k}^* \to  \bigotimes_{k' \in K^c} V_{k'}
 \]
-called \emph{flattening} of $T$. It is easy to see that $\Flat_K(T) = (\Flat_{K^c}(T))^\bft$. 
+called \emph{flattening} of $T$. It is easy to see that $\Flat_K(T) = (\Flat_{K^c}(T))^\bft$. To distinguish this flattening map from more involved flattening-type maps, we sometimes use the expression \emph{standard flattening}.
 \end{definition}
 
 \begin{definition}[Concise tensors]
