@@ -1,4 +1,6 @@
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ In this chapter we introduce the basic notions of secant varieties and ranks. 
+ 
  \section{Secant varieties}
  \label{geometrySecants-section-secants}
  % Author: Alessandro Oneto
@@ -53,6 +55,8 @@
      \Sec_s(X) = \overline{\left\{(\{x_1,\ldots,x_s\},p) ~:~ \substack{\{x_1,\ldots,x_s\} \text{ independent} \\ p \in \langle x_1,\ldots,x_s \rangle}\right\}} \subset X^s \times \bbP^N.
  \]
  Then, $\sigma_s(X) = \pi_2(\Sec_s(X))$, where $\pi_2 : X^s \times \bbP^N \rightarrow \bbP^N$ is the projection on the last factor.
+
+ As explained in \label{geometrySecants-definition-join} for join varieties, if $X$ is irreducible then all its secant varieties are irreducible.  
  \end{definition}
  
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,29 +69,29 @@
  \begin{definition}
  \label{geometrySecants-definition-Xrank}
  % Author: Alessandro Oneto
-     Let $X \subseteq \bbP^N$ be an projective variety and let $p \in \bbP^N$. The \emph{$X$-rank} of $p$ is the smallest number of points of $X$ whose linear span contains $p$. In other words,
+     Let $X \subseteq \bbP^N$ be a projective variety and let $p \in \bbP^N$. The \emph{$X$-rank} of $p$ is the smallest number of points of $X$ whose linear span contains $p$. In other words,
      \[
          \rank_X(p) = \min\{s ~:~ \exists x_1,\ldots,x_s \in X, ~ p \in \langle x_1,\ldots,x_s \rangle\}.
      \]
  \end{definition}
  
- It is natural to ask if the $X$-rank is \emph{finite} for any point of the ambient space. The first observation is that $X$ needs to be non-degenerate, i.e., not contained in any proper linear subspace, otherwise secant varieties of $X$ will not fill the ambient space, see \ref{geometrySecants-lemma-palatini_2} and \ref{geometrySecants-lemma-secants_of_non_degenerate}. 
+ It is natural to ask if the $X$-rank is \emph{finite} for any point of the ambient space. The first observation is that $X$ needs to be \emph{non-degenerate}, i.e., not contained in any proper linear subspace: this directly follows from the fact that linear spaces are invariant under taking secant varieties, see \ref{geometrySecants-lemma-palatini_2} and \ref{geometrySecants-lemma-secants_of_non_degenerate}. Under non-degeneracy assumption we can well-define the \emph{generic rank}.
  
  \begin{definition}
      \label{geometrySecants-definition-generic_rank}
-     Let $X \subset \bbP^N$ be a non-degenerate algebraic variety. The \emph{generic $X$-rank} is the rank of a generic point of $\bbP^N$. Equivalently, the generic $X$-rank corresponds to the first secant variety of $X$ filling the ambient space, i.e., 
+     Let $X \subset \bbP^N$ be a non-degenerate algebraic variety. The \emph{generic $X$-rank} is the rank of a generic point of $\bbP^N$, i.e., the rank that occur on a Zariski-dense subset of the ambient space. Equivalently, the generic $X$-rank corresponds to the first secant variety of $X$ filling the ambient space, i.e., 
      \[
          \rank_X^\circ = \min\{s ~:~ \sigma_s(X) = \bbP^N\}.
      \]
      We denote by $\rank_X^{\max}$ the \emph{maximal $X$-rank} among all points $p \in \bbP^N$. 
  \end{definition}
- Then, the fact that the maximal $X$-rank with respect to a non-degenerate variety is finite follows from the following fact.
+ Now, the fact that the maximal $X$-rank with respect to a non-degenerate variety is finite follows from the following fact. 
  
  \begin{theorem}[\cite{BT15}]
      Let $X \subset \bbP^N$ be a non-degenerate variety. Then, $\rank_X^{\max} \leq 2\rank_X^\circ$. Moreover, in characteristic zero, if $\sigma_{\rank^\circ_X-1}(X)$ is an hypersurface, then $\rank_X^{\max} \leq 2\rank_X^\circ-1$.
  \end{theorem}
  
- Clearly, if a point $p \in \bbP^N$ has $X$-rank equal to $r$, then $p \in \sigma_r(X)$. The converse is not true in general. The following example is classical.
+ Clearly, if a point $p \in \bbP^N$ has $X$-rank equal to $r$, then $p \in \sigma_r(X)$. However, the converse is not true in general. The following example is classical. Actually, for most of varieties of tensors defined in \ref{introduction-section-decomposable_tensors} the notion of rank is not lower semicontinuous.
  
  \begin{example}[$X$-rank is not always lower semicontinuous]
  \label{geometrySecants-example-Xrank_semicontinuous}
@@ -96,14 +100,15 @@
    \[
       xy^2 = \lim_{\epsilon \to 0} \frac{1}{3\epsilon}\left( x^3 - (x-\epsilon y)^3\right),
  \]
-  in particular, $xy^2 \in \sigma_2(X)$ since it is the limit of points lying on secant lines. However, it is possible to check that $\rank_3(xy^2) = 3$. This example shows that the rank with respect to the Veronese variety is not always lower semicontinuous. 
+  in particular, $xy^2 \in \sigma_2(X)$ since it is the limit of points lying on secant lines. However, it is an easy exercise to check that $\rank_3(xy^2) = 3$. 
  \end{example}
  
- The existence of examples as the one of \ref{geometrySecants-example-Xrank_semicontinuous} motivate the following definition.
+ The existence of examples as the one of \ref{geometrySecants-example-Xrank_semicontinuous} motivate the following notion of rank.
+
  \begin{definition}[Border rank]
  % Author: Alessandro Oneto
      \label{geometrySecants-definition-border_rank}
-     Let $X \subseteq \bbP^N$ be an projective variety and let $p \in \bbP^N$. The \emph{border $X$-rank} $p$ is the smallest $s$ such that $p$ belongs to the $s$-th secant variety of $X$, that is 
+     Let $X \subseteq \bbP^N$ be a projective variety and let $p \in \bbP^N$. The \emph{border $X$-rank} of $p$ is the smallest $s$ such that $p$ belongs to the $s$-th secant variety of $X$, that is 
      \[
          \brank_X(p) = \min\{s ~:~ p \in \sigma_s(X)\}.
      \]
@@ -123,7 +128,7 @@
          \rank(T) = \min\left\{s ~:~ T = \sum_{i=1}^s v_{i,1}\ootimes v_{i,d}, ~ v_{i,j} \in V_j\right\}.
      \]
      \begin{example}
-         In the case of matrices, that is when $d=2$, the notion of tensor rank coincides with the usual notion of rank of matrices.
+         In the case of matrices, that is when $d=2$, the notion of tensor rank coincides with the usual notion of rank of matrices. However, the case of matrices is very much different than the case of higher-order tensors ($d\geq 3$): for example, the tensor rank is not lower-semicontinuous, as seen in \ref{geometrySecants-example-Xrank_semicontinuous}, while the semicontinuity of the matrix rank is well-known. 
      \end{example}
  \end{definition}
  
@@ -140,16 +145,16 @@
  \begin{definition}[Partially-symmetric tensor rank]
  \label{geometrySecants-definition-partially_symmetric_tensor_rank}
  % Author: Alessandro Oneto
-     The \emph{partially-symmetric tensor rank} is the rank of $T \in S^{d_1,\ldots,d_m}(V_1,\ldots,V_m)$ with respect to the Segre-Veronese variety $\nu_{d_1,\ldots,d_m}(V_1,\ldots,V_m)$ (see \ref{introduction-definition-SegreVeronese}); i.e., 
+     Let $\underline{d} = (d_1,\ldots,d_m)$. The \emph{partially-symmetric tensor rank} is the rank of $T \in S^{\underline{d}}(V_1,\ldots,V_m)$ with respect to the Segre-Veronese variety $\nu_{\underline{d}}(V_1,\ldots,V_m)$ (see \ref{introduction-definition-SegreVeronese}); i.e., 
      \[
-         \rank_{(d_1,\ldots,d_m)}(T) = \min\left\{s ~:~ T = \sum_{i=1}^s v_{i,1}^{d_1}\ootimes v_{i,m}^{d_m}, ~ v_{i,j} \in V_j\right\}.
+         \rank_{\underline{d}}(T) = \min\left\{s ~:~ T = \sum_{i=1}^s v_{i,1}^{d_1}\ootimes v_{i,m}^{d_m}, ~ v_{i,j} \in V_j\right\}.
      \]
  \end{definition}
  
  \begin{definition}[Skew-symmetric tensor rank]
  \label{geometrySecants-definition-skewsymmetric_tensor_rank}
  % Author: Alessandro Oneto
-     The \emph{skew-symmetric tensor rank} is the rank of $T \in \Lambda^dV$ with respect to the Grassmannian $\Gr_d(V)$ (see \ref{introduction-definition-Grassmannian}), in its Pl\"ucker embedding; i.e., 
+     The \emph{skew-symmetric tensor rank} is the rank of $T \in \Lambda^dV$ with respect to the Grassmannian $\Gr_d(V)$ (see \ref{introduction-definition-Grassmannian}) in its Pl\"ucker embedding; i.e., 
      \[
          \rank_{\wedge}(T) = \min\left\{s ~:~ T = \sum_{i=1}^s v_{i,1}\wwedge v_{i,d}, ~ v_{i,j} \in V_j\right\}.
      \]

@@ -1,8 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A first question we might ask when studying algebraic varieties is its dimension. In the case of secant varieties, we can easily define a notion of expected dimension by a simple parameter count. We will see that this is not always the actual dimension: examples of varieties with secant varieties of dimension lower than the expected are classically known since the XIX century. We will explain how the problem of classifying such special varieties has been approached. 
+
 \section{Expected Dimension}
 \label{geometrySecants-section-expectedDimension}
 % Author: Alessandro Oneto
-A first question we might ask on an algebraic variety is its dimension. 
 
 \begin{lemma}
 \label{geometrySecants-lemma-expecteddimension}
@@ -11,13 +13,12 @@ Let $X_1\vvirg X_s \subseteq \bbP^N$ be algebraic varieties. Then
 \[
     \dim j(X_1\vvirg X_s) \leq \min\{ N, \smallsum_{i=1}^s \dim(X_i) + s-1\}.
 \]
-In particular, for any $X \subseteq \bbP^N$ algebraic variety, then 
+In particular, for any algebraic variety $X \subseteq \bbP^N$,  
 \[
     \dim \sigma_s(X) \leq \min\{ N , s\dim(X) + s - 1\}.
 \]
-\end{lemma}
 \begin{proof}
-As they can be obtained as projection, the join $j(X_1,\ldots,X_s)$ and the secant variety $\sigma_s(X)$ have dimension smaller than their abstract analogous.
+As they can be obtained by projection, the join $j(X_1,\ldots,X_s)$ and the secant variety $\sigma_s(X)$ have dimension smaller than their abstract analogous.
 
 The dimension of the abstract join $\itJoin(X_1,\ldots,X_s)$, as defined in \ref{geometrySecants-section-secants}, easily follows from the fact that locally it can be interpreted as a $\bbP^{s-1}$-bundle over $X_1 \ttimes X_s$: therefore, 
     \[
@@ -25,6 +26,8 @@ The dimension of the abstract join $\itJoin(X_1,\ldots,X_s)$, as defined in \ref
     \]
     In particular, $\dim \Sec_s(X) = s\dim(X) + s-1$.
 \end{proof}
+\end{lemma}
+
 One may {\it expect} that the upper bound of \ref{geometrySecants-lemma-expecteddimension} is the actual dimension. This leads the the following definition. 
 \begin{definition}
 \label{geometrySecants-definition-expecteddimension}
@@ -34,33 +37,57 @@ One may {\it expect} that the upper bound of \ref{geometrySecants-lemma-expected
         \virdim j(X_1,\ldots,X_s) & = \sum_{i=1}^s \dim(X_i) + s-1; \\ 
         \expdim j(X_1,\ldots,X_s) & = \min \{N,\virdim j(X_1,\ldots,X_s)\}.
     \end{align*}
-    In particular, if $X \subseteq \bbP^N$ is an algebraic variety, 
+    In particular, if $X \subseteq \bbP^N$ is an algebraic variety, then
     \begin{align*}
         \virdim \sigma_s(X) & = s\dim(X) + s-1; \\ 
         \expdim \sigma_s(X) & = \min \{N,\virdim \sigma_r(X)\}.
     \end{align*}
-By \ref{geometrySecants-lemma-expecteddimension} the expected dimension is always an upper bound for the dimension of a secant variety. We say that the algebraic variety $X$ is \emph{$s$-defective} if $\dim \sigma_s(X) < \expdim\sigma_s(X)$. 
+By \ref{geometrySecants-lemma-expecteddimension} the expected dimension is always an upper bound for the dimension of a secant variety. We say that $X$ is \emph{$s$-defective} if $\dim \sigma_s(X) < \expdim\sigma_s(X)$. We call the difference $\delta_s(X) = \expdim\sigma_s(X) - \dim \sigma_s(X)$ the \emph{$s$-defect} of $X$. 
+
+%% We will also give an algebraic meaning for the difference $\vdim\sigma_s(X) - \dim \sigma_s(X)$ when we will look at dimensions of secant varieties in terms of interpolation problems. 
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{First geometric properties}
+\section{First properties and non-defectiveness of curves}
 \label{geometrySecants-section-first_properties}
 
-We collect here the first properties on secant varieties. 
-
-The following lemmas were all classically know, see \cite{Pal09}. For a recent reference, we refer to \cite{Rus16}.
+We collect here the first properties on secant varieties and their dimensions. The following lemmas were all classically know, see \cite{Pal09}. For a recent reference, we refer to \cite{Rus16}.
 
 First of all, we observe that linear spaces are the \emph{idempotent} varieties in terms of secant varieties. 
 
 \begin{lemma}
     \label{geometrySecants-lemma-palatini_1}
-    Let $X\subset \bbP^N$ be an algebraic variety. If $\sigma_{r+1}(X) = \sigma_r(X)$, then $\sigma_r(X)$ is a projective linear space. 
+    Let $X\subset \bbP^N$ be an irreducible projective algebraic variety. If $\sigma_{r+1}(X) = \sigma_r(X)$, then $\sigma_r(X)$ is a projective linear space. 
+\begin{proof}
+    We prove this in three steps.
+
+    {\bf Claim 1.} The statement is true for $r = 1$. I.e., if $\sigma_2(X) = X$ then $X$ is a projective linear space.
+    \begin{proof}[Proof of Claim 1.]
+        Let $P \in \langle X \rangle$. Then, $P = \lambda_1P_1 + \ldots + \lambda_rP_r$ for some $P_i \in X$ and $\lambda_i \in \Bbbk$. By assumption, $\lambda_1P_1 + \lambda_2P_2 \in X$ and then, $(\lambda_1P_1 + \lambda_2P_2) + \lambda_3P_3 \in X$. Inductively, we deduce that $P \in X$. Hence, by generality of $P$, $\langle X \rangle \subset X$ and equality follows. 
+    \end{proof}
+
+    {\bf Claim 2.} If $\sigma_{r+1}(X) = \sigma_r(X)$ then $\sigma_{r+h}(X) = \sigma_r(X)$ for all $h \geq 1$. 
+    \begin{proof}[Proof of Claim 2.]
+        Let $P \in \sigma_{r+2}(X)$, then $P = \lambda_1P_1 + \ldots + \lambda_{r+1}P_{r+1} + \lambda_{r+2}P_{r+2}$ where $P_i \in X$. By assumption, $\lambda_1P_1 + \ldots + \lambda_{r+1}P_{r+1} = \mu_1Q_1 + \ldots + \mu_rQ_r$, where $Q_i \in X$. In particular, $P \in \sigma_{r+1}(X)$. Therefore, $\sigma_{r+2}(X) \subset \sigma_{r+1}(X)$ and equality follows. 
+    \end{proof}
+
+    We are now ready to prove the general statement. By Claim 2, we have that $\sigma_{2r}(X) = \sigma_r(X)$. Since $\sigma_2(\sigma_r(X)) \subset \sigma_r(X)$, by irreducibility, we deduce that $\sigma_2(\sigma_r(X)) = \sigma_r(X)$. By Claim 1, $\sigma_r(X)$ is a projective linear space. 
+\end{proof}
 \end{lemma}
+
 
 \begin{lemma}
     \label{geometrySecants-lemma-palatini_2}
-    Let $X\subset \bbP^N$ be an algebraic variety. If $\dim\sigma_{r+1}(X) = \dim\sigma_r(X)+1$, then $\sigma_{r+1}(X)$ is a projective linear space. 
+    Let $X\subset \bbP^N$ be a irreducible projective variety. If $\dim\sigma_{r+1}(X) = \dim\sigma_r(X)+1$, then $\sigma_{r+1}(X)$ is a projective linear space. 
+\begin{proof}
+    Let $p \in X$ be a general point. Hence,
+    \[
+        \sigma_s(X) \subsetneq j(p, \sigma_s(X)) \subset \sigma_{s+1}(X).  
+    \]
+    By assumption and irreducibility of $\sigma_{s+1}(X)$, $j(p, \sigma_s(X)) = \sigma_{s+1}(X)$. Let $q \in \sigma_{s+1}(X)$ be a generic smooth point: by the latter equality, $q \in \langle p,z \rangle$ for some $z \in \sigma_s(X)$. Being a cone, we also get that $p \in T_q\sigma_{s+1}(X)$. By generality of $p \in X$, we conclude that $\langle X \rangle \subset \sigma_{s+1}(X)$ and then, since the opposite inclusion is trivial, $\sigma_{s+1}(X) = \langle X \rangle$ and $\sigma_s(X)$ is a hypersurface. 
+\end{proof}
 \end{lemma}
+
 
 An immediate but meaningful corollary is the fact that, if $X$ is \emph{non-degenerate}, i.e., it is not contained in any proper linear subspace, then the secant varieties of $X$ eventually fill the ambient space. 
 
@@ -71,50 +98,54 @@ An immediate but meaningful corollary is the fact that, if $X$ is \emph{non-dege
         X \subsetneq \sigma_2(X) \subsetneq \cdots \subsetneq \sigma_r(X) = \bbP^N.
     \]
 \end{lemma}
+As already mentioned, this observation allows us to conclude well-define the generic rank with respect to non-degenerate algebraic varieties, see \ref{geometrySecants-definition-generic_rank}.
 
 Another important corollary is that \emph{curves are never defective.}
 \begin{lemma}
-    \label{geometrySecants-lemma-palatini_curves}
-    Let $X\subset \bbP^N$ be an algebraic curve. Then, $\dim \sigma_s(X) = \min\{N, 2s+1\}$.
+    \label{geometrySecants-lemma-curves_nondefectiveness}
+    Let $X\subset \bbP^N$ be a projective curve. Then, $\dim \sigma_s(X) = \min\{N, 2s-1\}$.
+\begin{proof}
+    By \ref{geometrySecants-lemma-expecteddimension},
+    \[
+        \dim \sigma_s(X) \leq s\dim(X) + s - 1 = 2s - 1.
+    \]
+    By \ref{geometrySecants-lemma-secants_of_non_degenerate} and the non-degeneracy assumption,
+    \[
+        \dim \sigma_s(X) \geq \dim \sigma_{s-1}(X) + 2
+    \]
+    unless $\sigma_{s-1}(X)$ is a hypersurface. Therefore, as long as $\sigma_{s-1}(X)$ is not an hypersurface, we proceed by induction (the base step $\sigma_1(X) = X$ being trivial) to obtain
+    \[
+        2s-1 \geq \dim \sigma_s(X) \geq \dim \sigma_{s-1}(X) + 2 = 2(s-1) - 1 + 2 = 2s - 1
+    \]
+    which implies $\dim \sigma_s(X) = 2s-1$. If $\sigma_{s-1}(X)$ is an hypersurface, then we clearly have that $\dim \sigma_s(X) = N = \min\{N,2s-1\}$ where the latter equality follows from being $2(s-1)-1 = 2s-3 = N - 1$. 
+\end{proof}
 \end{lemma}
-
-
-
-
-
-% Throughout more than a century, a great deal of research was devoted in the study of dimension of secant varieties, and in the classification of defective varieties. 
-
-% A very first result in this direction is \ref{geometrySecants-lemma-palatini} which appears already in \cite{Pal09}. 
-
-% \begin{lemma}[Palatini's Lemma]
-% \label{geometrySecants-lemma-palatini}
-% Let $X \subseteq \bbP^N$ be an algebraic variety with $\codim X \geq 2$ and let $C \subseteq \bbP^N$ be a linearly non-degenerate algebraic curve. Then either $\dim \bbJ(X,C) = \dim X + 2$. In particular, all secant varieties of algebraic curves have the expected dimension.
-% \end{lemma}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Terracini's Lemma}
 \label{geometrySecants-section-Terracini}
 
-A fundamental tool in the study of dimension of secant varieties is Terracini's Lemma, dating back to \cite{Ter11}.
+A general approach to study dimensions of secant varieties is through their tangent spaces at general points. For this reason, a fundamental tool in the study of dimension of secant varieties is \emph{Terracini's Lemma}, dating back to \cite{Ter11}.
+
 \begin{lemma}[Terracini's Lemma]
 \label{geometrySecants-lemma-terracini}
-Let $X, Y \subseteq \mathbb{P}^N$ be algebraic varieties and let $\bbJ(X,Y)$ be their join. Let $z \in \bbJ(X,Y)$ be a smooth point such that $z \in \langle x , y \rangle$ for smooth points $x \in X$ and $y \in Y$. Then
-\[
-T_{z} \bbJ(X,Y) = \langle T_x X , T_y Y\rangle.
-\]
-In particular 
-\[
-\dim \sigma_r(X) = \dim \langle T_{x_1} X \vvirg T_{x_r} X\rangle
-\]
-for generic points $x_1 \vvirg x_r \in X$.
+    Let $X, Y \subseteq \mathbb{P}^N$ be irreducible projective varieties. Let $x \in X, y \in Y$ be generic points and let $z \in \langle x,y \rangle$ be a generic point. In particular, we may assume that $z$ is a smooth point of $j(X,Y)$. Then
+    \[
+        T_{z} j(X,Y) = \langle T_x X , T_y Y\rangle.
+    \]
+    In particular, if $x_1,\ldots,x_r \in X$ are generic points and $ \in \langle x_1,\ldots,x_r \rangle$, then  
+    \[
+        T_z \sigma_r(X) = \langle T_{x_1} X \vvirg T_{x_r} X\rangle.
+    \]
 \end{lemma}
-This result offers a \emph{dual} point of view to the problem of determining the dimension of secant varieties via interpolation of fat points. Let $X$ be an algebraic variety and let $\calL$ be a (very ample) line bundle on $X$. Let $\phi_\calL : X \to \bbP H^0(X, \calL)^\vee$ be the embedding defined by $\calL$. 
 
-\begin{proposition}
- \label{geometrySecants-proposition-interpolationfatpoints}
- Let $X$ be an irreducible algebraic variety, $\calL$ a very ample line bundle on $X$. Then
- \[
- \dim \sigma_r( \phi_\calL(X)) = h^0(\calL)-1 - h^0( \calI_{Z} \otimes \calL)
- \]
- where $Z$ is the union of $r$ double points supported at generic points of $X$.
-\end{proposition}
+% This result offers a \emph{dual} point of view to the problem of determining the dimension of secant varieties via interpolation of fat points. Let $X$ be an algebraic variety and let $\calL$ be a (very ample) line bundle on $X$. Let $\phi_\calL : X \to \bbP H^0(X, \calL)^\vee$ be the embedding defined by $\calL$. 
+
+% \begin{proposition}
+%  \label{geometrySecants-proposition-interpolationfatpoints}
+%  Let $X$ be an irreducible algebraic variety, $\calL$ a very ample line bundle on $X$. Then
+%  \[
+%  \dim \sigma_r( \phi_\calL(X)) = h^0(\calL)-1 - h^0( \calI_{Z} \otimes \calL)
+%  \]
+%  where $Z$ is the union of $r$ double points supported at generic points of $X$.
+% \end{proposition}
