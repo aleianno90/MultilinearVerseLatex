@@ -127,25 +127,44 @@ Another important corollary is that \emph{curves are never defective.}
 
 A general approach to study dimensions of secant varieties is through their tangent spaces at general points. For this reason, a fundamental tool in the study of dimension of secant varieties is \emph{Terracini's Lemma}, dating back to \cite{Ter11}.
 
+The following statement is a modern approach which can be found in \cite{FR81}, \cite{Adl87} or in the books \cite[Theorem 1.10]{Zak93} and \cite[Theorem 1.4.1]{Rus16}.
+
 \begin{lemma}[Terracini's Lemma]
 \label{geometrySecants-lemma-terracini}
-    Let $X, Y \subseteq \mathbb{P}^N$ be irreducible projective varieties. Let $x \in X, y \in Y$ be generic points and let $z \in \langle x,y \rangle$ be a generic point. In particular, we may assume that $z$ is a smooth point of $j(X,Y)$. Then
+    Let $X, Y \subseteq \mathbb{P}^N$ be irreducible projective varieties over a field $\Bbbk$. Let $x \in X, y \in Y$ be generic points and let $z \in \langle x,y \rangle$ be a generic point. In particular, we may assume that $z$ is a smooth point of $j(X,Y)$. Then
     \[
-        T_{z} j(X,Y) = \langle T_x X , T_y Y\rangle.
+        T_{z} j(X,Y) \supset \langle T_x X , T_y Y\rangle.
     \]
-    In particular, if $x_1,\ldots,x_r \in X$ are generic points and $ \in \langle x_1,\ldots,x_r \rangle$, then  
-    \[
-        T_z \sigma_r(X) = \langle T_{x_1} X \vvirg T_{x_r} X\rangle.
-    \]
+    If ${\rm char}(\Bbbk) = 0$, then equality holds. 
 \end{lemma}
+The following idea of the proof corresponds to the original Terracini's approach, which can also be found for example in \cite{BO08} and \cite{BCCGO18}. 
+\begin{proof}[Original idea of the proof over the complex numbers]
+    Consider the local parametrization of $j(X,Y)$ at $z$ given by the corresponding linear combination of the parametrization of $X$ and $Y$ at $x$ and $y$, respectively. The statement follows by observing that the matrix obtain by partial derivatives and whose rows span the tangent space of $j(X,Y)$ at $z$ is obtained by elementary operation on the concatenation of the corresponding matrices for $X$ and $Y$. 
+\end{proof}
 
-% This result offers a \emph{dual} point of view to the problem of determining the dimension of secant varieties via interpolation of fat points. Let $X$ be an algebraic variety and let $\calL$ be a (very ample) line bundle on $X$. Let $\phi_\calL : X \to \bbP H^0(X, \calL)^\vee$ be the embedding defined by $\calL$. 
+\begin{remark}
+    Terracini's Lemma tells us that the dimension of $j(X,Y)$ is as in \ref{geometrySecants-definition-expecteddimension} if and only if two general tangent spaces $T_x(X)$ and $T_y(Y)$ have intersection of minimal dimension. Analogously, if we consider joins of more varieties or secant varieties. 
+\end{remark}
 
-% \begin{proposition}
-%  \label{geometrySecants-proposition-interpolationfatpoints}
-%  Let $X$ be an irreducible algebraic variety, $\calL$ a very ample line bundle on $X$. Then
-%  \[
-%  \dim \sigma_r( \phi_\calL(X)) = h^0(\calL)-1 - h^0( \calI_{Z} \otimes \calL)
-%  \]
-%  where $Z$ is the union of $r$ double points supported at generic points of $X$.
-% \end{proposition}
+As immediate application of Terracini's Lemma, we can explain why secant varieties of quadratic Veronese varieties are always defective. In order to do that, we first need to understand what is the tangent space to Veronese varieties. 
+
+\begin{example}[Quadratic Veronese varieties are always defective]
+\label{geometrySecants-lemma-quadratic_Veronese_defective}
+    Let $V$ be a complex linear space. Let $\nu_d(\bbP V) \subset \bbP(S^d V)$ be the degree-$d$ Veronese embedding of $\bbP^n$ as in \ref{introduction-definition-Veronese}. Let $v \in V$. Then
+    \[
+        T_{[v]}\nu_d(\bbP V) = \{[v^{d-1}v'] ~:~ v' \in V\}. 
+    \]
+    Indeed, it is enough to observe that, for any $v' \in V$,
+    \[
+        \left.\frac{d}{dt}\right|_{t = 0}(v+tv')^{d} = dv^{d-1}v'.
+    \]
+    We consider now the quadratic case $d = 2$ and we employ Terracini's Lemma. Let $[v_1],\ldots,[v_s] \in \nu_2(\bbP V)$ be general points. We immediately note that 
+    \[
+        T_{[v_i]}\nu_2(\bbP V) \cap T_{[v_j]}\nu_2(\bbP V) = [v_iv_j]
+    \]
+    while, by dimension, we would expect to have empty intersection (if $\dim V \geq 3$). Therefore, we immediately deduce that quadratic Veronese varieties are defective, in particular:
+    \[
+        \dim \sigma_r(\nu_2(\bbP V)) \leq \min \{\dim S^dV - 1, r\dim \bbP V + r - 1 - {r \choose 2}\}.  
+    \]
+    %% We see in \ref{} that the latter is actually an equality.
+\end{example}
