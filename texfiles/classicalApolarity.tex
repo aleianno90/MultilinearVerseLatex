@@ -1,0 +1,108 @@
+Classical apolarity theory is one of the most used methods in the study of symmetric tensor rank. Its origins lie in seminal work by Cayley \cite{Cay45} and Sylvester \cite{Syl52,Syl53} and in the Macaulay's work on inverse systems. In this chapter, we briefly review the theory of inverse systems, we introduce the apolar ideal of a homogeneous polynomial and we state the classical apolarity lemma for Waring decompositions. Moreover, we discuss Sylvester's catalecticant method and we illustrate some of its consequences.
+
+Given a vector space $V$, the symmetric algebra $\Sym V^*$ can be identified with the $\bbC[V]$ of polynomial functions on $V$, or equivalently the homogeneous coordinate ring of $\bbP V$; similarly, the symmetric algebra $\Sym V$ can be identified with the polynomial ring $\bbC[V^*]$. On the other hand, there is a natural action of $\Sym V^*$ on $\Sym V$ induced by the natural pairing of $V^*$ and $V$: more precisely, $\Sym V^*$ can be thought of as the ring of differential operators with constant coefficients on $\bbC[V]$. Apolarity theory is the study of the interplay of these ``two natures'' of the symmetric algebra $\Sym V^*$: as the coordinate ring on $\bbP V$ and as a ring of differential operators acting on $\Sym V^*$.
+
+\section{Inverse systems}
+\label{apolarity-section-inverseSystems}
+% Author: Fulvio Gesmundo
+The theory of Macaulay's inverse systems studies the algebraic properties of the actions of $\Sym V^*$ on $\Sym V$ by differentiation. We provide a brief overview before introducing classical apolarity, following \cite{Ger96}. Consider $\Sym V$ as the ring of polynomials in a fixed set of variables $x_0 \vvirg x_n$ and $\Sym V^*$ as the ring of polynomials in the dual variables $\partial_0 \vvirg \partial_n$. The ring $\Sym V$ is naturally a $\Sym V^*$-module with the action given by differentiation.
+
+\begin{definition}
+\label{tensorRank-definition-apolarityAction}
+% Author: Fulvio Gesmundo
+Let $V$ be a vector space and let $x_0 \vvirg x_n$ be a basis of $V$. Let $\xi_0 \vvirg \xi_n$ be the dual basis of $V^*$. The {\it apolarity action} of $\Sym V^*$ on $\Sym V$ is defined by 
+\[
+\xi_i \cdot f = \frac{\partial}{\partial x_i}f
+\]
+and extended to be an algebra action of $\Sym V^*$. 
+\end{definition}
+It is easy to prove that the apolarity action does not depend on the fixed choice of basis. In fact, it is equivariant with respect to the action of $\GL V$ on $V$ and $V^*$. The inverse system of an ideal of $\Sym V^*$ is the annihilator with respect to the apolarity action.
+\begin{definition}[Inverse system]
+ \label{apolarity-definition-inverseSystem}
+% Author: Fulvio Gesmundo
+ Let $I \subseteq \Sym V^*$ be an ideal. The {\it Macaulay inverse system} of $I$, denoted $I^{-1}$ is the $\Sym V^*$-submodule of $\Sym V$ defined by 
+ \[
+ I^{-1} = \{ g \in \Sym V : \Delta (g) = 0 \text{ for all $\Delta \in I$}\}.
+ \]
+\end{definition}
+We point out that $ I^{-1}$ is a $\Sym V^*$-module, but not in general an ideal of $\Sym V$, that is it is not necessarily a $\Sym V$-module under multiplication. For instance, if $n = 1$, and $I = (\partial_0)$ then $I^{-1} = \bigoplus_{k \geq 0} \langle x_1^k \rangle$, which is not closed under multiplication, and in fact it is not even finitely generated as a $\Sym V^*$-module. We record some basic properties of the inverse system.
+\begin{proposition}
+ \label{apolarity-proposition-inverseSystemBasics}
+% Author: Fulvio Gesmundo
+Let $I,J \subseteq \Sym V^*$ be two ideals and let $I^{-1}, J^{-1}$ be their inverse systems. Then 
+\begin{itemize}
+ \item $I^{-1}$ is a graded $\Sym V^*$-module if and only if $I$ is homogeneous;
+ \item if $I$ is homogeneous, then for every $k$, $I^{-1}_k = I_k^\perp$, where $I_k$ denotes the homogeneous component of degree $k$ of $I$;
+ \item $I^{-1}$ is finitely generated as an $\Sym V^*$-module if and only if $I$ is Artinian;
+ \item $(I \cap J)^{-1} = I^{-1} + J^{-1}$.
+\end{itemize}
+\end{proposition}
+
+The inverse system gives a correspondence between $\Sym V^*$-submodules of $\Sym V$ and $0$-dimensional ideals of $\Sym V^*$. More precisely, we have the following result, for which we refere to \cite[Theorem 21.6]{Eis95}.
+\begin{theorem}[Macaulay Correspondence]
+ \label{apolarity-theorem-MacaulayCorrespondence}
+ % Author: Fulvio Gesmundo
+There is an inclusion reversing correspondence between finitely generated $\Sym V^*$-submodules of $\Sym V$ and Artinian ideals of $\Sym V^*$ containing $S^1 V^*$. An ideal $I \subseteq \Sym V^*$ corresponds to its inverse system $I^{-1}$. A finitely generated module $M \subseteq \Sym V$ corresponds to its socle $\soc(M) = (0: M) = \{ \Delta \in \Sym V^*: \Delta \cdot M = 0\}$.
+\end{theorem}
+
+\section{The classical apolarity lemma}
+\label{tensorRank-section-apolarityLemma}
+% Author: Fulvio Gesmundo
+
+Of particular interest are ideals arising as annihilator of single elements $f \in \Sym V$, that is with the property that the inverse system is generated by a single element. 
+\begin{definition}[Apolar ideal]
+\label{tensorRank-definition-apolarIdeal}
+% Author: Fulvio Gesmundo
+Let $V$ be a vector space and let $f \in \Sym V$. The {\it apolar ideal of} $f$ is
+\[
+\Ann(f) = \{ D \in \Sym V^* : D (f) = 0 \}.
+\]
+\end{definition}
+We say that an Artinian algebra is Gorenstein if it is of the form $\Sym V^* / \Ann(f)$ for some element $f \in \Sym V$.  We record the following immediate properties:
+\begin{lemma}
+\label{tensorRank-definition-apolarIdealBasics}
+% Author: Fulvio Gesmundo
+Let $V$ be a vector space and let $f \in Sym V$. Then
+\begin{itemize}
+\item the inverse system $(\Ann(f))^{-1}$ is the $\Sym V^*$-submodule of $\Sym V$ generated by $f$, via differentiation;
+ \item if $\deg f = d$, then $S^e V^* \subseteq \Ann(f)$ for $e > d$;
+\item $f$ is homogeneous if and only if $\Ann(f)$ is a homogeneous ideal;
+\item if $f$ is homogeneous, for every $e \leq d$, we have $\Ann(f)_e = (\Flat_e(f) : S^e V^* \to S^{d-e} V)$, where $\Flat_e(f)$ is the $e$-th catalecticant map of $f$, in the sense of \ref{RepTheory-chapter-flattenings}.
+\end{itemize}
+\end{lemma}
+It is natural to ask to what extent it is possible to recover the polynomial $f$ from its apolar ideal $\Ann(f)$. This is completely understood and we record here the result following \cite[Lemma 3.33A]{IE78} and \cite[Prop. 2.14]{Jel17}.
+
+\begin{proposition}
+\label{apolarity-proposition-sameApolar}
+% Author: Fulvio Gesmundo
+ Let $f,g \in \Sym V$ be two polynomials. The following are equivalent:
+ \begin{itemize}
+  \item $\Ann(f) = \Ann(g)$;
+  \item there exists $\Theta \in \Sym(V^*)$ with nonzero constant term such that $\Theta \cdot f = g$. 
+ \end{itemize}
+\end{proposition}
+
+The classical apolarity lemma relates the apolar ideal of a homogeneous polynomial to the existence of a Waring decomposition. Recall the definition of Waring decomposition and Waring rank from \ref{geometrySecants-definition-symmetric_tensor_rank}: given a homogeneous polynomial $f \in S^d V$ of degree $d$, a Waring decomposition of $f$ is an expression of $f$ of the form 
+\[
+f = \ell_1^d + \cdots + \ell_r^d
+\]
+for some $\ell_i \in V$, and the Waring rank $\rank_d(f)$ of $f$ is the smallest possible number of summands for which such a decomposition exists. Projectively, a Waring decomposition is a set of $r$ points $\bbX = \{ \ell_1 \vvirg \ell_r \} \subseteq \bbP V$ with the property that $f \in \langle \nu_d(\bbX) \rangle$, where $\nu_d$ is the Veronese embedding of \ref{introduction-definition-Veronese}. 
+
+\begin{lemma}[Apolarity Lemma]
+ \label{tensorRank-lemma-apolarityLemma}
+ % Author: Fulvio Gesmundo
+ Let $f \in \bbP S^d V$ and let $\bbX = \{ \ell_1 \vvirg \ell_r\}$ be a set of $r$ points in $\bbP V$. The following are equivalent:
+ \begin{enumerate}[(i)]
+  \item $f \in \langle \nu_d(\bbX) \rangle$;
+  \item $I(\bbX) \subseteq \Ann(f)$.
+ \end{enumerate}
+ In particular $\rank_d(f)$ is the smallest $r$ such that $\Ann(f)$ contains the ideal of $r$ distinct points.
+\end{lemma}
+
+
+
+\section{The catalecticant method}
+\label{tensorRank-section-catalecticant}
+% Author: Fulvio Gesmundo
+In this section, we discuss Sylvester's catalecticant method \cite{Syl52,IK99}, an algorithm to compute the ideal of a Waring decomposition which is the foundational method of many other more advanced algorithms, for instance the ones discussed in \cite{BCMT10,BBCM13,BT20,LMR23}.
+
