@@ -1,6 +1,4 @@
-This chapter collects orbit classification results for the action of a product of general linear groups on a tensor space. We list cases with \emph{finite} or \emph{tame} orbit structure.
-
-To do: Explain finite and tame -- What is a good definition of tame in this setting?
+This chapter collects orbit classification results for the action of algebraic groups on spaces of tensors. The classification is usually possible only when the representation structure is either \emph{finite} or \emph{tame}: respectively, this means that there are finitely many orbits, or the orbits are in one-to-one correspondence with finitely many families in finitely many parameters. These definitions can be made more precise following \cite{Vin79} and \cite{Gab72}.
 
 The only tensor spaces with finitely many orbits are subspaces of $\bbC^2 \otimes \bbC^3 \otimes \bbC^6$ or its permutations. The list of the orbits, and a description of the degeneration poset, is given in \ref{RepTheory-orbitclassification-section-236}.
 
@@ -12,23 +10,22 @@ There are, instead, a few cases where the structure is tame:
 \end{itemize}
 The case of format $(2,m,n)$ dates back to Kronecker, see, e.g., \cite[Ch.XIII]{Gan59}. In general, orbit classification results can be achieved using classical representation theoretic methods \cite{Vin79}. More recent references include \cite{Nur00} for the case of format $(3,3,3)$ and \cite{CD12} for the case of format $(2,2,2,2)$.
 
-In the setting of symmetric tensors, there are two cases with finite representation type:
-\begin{itemize}
- \item $\GL_n$ acting on $S^2 \bbC^n$;
- \item $\GL_2$ acting on $S^3 \bbC^n$;
-\end{itemize}
-moreover, there are two cases with tame representation type:
-\begin{itemize}
- \item $\GL_2$ acting on $S^4 \bbC^2$;
- \item $\GL_3$ acting on $S^3 \bbC^3$.
-\end{itemize}
-
-To do: Segre Veronese (and there should be none) and skew-symmetric cases.
-
-Invariant theoretic aspects are discussed in \ref{RepTheory-chapter-invariantTheory}.
+% In the setting of symmetric tensors, there are two cases with finite representation type:
+% \begin{itemize}
+%  \item $\GL_n$ acting on $S^2 \bbC^n$;
+%  \item $\GL_2$ acting on $S^3 \bbC^n$;
+% \end{itemize}
+% moreover, there are two cases with tame representation type:
+% \begin{itemize}
+%  \item $\GL_2$ acting on $S^4 \bbC^2$;
+%  \item $\GL_3$ acting on $S^3 \bbC^3$.
+% \end{itemize}
+% 
+% Invariant theoretic aspects are discussed in \ref{RepTheory-chapter-invariantTheory}.
 
 \section{Normal forms for format $(2,3,6)$}
 \label{RepTheory-orbitclassification-section-236}
+% Author: Fulvio Gesmundo
 
 We follow the presentation of \cite[Sec. 10.3]{Lan12}. Fix bases 
 \begin{align*}
@@ -36,7 +33,7 @@ We follow the presentation of \cite[Sec. 10.3]{Lan12}. Fix bases
 &b_0\vvirg b_2 \text{ of } \bbC^3, \\ 
 &c_0\vvirg c_5 \text{ of } \bbC^6. \\ 
 \end{align*}
-The action of $\GL_2 \times \GL_3 \times \GL_6$ on $\bbC^2 \otimes \bbC^3 \otimes \bbC^6$ has $28$ orbits. We list representatives for these orbits highlighting their multilinear ranks and recording the corresponding space of $3 \times 6$ matrices, that is the image of the flattening ${\bbC^2}^* \to \bbC^3 \otimes \bbC^6$; we only draw a relevant submatrix in the non-concise cases.
+The action of $\GL_2 \times \GL_3 \times \GL_6$ on $\bbC^2 \otimes \bbC^3 \otimes \bbC^6$ has $28$ orbits. We list representatives for these orbits highlighting their multilinear. 
 
 \begin{itemize}
  \item Multilinear ranks $(0,0,0)$: 
@@ -144,8 +141,19 @@ T_{26} = a_0 \otimes (b_0 \otimes c_0 +  b_1 \otimes c_1 + b_2 \otimes c_2) + a_
 % \] 
 % \end{itemize}
 
-\subsection*{Symmetric and partially symmetric cases}
-
-In this section we discuss orbit structure of the spaces $S^3 \bbC^2$ and $\bbS^2 \bbC^2 \otimes \bbC^3$, under the action of $\GL_2$ and $\GL_2 \times \GL_3$ respectively.
+\subsection{Proof of the classification}
 
 
+Let $T \in V_1 \otimes V_2 \otimes V_3$ with $\dim V_1 =2, \dim V_2 = 3$ and $\dim V_3 = 6$. Let $(r_1,r_2,r_3)$ be the multilinear ranks of $T$. By \ref{preliminaries-lemma-multilinearranksineq}, we have the three inequalities
+\[
+r_1 \leq r_2r_3, \quad r_2 \leq r_1r_3, \quad r_3 \leq r_1r_2
+\]
+and $T$ is concise in $\bbC^{r_1} \otimes \bbC^{r_2} \otimes \bbC^{r_3} \subseteq V_1 \otimes V_2 \otimes V_3$. We deduce that the only possible multilinear ranks are the ones listed in the classification.
+
+Clearly, if $r_i = 0$ for any $i$, then $r_i = 0$ for all $i$ and $T = 0$.
+
+Suppose one of the multilinear ranks is $r_i = 1$. If $r_1 = 1$, then the inequalities guarantee $r_2 = r_3$. Using the action of $\GL(V_1)$, we obtain $T = a_0 \otimes M$ for some $M \in V_2 \otimes V_3$. Since $r_2 = r_3$, we may use the action of $\GL(V_2) \times \GL(V_3)$ to normalize $M = \sum_{0}^{r_2-1} b_i \otimes c_i$. For $r_2 = r_3 = 1,2,3$, these are cases $T_1,T_2,T_{10}$ of the classification. 
+
+Similarly, if $r_2 = 1$ (and $r_1 = r_3 = 2$) or $r_3  = 1$ (and $r_1 = r_2 = 2$), we obtain cases $T_3$ and $T_4$ of the classification. 
+
+{\it To be completed }

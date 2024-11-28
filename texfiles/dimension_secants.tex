@@ -50,14 +50,16 @@ By \ref{geometrySecants-lemma-expecteddimension} the expected dimension is alway
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{First properties and non-defectiveness of curves}
 \label{geometrySecants-section-first_properties}
-
+% Author: Alessandro Oneto
 We collect here the first properties on secant varieties and their dimensions. The following lemmas were all classically know, see \cite{Pal09}. For a recent reference, we refer to \cite{Rus16}.
 
 First of all, we observe that linear spaces are the \emph{idempotent} varieties in terms of secant varieties. 
 
 \begin{lemma}
     \label{geometrySecants-lemma-palatini_1}
+% Author: Alessandro Oneto
     Let $X\subset \bbP^N$ be an irreducible projective algebraic variety. If $\sigma_{r+1}(X) = \sigma_r(X)$, then $\sigma_r(X)$ is a projective linear space. 
+\end{lemma}
 \begin{proof}
     We prove this in three steps.
 
@@ -73,12 +75,13 @@ First of all, we observe that linear spaces are the \emph{idempotent} varieties 
 
     We are now ready to prove the general statement. By Claim 2, we have that $\sigma_{2r}(X) = \sigma_r(X)$. Since $\sigma_2(\sigma_r(X)) \subset \sigma_r(X)$, by irreducibility, we deduce that $\sigma_2(\sigma_r(X)) = \sigma_r(X)$. By Claim 1, $\sigma_r(X)$ is a projective linear space. 
 \end{proof}
-\end{lemma}
 
 
 \begin{lemma}
     \label{geometrySecants-lemma-palatini_2}
-    Let $X\subset \bbP^N$ be a irreducible projective variety. If $\dim\sigma_{r+1}(X) = \dim\sigma_r(X)+1$, then $\sigma_{r+1}(X)$ is a projective linear space. 
+% Author: Alessandro Oneto
+Let $X\subset \bbP^N$ be a irreducible projective variety. If $\dim\sigma_{r+1}(X) = \dim\sigma_r(X)+1$, then $\sigma_{r+1}(X)$ is a projective linear space. 
+\end{lemma}
 \begin{proof}
     Let $p \in X$ be a general point. Hence,
     \[
@@ -86,13 +89,13 @@ First of all, we observe that linear spaces are the \emph{idempotent} varieties 
     \]
     By assumption and irreducibility of $\sigma_{s+1}(X)$, $j(p, \sigma_s(X)) = \sigma_{s+1}(X)$. Let $q \in \sigma_{s+1}(X)$ be a generic smooth point: by the latter equality, $q \in \langle p,z \rangle$ for some $z \in \sigma_s(X)$. Being a cone, we also get that $p \in T_q\sigma_{s+1}(X)$. By generality of $p \in X$, we conclude that $\langle X \rangle \subset \sigma_{s+1}(X)$ and then, since the opposite inclusion is trivial, $\sigma_{s+1}(X) = \langle X \rangle$ and $\sigma_s(X)$ is a hypersurface. 
 \end{proof}
-\end{lemma}
 
 
 An immediate but meaningful corollary is the fact that, if $X$ is \emph{non-degenerate}, i.e., it is not contained in any proper linear subspace, then the secant varieties of $X$ eventually fill the ambient space. 
 
 \begin{lemma}
     \label{geometrySecants-lemma-secants_of_non_degenerate}
+% Author: Alessandro Oneto
     Let $X\subset \bbP^N$ be a non-degenerate algebraic variety. Then, 
     \[
         X \subsetneq \sigma_2(X) \subsetneq \cdots \subsetneq \sigma_r(X) = \bbP^N.
@@ -103,7 +106,9 @@ As already mentioned, this observation allows us to conclude well-define the gen
 Another important corollary is that \emph{curves are never defective.}
 \begin{lemma}
     \label{geometrySecants-lemma-curves_nondefectiveness}
+% Author: Alessandro Oneto
     Let $X\subset \bbP^N$ be a projective curve. Then, $\dim \sigma_s(X) = \min\{N, 2s-1\}$.
+\end{lemma}
 \begin{proof}
     By \ref{geometrySecants-lemma-expecteddimension},
     \[
@@ -119,11 +124,11 @@ Another important corollary is that \emph{curves are never defective.}
     \]
     which implies $\dim \sigma_s(X) = 2s-1$. If $\sigma_{s-1}(X)$ is an hypersurface, then we clearly have that $\dim \sigma_s(X) = N = \min\{N,2s-1\}$ where the latter equality follows from being $2(s-1)-1 = 2s-3 = N - 1$. 
 \end{proof}
-\end{lemma}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Terracini's Lemma}
 \label{geometrySecants-section-Terracini}
+% Author: Alessandro Oneto
 
 A general approach to study dimensions of secant varieties is through their tangent spaces at general points. For this reason, a fundamental tool in the study of dimension of secant varieties is \emph{Terracini's Lemma}, dating back to \cite{Ter11}.
 
@@ -131,25 +136,30 @@ The following statement is a modern approach which can be found in \cite{FR81}, 
 
 \begin{lemma}[Terracini's Lemma]
 \label{geometrySecants-lemma-terracini}
+% Author: Alessandro Oneto
     Let $X, Y \subseteq \mathbb{P}^N$ be irreducible projective varieties over a field $\Bbbk$. Let $x \in X, y \in Y$ be generic points and let $z \in \langle x,y \rangle$ be a generic point. In particular, we may assume that $z$ is a smooth point of $j(X,Y)$. Then
     \[
         T_{z} j(X,Y) \supset \langle T_x X , T_y Y\rangle.
     \]
     If ${\rm char}(\Bbbk) = 0$, then equality holds. 
 \end{lemma}
-The following idea of the proof corresponds to the original Terracini's approach, which can also be found for example in \cite{BO08} and \cite{BCCGO18}. 
-\begin{proof}[Original idea of the proof over the complex numbers]
-    Consider the local parametrization of $j(X,Y)$ at $z$ given by the corresponding linear combination of the parametrization of $X$ and $Y$ at $x$ and $y$, respectively. The statement follows by observing that the matrix obtain by partial derivatives and whose rows span the tangent space of $j(X,Y)$ at $z$ is obtained by elementary operation on the concatenation of the corresponding matrices for $X$ and $Y$. 
+\begin{proof}
+We record the proof over the field of complex numbers, which is the setting originally studied by Terracini. See also \cite{BO08} and \cite{BCCGO18}. 
+
+Consider the local parametrization of $j(X,Y)$ at $z$ given by the corresponding linear combination of the parametrization of $X$ and $Y$ at $x$ and $y$, respectively. The statement follows by observing that the matrix obtain by partial derivatives and whose rows span the tangent space of $j(X,Y)$ at $z$ is obtained by elementary operation on the concatenation of the corresponding matrices for $X$ and $Y$. 
 \end{proof}
 
 \begin{remark}
-    Terracini's Lemma tells us that the dimension of $j(X,Y)$ is as in \ref{geometrySecants-definition-expecteddimension} if and only if two general tangent spaces $T_x(X)$ and $T_y(Y)$ have intersection of minimal dimension. Analogously, if we consider joins of more varieties or secant varieties. 
+\label{geometrySecants-remark-terracini}
+% Author: Alessandro Oneto
+    Terracini's Lemma tells us that the dimension of $j(X,Y)$ is as in \ref{geometrySecants-definition-expecteddimension} if and only if two general tangent spaces $T_x(X)$ and $T_y(Y)$ have intersection of minimal dimension. Analogously, the same condition holds if we consider joins of more varieties or secant varieties. 
 \end{remark}
 
 As immediate application of Terracini's Lemma, we can explain why secant varieties of quadratic Veronese varieties are always defective. In order to do that, we first need to understand what is the tangent space to Veronese varieties. 
 
 \begin{example}[Quadratic Veronese varieties are always defective]
 \label{geometrySecants-lemma-quadratic_Veronese_defective}
+% Author: Alessandro Oneto
     Let $V$ be a complex linear space. Let $\nu_d(\bbP V) \subset \bbP(S^d V)$ be the degree-$d$ Veronese embedding of $\bbP^n$ as in \ref{introduction-definition-Veronese}. Let $v \in V$. Then
     \[
         T_{[v]}\nu_d(\bbP V) = \{[v^{d-1}v'] ~:~ v' \in V\}. 
@@ -166,5 +176,4 @@ As immediate application of Terracini's Lemma, we can explain why secant varieti
     \[
         \dim \sigma_r(\nu_2(\bbP V)) \leq \min \{\dim S^dV - 1, r\dim \bbP V + r - 1 - {r \choose 2}\}.  
     \]
-    %% We see in \ref{} that the latter is actually an equality.
 \end{example}
