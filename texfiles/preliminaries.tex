@@ -1,6 +1,6 @@
 In this chapter, we introduce all basic notions, terminologies and notations that will be used through all the MultilinearVerse. 
 
-\section{Representing tensors}
+\section{Multilinear Algebra}
 \label{introduction-section-representingtensors}
 % Author: Fulvio Gesmundo, Alessandro Oneto
 
@@ -28,6 +28,8 @@ therefore, the choice of basis gives an identification of the space $V\otimes W$
 therefore, the choice of basis gives an identification of the space $V_1 \ootimes V_d$ with the space of $d$-dimensional arrays of size $n_1 \times\cdots\times n_d$. 
 \end{definition}
 
+\subsection{Standard flattenings}
+\label{preliminaries-subsection-flattenings}
 \begin{definition}[Flattenings and multilinear ranks]
 \label{introduction-definition-flattenings}
 % Author: Fulvio Gesmundo, Alessandro Oneto
@@ -35,18 +37,16 @@ For every $K \subseteq \{1 \vvirg d\}$, let $K^c = \{1\vvirg d\} \smallsetminus 
 \[
     \Flat_K(T): \bigotimes_{k \in K} V_{k}^* \to  \bigotimes_{k' \in K^c} V_{k'}
 \]
-called \emph{flattening} of $T$. It is easy to see that $\Flat_K(T) = (\Flat_{K^c}(T))^\bft$. Write $T_K = \Flat_{K}(T)$ is no ambiguity occurs. To distinguish these flattening maps from more involved flattening-type maps, we sometimes use the expression \emph{standard flattenings}.
+called \emph{flattening} of $T$. It is easy to see that $\Flat_K(T) = (\Flat_{K^c}(T))^\bft$. Write $T_K = \Flat_{K}(T)$ is no ambiguity occurs. To distinguish these flattening maps from more involved flattening-type maps, we sometimes use the expression \emph{standard flattenings}. If $K = \{k\}$ is a singleton, write $\Flat_k$ for $\Flat_{\{k\}}$.
 
-The {\it multilinear ranks} of a tensor $T$ are the elements of the collection of the ranks of its flattenings; they are recorded as a function of the subset $K \subseteq \{ 1 \vvirg d\}$ and of the tensor:
-\[
- \multiR_{K}(T) = \rank \left( \Flat_K(T) \right).
-\]
+The {\it multilinear ranks} of a tensor $T$ are the elements of the collection of the ranks of its flattenings; they are recorded as a function of the subset $K \subseteq \{ 1 \vvirg d\}$, that is $(\rank \left( \Flat_K(T) \right))$. 
 \end{definition}
+We point out that, a tensor $T \in V_1 \ootimes V_d$ and its flattenings $\Flat_K(T) \in \Hom ( \bigotimes_{k \in K} V_{k}^*,\bigotimes_{k' \in K^c} V_{k'})$ are the same object, as a tensor of order $d$. 
 
 \begin{definition}[Concise tensors]
 \label{introduction-definition-concise}
 % Author: Fulvio Gesmundo, Alessandro Oneto
-A tensor $T$ is \emph{concise} if the flattenings $T_k : V_k^* \to \bigotimes_{k' \neq k} V_{k'}$ are injective. Equivalently $\multiR_k(T) = \dim V_k$.
+A tensor $T$ is \emph{concise} if for every $k$ the flattening $\Flat_k(T) : V_k^* \to \bigotimes_{k' \neq k} V_{k'}$ is injective. Equivalently $\rank(\Flat_k(T)) = \dim V_k$.
 \end{definition}
 
 The following result is an elementary version of the results of \cite{CK11}:
@@ -58,12 +58,12 @@ The following result is an elementary version of the results of \cite{CK11}:
   \label{preliminaries-equation-multilinearranks}
  r_k \leq r_1 \cdots r_{k-1} r_{k+1} \cdots r_d.
  \end{equation}
-Conversely, if $(r_1 \vvirg r_d)$ satisfies \eqref{preliminaries-equation-multilinearranks}, with $r_j \leq \dim V_j$, then there exists a tensor $T \in V_1 \ootimes V_d$ such that $r_k = \multiR_k(T)$ for every $k$.
+Conversely, if $(r_1 \vvirg r_d)$ satisfies \ref{preliminaries-equation-multilinearranks}, with $r_j \leq \dim V_j$, then there exists a tensor $T \in V_1 \ootimes V_d$ such that $r_k = \multiR_k(T)$ for every $k$.
 \end{lemma}
 \begin{proof}
-For every $k$, let $W_k = \image (  \Flat_k(T)^\bft ) \subseteq V_k$. Then $\dim W_k = r_k$ and one can verify $T \in W_1 \ootimes W_d$. Let $T'$ be the tensor $T$, regarded as an element of $W_1 \ootimes W_d$; it is immediate that $T'$ is concise because $\multiR_k(T) = \multiR_k(T') = \dim W_k$. In particular \eqref{preliminaries-equation-multilinearranks} holds.
+For every $k$, let $W_k = \image (  \Flat_k(T)^\bft ) \subseteq V_k$. Then $\dim W_k = r_k$ and one can verify $T \in W_1 \ootimes W_d$. Let $T'$ be the tensor $T$, regarded as an element of $W_1 \ootimes W_d$; it is immediate that $T'$ is concise because $\multiR_k(T) = \multiR_k(T') = \dim W_k$. In particular \ref{preliminaries-equation-multilinearranks} holds.
 
-To show the converse, it suffices to show that if $(r_1 \vvirg r_d)$ satisfies \eqref{preliminaries-equation-multilinearranks} for every $k$, then there is a concise tensor in $\bbC^{r_1} \ootimes \bbC^{r_d}$. Fix $k$ and let $M : \bbC^{r_k *} \to \bbC^{r_1 \cdots r_{k-1}r_{k+1} \cdots r_d}$ be a linear map of maximal rank; by \eqref{preliminaries-equation-multilinearranks}, $\rank(M) = r_k$. Fixing an identification $\bbC^{r_1 \cdots r_{k-1}r_{k+1} \cdots r_d} = \bbC^{r_1} \ootimes \bbC^{r_{k-1}} \otimes \bbC^{r_{k+1}} \ootimes \bbC^{r_d}$, regard $M$ as a tensor $T$ and observe that, as a linear map $M = \Flat_k(T)$.
+To show the converse, it suffices to show that if $(r_1 \vvirg r_d)$ satisfies \ref{preliminaries-equation-multilinearranks} for every $k$, then there is a concise tensor in $\bbC^{r_1} \ootimes \bbC^{r_d}$. Fix $k$ and let $M : \bbC^{r_k *} \to \bbC^{r_1 \cdots r_{k-1}r_{k+1} \cdots r_d}$ be a linear map of maximal rank; by \ref{preliminaries-equation-multilinearranks}, $\rank(M) = r_k$. Fixing an identification $\bbC^{r_1 \cdots r_{k-1}r_{k+1} \cdots r_d} = \bbC^{r_1} \ootimes \bbC^{r_{k-1}} \otimes \bbC^{r_{k+1}} \ootimes \bbC^{r_d}$, regard $M$ as a tensor $T$ and observe that, as a linear map $M = \Flat_k(T)$.
 
 This shows that, for every fixed $k$, there exists $T \in \bbC^{r_1} \ootimes \bbC^{r_d}$ with $\multiR_k(T) = r_k$. Equivalently, the condition $\multiR_k(T) = r_k$ defines a non-empty Zariski open set. Since the intersection of finitely many non-empty Zariski open set is non-empty, we conclude that there exists $T \in \bbC^{r_1} \ootimes \bbC^{r_d}$ satisfying $\multiR_k(T) = r_k$ for every $k$. 
 \end{proof}
