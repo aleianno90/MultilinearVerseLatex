@@ -64,7 +64,7 @@
  \label{geometrySecants-section-rank}
  % Author: Alessandro Oneto
  
- One of the main motivations to study secant varieties in relation to tensors is because they allow for a geometric definition of {\it rank} with respect to any projective variety and, in particular, to the ones defined in \ref{introduction-section-decomposable_tensors}.
+ One of the main motivations to study secant varieties in relation to tensors is because they allow for a geometric definition of {\it rank} with respect to any projective variety and, in particular, to the ones defined in \ref{introduction-section-decomposable_tensors}. 
  
  \begin{definition}
  \label{geometrySecants-definition-Xrank}
@@ -75,30 +75,68 @@
      \]
  \end{definition}
  
- It is natural to ask if the $X$-rank is \emph{finite} for any point of the ambient space. The first observation is that $X$ needs to be \emph{non-degenerate}, i.e., not contained in any proper linear subspace: this directly follows from the fact that linear spaces are invariant under taking secant varieties, see \ref{geometrySecants-lemma-palatini_2} and \ref{geometrySecants-lemma-secants_of_non_degenerate}. Under non-degeneracy assumption we can well-define the \emph{generic rank}.
+ It is natural to ask if the $X$-rank is \emph{finite} for any point of the ambient space. The first observation is that $X$ needs to be \emph{non-degenerate}, i.e., not contained in any proper linear subspace.
+
+ \begin{lemma}
+    \label{geometrySecants-lemma-secant_of_linear}
+    % Author: Alessandro Oneto
+    If $L \subset \bbP^N$ is a projective linear space, then $\sigma_s(L) = L$ for any $s$.
+ \end{lemma}
+ \begin{proof}
+    If $L$ is linear, then for any $x_1,\ldots,x_s \in L$ we have $\langle x_1,\ldots,x_s \rangle \subset L$. In particular, $\sigma_s(L) \subset L$. The opposite inclusion is trivial.
+ \end{proof}
+ \begin{corollary}
+    \label{geometrySecants-corollary-secant_of_degenerate_is_degenerate}
+    % Author: Alessandro Oneto
+    If $X$ is degenerate, i.e., $X \subset L \subsetneq \bbP^N$ for some linear space $L$, then $\sigma_s(X) \subset L$ for any $s$.
+ \end{corollary}
+ \begin{proof}
+    By construction and by \ref{geometrySecants-lemma-secant_of_linear}, $\sigma_s(X) \subset \sigma_s(L) = L$.
+ \end{proof}
+
+ It is possible to see that non-degeneracy is also sufficient: i.e., secant varieties of a non-degenerate variety eventually feel the ambient space, see \ref{geometrySecants-lemma-secants_of_non_degenerate}. This is a corollary of the fact that, given a projective algebraic variety $X$, if $\sigma_s(X) = \sigma_{s+1}(X)$ then $\sigma_s(X)$ is a linear space, see \ref{geometrySecants-lemma-palatini_1}. This allows us to well-define the notion of $X$-rank for generic points.
  
  \begin{definition}
      \label{geometrySecants-definition-generic_rank}
-     Let $X \subset \bbP^N$ be a non-degenerate algebraic variety. The \emph{generic $X$-rank} is the rank of a generic point of $\bbP^N$, i.e., the rank that occur on a Zariski-dense subset of the ambient space. Equivalently, the generic $X$-rank corresponds to the first secant variety of $X$ filling the ambient space, i.e., 
+     % Author: Alessandro Oneto
+     Let $X \subset \bbP^N$ be a non-degenerate algebraic variety over an algebraically closed field. The \emph{generic $X$-rank} is the rank of a generic point of $\bbP^N$, i.e., the rank that occur on a Zariski-dense subset of the ambient space. Equivalently, the generic $X$-rank corresponds to the first secant variety of $X$ filling the ambient space, i.e., 
      \[
          \rank_X^\circ = \min\{s ~:~ \sigma_s(X) = \bbP^N\}.
      \]
      We denote by $\rank_X^{\max}$ the \emph{maximal $X$-rank} among all points $p \in \bbP^N$. 
  \end{definition}
- Now, the fact that the maximal $X$-rank with respect to a non-degenerate variety is finite follows from the following result. 
+
+ \begin{remark}
+    \label{geometrySecants-remark-generic_rank_strategy}
+    % Author: Alessandro Oneto
+    A common geometric approach to compute generic ranks is through the study of dimensions of secant varieties. Indeed, if we know all dimensions of secant varieties of a variety $X$ we also know which is the first secant variety filling the ambient space, i.e., the generic $X$-rank. We dedicate \ref{geometrySecants-chapter-DimensionsSecants} to the fascinating story on the study of dimensions of secant varieties which has its roots in the XIX century and still offers many challenges and open questions.
+ \end{remark}
+
+ %%%%
+ % UNDERLINE THAT OVER THE REALS THERE IS NOT GENERIC BUT TYPICAL RANK + ADD REFERENCE TO CHAPTER ABOUT REAL RANKS
+ %%%%
+
+ Now, the fact that, given a non-degenerate variety $X$ defined over an algebraically closed field, the $X$-rank is finite for any point of the ambient space can be deduced by the following easy topological argument coming from \cite{BT15}. 
  
  \begin{theorem}
-     Let $X \subset \bbP^N$ be a non-degenerate variety. Then, $\rank_X^{\max} \leq 2\rank_X^\circ$. Moreover, in characteristic zero, if $\sigma_{\rank^\circ_X-1}(X)$ is an hypersurface, then $\rank_X^{\max} \leq 2\rank_X^\circ-1$.
+    \label{geometrySecants-theorem-BT_maxrank_upperbound}
+    % Author: Alessandro Oneto
+    Let $X \subset \bbP^N$ be a non-degenerate variety. Then, $\rank_X^{\max} \leq 2\rank_X^\circ$. 
+    %Moreover, in characteristic zero, if $\sigma_{\rank^\circ_X-1}(X)$ is an hypersurface, then $\rank_X^{\max} \leq 2\rank_X^\circ-1$.
  \end{theorem}
  \begin{proof}
-  We refer to \cite[Theorem 1]{BT15} for a proof.
+    Let $U$ be the Zariski open subset of $\bbP^N$ such that if $p \in U$ then $\rk_X(p) = \rk^\circ_X$. For any $q \in \bbP^N$ consider the line $\langle p,q \rangle$ and, in particular, consider $p' \in U \cap \langle p,q \rangle$. Then, $\rank_X(p') = \rank_X^\circ$ and \[\rank_X(q) \leq \rank_X(p) + \rank_X(p') = 2\rank_X^\circ.\] 
  \end{proof}
+
+ %%%%
+ % ADD REFERENCE TO CHAPTER "MAXIMAL RANKS"
+ %%%%
 
   Clearly, if a point $p \in \bbP^N$ has $X$-rank equal to $r$, then $p \in \sigma_r(X)$. However, the converse is not true in general. The following example is classical. Actually, for most of varieties of tensors defined in \ref{introduction-section-decomposable_tensors} the notion of rank is not lower semicontinuous.
  
  \begin{example}[$X$-rank is not always lower semicontinuous]
- \label{geometrySecants-example-Xrank_semicontinuous}
- % Author: Alessandro Oneto
+   \label{geometrySecants-example-Xrank_semicontinuous}
+   % Author: Alessandro Oneto
    Let $X = \nu_3(\bbP^1) \subset \bbP^3$ be the rational normal cubic. If we identify the ambient space with the projective space of degree-$3$ binary homogeneous polynomials $\bbP(S^3\Bbbk^2)$, then $X$ is the variety of cubes of binary linear forms, see \ref{introduction-definition-symmetric_tensors}. Consider $xy^2 \in S^3\Bbbk^2$. Then, 
    \[
       xy^2 = \lim_{\epsilon \to 0} \frac{1}{3\epsilon}\left( x^3 - (x-\epsilon y)^3\right),
@@ -110,7 +148,7 @@
 
  \begin{definition}[Border rank]
      \label{geometrySecants-definition-border_rank}
- % Author: Alessandro Oneto
+     % Author: Alessandro Oneto
      Let $X \subseteq \bbP^N$ be a projective variety and let $p \in \bbP^N$. The \emph{border $X$-rank} of $p$ is the smallest $s$ such that $p$ belongs to the $s$-th secant variety of $X$, that is 
      \[
          \brank_X(p) = \min\{s ~:~ p \in \sigma_s(X)\}.
@@ -121,7 +159,9 @@
  %% add reference to Bini example on matrix multiplication 
  
  \subsection{Ranks of tensors}
- If $X$ is one of the varieties of decomposable tensors defined in \ref{introduction-section-decomposable_tensors}, we obtain the following notions of ranks for tensors.
+ \label{geometrySecants-subsection-ranks}
+ % Author: Alessandro Oneto
+ In \ref{geometrySecants-definition-Xrank} we defined the notion of $X$-rank with respect to any projective variety. When dealing with tensors, the idea is to adapt the variety $X$ to the tensor decomposition that one wants to consider. In particular, the following broadly known and used notions of ranks for tensors come from choosing $X$ as one of the varieties of decomposable tensors defined in \ref{introduction-section-decomposable_tensors}.
  
  \begin{definition}[Tensor rank]
  \label{geometrySecants-definition-tensor_rank}
@@ -164,6 +204,3 @@ In the case of matrices, that is when $d=2$, the notion of tensor rank coincides
          \rank_{\wedge}(T) = \min\left\{s ~:~ T = \sum_{i=1}^s v_{i,1}\wwedge v_{i,d}, ~ v_{i,j} \in V_j\right\}.
      \]
  \end{definition}
- 
- 
- 
