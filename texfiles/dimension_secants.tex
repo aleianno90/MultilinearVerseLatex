@@ -1,6 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A first question we might ask when studying algebraic varieties is its dimension. In the case of secant varieties, we can easily define a notion of expected dimension by a simple parameter count. We will see that this is not always the actual dimension: examples of varieties with secant varieties of dimension lower than the expected are classically known since the XIX century. We will explain how the problem of classifying such special varieties has been approached. 
+A first question we might ask when studying algebraic varieties is its dimension. 
+
+In the case of secant varieties, we can easily define a notion of expected dimension by a simple parameter count. We will see that this is not always the actual dimension: examples of varieties with secant varieties of dimension lower than the expected are classically known since the XIX century. We will explain how the problem of classifying such special varieties has been approached.
+
+Recall that, knowing dimensions of secant varieties of a non-degenerate algebraic variety $X$ allows us to deduce the generic $X$-rank, see \ref{geometrySecants-section-rank} and in particular \ref{geometrySecants-definition-generic_rank}. This is one reason why the problem of classifying defective Veronese, Segre, Segre-Veronese varieties and Grassmannians received a particular attention. 
 
 \section{Expected Dimension}
 \label{geometrySecants-section-expectedDimension}
@@ -48,7 +52,7 @@ By \ref{geometrySecants-lemma-expecteddimension} the expected dimension is alway
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{First properties and non-defectiveness of curves}
+\section{First lemmas and non-defectiveness of curves}
 \label{geometrySecants-section-first_properties}
 % Author: Alessandro Oneto
 We collect here the first properties on secant varieties and their dimensions. The following lemmas were all classically know, see \cite{Pal09}. For a recent reference, we refer to \cite{Rus16}.
@@ -104,11 +108,11 @@ An immediate but meaningful corollary is the fact that, if $X$ is \emph{non-dege
 As already mentioned, this observation allows us to conclude well-define the generic rank with respect to non-degenerate algebraic varieties, see \ref{geometrySecants-definition-generic_rank}.
 
 Another important corollary is that \emph{curves are never defective.}
-\begin{lemma}
-    \label{geometrySecants-lemma-curves_nondefectiveness}
+\begin{proposition}
+    \label{geometrySecants-proposition-curves_nondefectiveness}
 % Author: Alessandro Oneto
     Let $X\subset \bbP^N$ be a projective curve. Then, $\dim \sigma_s(X) = \min\{N, 2s-1\}$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
     By \ref{geometrySecants-lemma-expecteddimension},
     \[
@@ -132,30 +136,35 @@ Another important corollary is that \emph{curves are never defective.}
 
 A general approach to study dimensions of secant varieties is through their tangent spaces at general points. For this reason, a fundamental tool in the study of dimension of secant varieties is \emph{Terracini's Lemma}, dating back to \cite{Ter11}.
 
-The following statement is a modern approach which can be found in \cite{FR81}, \cite{Adl87} or in the books \cite[Theorem 1.10]{Zak93} and \cite[Theorem 1.4.1]{Rus16}.
+The following statement is a modern approach which can be found in \cite[Corollary 1.10]{Adl87} or in the books \cite[Proposition II.1.10]{Zak93} and \cite[Theorem 1.4.1]{Rus16}.
 
 \begin{lemma}[Terracini's Lemma]
 \label{geometrySecants-lemma-terracini}
 % Author: Alessandro Oneto
-    Let $X, Y \subseteq \mathbb{P}^N$ be irreducible projective varieties over a field $\Bbbk$. Let $x \in X, y \in Y$ be generic points and let $z \in \langle x,y \rangle$ be a generic point. In particular, we may assume that $z$ is a smooth point of $j(X,Y)$. Then
+    Let $X, Y \subseteq \mathbb{P}^N$ be irreducible projective varieties over a field $\Bbbk$ of characteristic $0$. Let $x \in X, y \in Y$ be generic points and let $z \in \langle x,y \rangle$ be a generic point. In particular, we may assume that $z$ is a smooth point of $j(X,Y)$. Then
     \[
-        T_{z} j(X,Y) \supset \langle T_x X , T_y Y\rangle.
+        T_{z} j(X,Y) = \langle T_x X , T_y Y\rangle.
     \]
-    If ${\rm char}(\Bbbk) = 0$, then equality holds. 
 \end{lemma}
 \begin{proof}
-We record the proof over the field of complex numbers, which is the setting originally studied by Terracini. See also \cite{BO08} and \cite{BCCGO18}. 
+We record the proof over the field of complex numbers, which is the setting originally studied by Terracini and which provides a good intuition on why the result works. See also \cite{BO08}. 
 
 Consider the local parametrization of $j(X,Y)$ at $z$ given by the corresponding linear combination of the parametrization of $X$ and $Y$ at $x$ and $y$, respectively. The statement follows by observing that the matrix obtain by partial derivatives and whose rows span the tangent space of $j(X,Y)$ at $z$ is obtained by elementary operation on the concatenation of the corresponding matrices for $X$ and $Y$. 
 \end{proof}
 
+\begin{example}
+\label{geometrySecants-example-terracini_positive_char}
+% Author: Alessandro Oneto
+    In positive characteristics, only the inclusion $T_{z} j(X,Y) \supset \langle T_x X , T_y Y\rangle$ is guaranteed, see e.g. \cite[Proposition II.1.12]{Zak93}. For example, over $\Bbbk$ with ${\rm char}(\Bbbk)= p > 0$ consider the curve $C \subset \bbP^3$ which is the projective closure of the curve parametrized by $t \mapsto (t,t^p,t^{p^2}) \subset \bbA^3$. Note that all tangent lines are parallel, i.e., there exists a point lying on all tangent lines to the curve $C$: such a curve is called {\it strange} in Section IV.3 of \cite{Har77}. It follows that the linear span on two tangent lines is $2$-dimensional since they have non-trivial intersection, while the secant variety of $C$, and then a general tangent space to it, is $3$-dimensional by Proposition \ref{geometrySecants-proposition-curves_nondefectiveness}. This contradicts the statement of Terracini's Lemma (Lemma \ref{geometrySecants-lemma-terracini}).
+\end{example}
+
 \begin{remark}
 \label{geometrySecants-remark-terracini}
 % Author: Alessandro Oneto
-    Terracini's Lemma tells us that the dimension of $j(X,Y)$ is as in \ref{geometrySecants-definition-expecteddimension} if and only if two general tangent spaces $T_x(X)$ and $T_y(Y)$ have intersection of minimal dimension. Analogously, the same condition holds if we consider joins of more varieties or secant varieties. 
+    Terracini's Lemma tells us that the dimension of $j(X,Y)$ is as in \ref{geometrySecants-definition-expecteddimension} if and only if two general tangent spaces $T_x(X)$ and $T_y(Y)$ do not intersect, unless $j(X,Y)$ fills the ambient space. 
 \end{remark}
 
-As immediate application of Terracini's Lemma, we can explain why secant varieties of quadratic Veronese varieties are always defective. In order to do that, we first need to understand what is the tangent space to Veronese varieties. 
+In the case $X = Y$, Terracini's Lemma can be used to study dimensions of secant varieties. As a first example, we can give a first explanation why secant varieties of quadratic Veronese varieties are always defective. In order to do that, we first need to understand what is the tangent space to Veronese varieties. 
 
 \begin{example}[Quadratic Veronese varieties are always defective]
 \label{geometrySecants-lemma-quadratic_Veronese_defective}
