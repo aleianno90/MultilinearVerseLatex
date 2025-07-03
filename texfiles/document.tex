@@ -30,12 +30,13 @@
  \theoremstyle{definition} 
  \newtheorem{definition}[theorem]{Definition}
  \newtheorem{example}[theorem]{Example}
-  \newtheorem{remark}[theorem]{Remark}
-  \newtheorem{question}[theorem]{Question}
+ \newtheorem{remark}[theorem]{Remark}
+ \newtheorem{question}[theorem]{Question}
+ \newtheorem{algorithm}[theorem]{Algorithm}
  
  \numberwithin{equation}{subsection}
 
-  \usepackage{amsthm}
+ \usepackage{amsthm}
 
  \input{tensorsShortcuts.tex}
 
@@ -59,10 +60,7 @@
 
 \part{Tensor Algorithms}
 \label{part-TensorAlgorithms}
-\chapter{Algorithms for $ X $-rank}
-\label{rankAlgorithms-chapter-intro}
-\input{rankAlgorithms-chapter-intro.tex}
-
+\input{part-tensorAlgorithms.tex}
 
 \part{Optimization Theory}
 \label{part-optimization}
