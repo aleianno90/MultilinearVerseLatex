@@ -155,7 +155,7 @@ Consider the local parametrization of $j(X,Y)$ at $z$ given by the corresponding
 \begin{example}
 \label{geometrySecants-example-terracini_positive_char}
 % Author: Alessandro Oneto
-    In positive characteristics, only the inclusion $T_{z} j(X,Y) \supset \langle T_x X , T_y Y\rangle$ is guaranteed, see e.g. \cite[Proposition II.1.12]{Zak93}. For example, over $\Bbbk$ with ${\rm char}(\Bbbk)= p > 0$ consider the curve $C \subset \bbP^3$ which is the projective closure of the curve parametrized by $t \mapsto (t,t^p,t^{p^2}) \subset \bbA^3$. Note that all tangent lines are parallel, i.e., there exists a point lying on all tangent lines to the curve $C$: such a curve is called {\it strange} in Section IV.3 of \cite{Har77}. It follows that the linear span on two tangent lines is $2$-dimensional since they have non-trivial intersection, while the secant variety of $C$, and then a general tangent space to it, is $3$-dimensional by Proposition \ref{geometrySecants-proposition-curves_nondefectiveness}. This contradicts the statement of Terracini's Lemma (Lemma \ref{geometrySecants-lemma-terracini}).
+    In positive characteristics, only the inclusion $T_{z} j(X,Y) \supset \langle T_x X , T_y Y\rangle$ is guaranteed, see e.g. \cite[Proposition II.1.12]{Zak93}. For example, over $\Bbbk$ with ${\rm char}(\Bbbk)= p > 0$ consider the curve $C \subset \bbP^3$ which is the projective closure of the curve parametrized by $t \mapsto (t,t^p,t^{p^2}) \subset \bbA^3$. Note that all tangent lines are parallel, i.e., there exists a point lying on all tangent lines to the curve $C$: such a curve is called {\it strange} in Section IV.3 of \cite{Har77}. It follows that the linear span on two tangent lines is $2$-dimensional since they have non-trivial intersection, while the secant variety of $C$, and then a general tangent space to it, is $3$-dimensional by \ref{geometrySecants-proposition-curves_nondefectiveness}. This contradicts the statement of Terracini's Lemma (\ref{geometrySecants-lemma-terracini}).
 \end{example}
 
 \begin{remark}
@@ -165,6 +165,13 @@ Consider the local parametrization of $j(X,Y)$ at $z$ given by the corresponding
 \end{remark}
 
 In the case $X = Y$, Terracini's Lemma can be used to study dimensions of secant varieties. As a first example, we can give a first explanation why secant varieties of quadratic Veronese varieties are always defective. In order to do that, we first need to understand what is the tangent space to Veronese varieties. 
+
+
+\begin{example}[Cones are always defective]
+\label{geometrySecants-lemma-cones_defective}
+% Author: Alessandro Oneto
+    Let $X \subset \bbP V$ be a projective variety. A {\it vertex} of $X$ is a point $p \in X$ such that $j(X,p) = X$, i.e., for any $q \in X$ the line $\langle p,q \rangle \in X$. Let ${\rm Vert}(X)$ the set of vertices of $X$: that is a linear subvariety of $X$. If $X$ is a projective cone, namely ${\rm Vert}(X) \neq \emptyset$, then for every $q \in X \smallsetminus {\rm Vert}(X)$, the tangent space at $q$ contains the vertex space ${\rm Vert}(X)$. In particular, general tangent spaces have non-trivial intersections and, Terracini's Lemma, projective cones are always defective. 
+\end{example}
 
 \begin{example}[Quadratic Veronese varieties are always defective]
 \label{geometrySecants-lemma-quadratic_Veronese_defective}
@@ -183,6 +190,43 @@ In the case $X = Y$, Terracini's Lemma can be used to study dimensions of secant
     \]
     while, by dimension, we would expect to have empty intersection (if $\dim V \geq 3$). Therefore, we immediately deduce that quadratic Veronese varieties are defective, in particular:
     \[
-        \dim \sigma_r(\nu_2(\bbP V)) \leq \min \{\dim S^dV - 1, r\dim \bbP V + r - 1 - {r \choose 2}\}.  
+        \dim \sigma_r(\nu_2(\bbP V)) \leq \min \left\{\dim S^dV - 1, r\dim \bbP V + r - 1 - {r \choose 2}\right\}.  
     \]
 \end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Classification of low-dimensional defective varieties}
+\label{geometrySecants-section-classification}
+% Author: Alessandro Oneto
+
+In \ref{geometrySecants-proposition-curves_nondefectiveness} we have seen that curves are never defective. We record here other classification results for low-dimensional varieties.
+
+Recall that in \ref{geometrySecants-lemma-cones_defective} we have seen that cones are always defective, as well as quadratic Veronese varieties, see \ref{geometrySecants-lemma-quadratic_Veronese_defective}. 
+
+\subsection{Defective Surfaces}
+\label{geometrySecants-section-defective_surfaces}
+In \cite{Sev01}, Severi proved that the only surfaces in $\mathbb{P}^5$ which are not cones and for which the secant variety of lines does not fill the ambient space is the quadratic Veronese embedding of $\mathbb{P}^2$. A complete classification of defective surfaces is due to Terracini, see \cite{Ter21}, who filled the gaps of a previous tentative classification by Palatini, see \cite{Pal06}. 
+
+\begin{theorem}
+\label{geometrySecants-theorem-defective_surfaces}
+%Author: Alessandro Oneto
+    Let $X \subset \bbP^N$ be an irreducible surface. Then, $X$ is defective if and only if $X$ is a cone or a quadratic Veronese embedding of $\bbP^2$.
+\end{theorem}
+
+A modern approach can be found in \cite{CC02} where the notion of {\it weakly defective varieties} is introduced.
+
+\subsection{Defective Threefolds}
+In \cite{Sco08}, Scorza classified irreducible projective threefolds whose secant variety of lines is defective. 
+
+\begin{theorem}
+\label{geometrySecants-theorem-defective_threefolds}
+%Author: Alessandro Oneto
+    Let $X \subset \bbP^N$ be an irreducible non-degenerate threefold. Then, $X$ is $1$-defective if and only if:
+    \begin{enumerate}
+        \item $X$ is a cone;
+        \item $X$ is contained in a $4$-dimensional cone over a curve;
+        \item $N = 7$ and $X$ is contained in a $4$-dimensional cone over a quadratic Veronese surface;
+        \item $X$ is the quadraic Veronese threefold of $\bbP^9$ or a projection of it in $\bbP^n$, $n = 7,8$;
+        \item $N = 7$ and $X$ is a hyperplane section of the Segre embedding of $\bbP^2 \times \bbP^2$ in $\bbP^8$.
+    \end{enumerate}
+\end{theorem}
