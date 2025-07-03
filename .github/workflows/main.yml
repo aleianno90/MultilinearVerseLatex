@@ -1,12 +1,12 @@
 name: Copy texfiles to website repository
 
 on:
-  pull_request_target:
-    branches: [master]
-    types: [closed]
-    paths:
-      - 'texfiles/**'
   workflow_dispatch:
+    inputs:
+      commit_message:
+        description: 'Messaggio di commit manuale'
+        required: true
+        default: 'Update texfiles'
 
 jobs:
   copy-texfiles:
@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout MultilinearVerseLatex repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         path: MultilinearVerseLatex
 
@@ -37,8 +37,8 @@ jobs:
     - name: Commit and push changes
       run: |
         cd MultilinearVerse
-        git config user.name "${{ github.event.pull_request.user.login || 'GitHub Actions'}}"
-        git config user.email "${{ github.event.pull_request.user.email || 'actions@github.com' }}"
+        git config user.name "${{ github.actor }}"
+        git config user.email "${{ github.actor }}@users.noreply.github.com"
         git add texfiles
-        git commit -m "Update texfiles with commit: ${{ github.event.pull_request.title || 'manual workflow' }}"
+        git commit -m "${{ github.event.inputs.commit_message }}"
         git push
