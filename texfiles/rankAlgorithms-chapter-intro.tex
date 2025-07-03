@@ -1,0 +1,95 @@
+
+Throughout this section, let $ X \subseteq \mathbb C^N  $ be a conic irreducible affine variety. 
+The $ X $-rank problem is to find, given $ T\in \langle X \rangle $, the minimal $ r\in \mathbb N_0 $ and $ x_1,\ldots,x_r \in X $ such that 
+\begin{align*}
+	T = x_1 + \ldots + x_r. 
+\end{align*}
+In general, $ X $-rank problems are hard to solve. However, for several special varieties $ X $, efficient algorithms are known that work in special situations; especially when $ T $ has low $ X $-rank. 
+In this chapter, we will collect several known algorithmic results. 
+
+
+\section{Symmetric tensor rank}
+The symmetric tensor rank problem asks to write a symmetric tensor $ T\in S^d(\mathbb C^n) $ as
+\begin{align*}
+	T = a_1^{\otimes d} + \ldots + a_r^{\otimes d}, 
+\end{align*}
+where $ a_1,\ldots,a_r\in \mathbb C^n $ and $ r \in \mathbb{N}_0$ is minimal. It is an $ X $-rank problem, where $ X = \nu_d(\mathbb C^n) $ is the Veronese variety of degree $ d $. %The symmetric tensor rank problem is equivalent to the Waring rank, where one aims to write a $ d $-form $ f\in \C[x_1,\ldots,x_n] $ as a sum 
+%\begin{align*}
+%	f = \ell_1^d  + \ldots + \ell_r^d
+%\end{align*}
+%of linear forms, with minimal $ r $. 
+
+
+
+\subsection{Algorithms for symmetric 3-tensors}
+
+
+The following algorithm is classical, but attribution to a single source is difficult. %While attribution to a single author is difficult, it is reasonable to credit Sylvester and Prony. Sylvester solved the case $ n = 2 $ (and general $ d $). Prony is (...)
+
+
+\begin{theorem}\label{thm:sylvester-prony}
+	If $ T \in S^3(\mathbb C^n) $ is concise and of rank at most $ n $, then the rank of $ T $ equals $ n $. Its minimum rank decomposition is unique (up to permutations and third roots of unity).
+	Furthermore, there exists a linear-time algorithm, stated below, which computes the minimum rank decomposition for all concise tensors $ T\in S^3(\mathbb C^n) $ of rank $ n $. 
+\end{theorem}
+\begin{proof}[Proof of uniqueness]
+	As $ T $ has rank at most $ n $, we may write $ T = \sum_{i = 1}^{n} a_i^{\otimes 3} $. Since $ T $ is concise, we have $ \langle a_i \mid i=1,\ldots,n \rangle = \mathbb{C}^n $. This shows that $ a_1,\ldots,a_n $ are linearly independent. Denote by $ T_f $ the contraction of $ T $ by $ f \in \mathbb{C}^n $, i.e., the matrix obtained from the linear operation $ T\mapsto (f^{T} \otimes I_n \otimes I_n) T $. We consider the space $ \mathcal{L}_T $ of all contractions of $ T $, which is
+	\begin{align*}
+		\mathcal{L}_T = \{\sum_{i = 1}^{n} \langle a_i, f \rangle a_ia_i^{T} \} = \langle a_1a_1^{T},\ldots,a_na_n^{T} \rangle. 
+	\end{align*}
+	Here, the first equality is immediate from applying the definition of the contraction to the decomposition of $ T $. For the second equality, note that since $ a_1,\ldots,a_n $ are linearly independent, we may find $ f_j\in \mathbb{C}^n $ such that $ \langle a_i, f_j \rangle = \delta_{ij} $, which shows that $ a_ja_j^{T} $ lies in $ \mathcal{L} $ for each $ j = 1,\ldots,n $. 
+	
+	\smallskip\noindent
+	A general element of $ \mathcal{L}_T $ has rank $ n $. We consider the variety 
+	\begin{align*}
+		X_T = \{T_f \mid \det(T_f) = 0\}, 
+	\end{align*}
+	which consists of those matrices $ T_f $ that do not have full rank. We claim that $ X_T $ is a union of subspaces of codimension $ 1 $. Precisely, we have 
+	\begin{align*}
+		X_T = \bigcup_{i = 1}^n \langle a_i \rangle^{\perp}. 
+	\end{align*} 
+	Indeed, as $ a_1,\ldots,a_n $ are linearly independent, the identity $ T_f = \langle a_i, f \rangle a_ia_i^{T} $ is a (matrix) rank decomposition of $ T_f $. The matrix $ T_f $ can only have rank lower than $ n $, if some of the inner products $ \langle a_i, f \rangle $ vanish. 
+	
+	To see uniqueness of the minimum rank decomposition, assume that $ T = \sum_{i = 1}^{r} b_i^{\otimes 3} $ for any $ r\le n $. By conciseness, we also have $ \langle b_i \mid i=1,\ldots,r \rangle = \mathbb{C}^n $. Therefore, $ r = n $ and $ b_1,\ldots,b_n\in \mathbb{C}^n $ are linearly independent. We thus similarly obtain $ X_T = \bigcup_{i = 1}^n \langle b_i \rangle^{\perp}$. By uniqueness of the irreducible decomposition, we conclude $ a_i = b_{\sigma(i)} $ for some permutation $ \sigma $ of $ 1,\ldots,n $ and all $ i = 1,\ldots,n $.  
+\end{proof}
+
+The uniqueness result of is a special case of Kruskal's theorem, with a simpler proof. The advantage of the above proof is that it can be algorithmized in a straightforward way; and efficiently solved by methods for generalized eigenvalue problems.
+A summary of the algorithm is as follows. 
+\pagebreak
+\begin{theorem}
+	\hfill\\
+	\textbf{Input: } A concise tensor $ T\in S^3(\mathbb C^n) $ of rank $ n $. \\
+	\textbf{Output: } The unique minimum rank decomposition of $ T $. \\
+	\textbf{Procedure: } \\
+	\begin{enumerate}
+		\item Pick general $ f, g\in \mathbb{C}^n $ and compute the $ n $ eigenvector-eigenvalue pairs $ (x_i, \lambda_i) $ of the generalized eigenvalue problem $ T_{f}x = \lambda T_{g}x $. The $ \lambda_1,\ldots,\lambda_n $ will be pairwise distinct. 
+		\item Set $ b_i := T_fx_i $ for $ i = 1,\ldots,m $.	(Each $ b_i $ will be a multiple of some $ a_i $. )
+		\item Solve the $ n\times n $ linear system $ T_f f \stackrel{!}{=} \sum_{i = 1}^{n} \alpha_i b_i $ in variables $ \alpha_1,\ldots,\alpha_n\in \mathbb{C} $. 
+%		\item Compute the quantities $ \beta_i = \langle f, b_i \rangle $ for $ i = 1,\ldots,m $
+		\item Output the set of vectors $ \sqrt[3]{\frac{\alpha_i}{\langle b_i, f \rangle^2}} b_i $. 
+	\end{enumerate}
+\end{theorem}
+\begin{proof}[Analysis]
+	\textbf{Runtime:} Computing the contractions $ T_f $ and $ T_g $ takes $ \mathcal{O}(n^3) $ arithmetic operations. Computing the generalized eigenvalues of the two $ n\times n $ matrices takes time at most $ \mathcal{O}(n^3) $. Indeed, one way to do so is to compute the eigenvalues of $ T_g^{-1}T_f $. Both the inversion and the multiplication to compute $ T_g^{-1}T_f $ also take time $ \mathcal{O}(n^3) $. The linear system from step 3 of size $ n\times n $ can be solved in time $ \mathcal{O}(n^3) $. The remaining operations are of negligible complexity. As the encoding size $ |T| $ of $ T $ is in $ \mathcal{O}(n^3) $, the algorithm thus runs in linear time. 
+	
+	\smallskip\noindent
+	\textbf{Correctness: } We analyze the algorithm step by step. 
+	\begin{enumerate}
+		\item The first step computes the $ n $ intersection points of the variety $ X_T $ with the line $ \ell= \{f+\lambda g \mid \lambda\in \mathbb{C}\} $. Indeed, the intersection points are given by the equation $ 0 = \det(T_{f-\lambda g}) = \det(T_{f} - \lambda T_{g}) $, which is a generalized eigenvalue problem. Observe that the generalized eigenvalues $ \lambda_1,\ldots,\lambda_n \in \mathbb{C} $ are (after reordering of the $ \lambda_i $'s) of the form $ \lambda_i = \frac{\langle f, a_j \rangle}{\langle g,a_i \rangle} $. The reason is that from the proof of the previous theorem, $ X_T = \bigcup_{i = 1}^n \langle a_i \rangle^{\perp} $ and therefore, $ 0 = \langle a_j, f-\lambda_ig \rangle $ for some $ j $. 
+		This shows that there are unique corresponding unit-length eigenvectors $ x_1,\ldots,x_m $. 
+		\item First, note that $ f-\lambda_ig $ is orthogonal to $ a_i $, but not to any other $ a_j $ with $ j\ne i $. Therefore, there are nonzero scalars $ \alpha_1,\ldots,\alpha_n $ such that $ T_{f-\lambda_ig} = \sum_{\substack{j = 1\\j\ne i}}^{n} \alpha_ja_ja_j^{T}$. From the eigenequation $ T_{f-\lambda_ig} x_i = 0 $ and linear independence of $ a_1,\ldots,a_n $, we obtain that $ \langle x_i, a_j \rangle = 0 $ whenever $ i\ne j $. 
+		
+		Therefore, we have that $ b_i = T_fx_i = \langle f, a_i \rangle \langle x, a_i \rangle a_i$, which is a multiple of $ a_i $. 
+		\item It remains to correct the scalar multiples. Precisely, we need to find the values $ \gamma_i \in \mathbb{C}$ such that $ \gamma_i b_i = a_i $. This is done in the last step. We can compute all the scalars $ \langle f, b_i \rangle = \langle a_i, f \rangle^2 \langle a_i, x_i \rangle $ in time $ \mathcal{O}(n^2) $. 
+		As $ T_f f  = \sum_{i = 1}^{n} \langle a_i, f \rangle^2 a_i $ and $ a_1,\ldots,a_n $ are linearly independent, we can solve the $ n\times n $ linear system $ T_f f \stackrel{!}{=} \sum_{i = 1}^{n} \alpha_i b_i $ to calculate the unique solution, which is given by $ \alpha_i = \langle a_i, f \rangle \langle x_i, a_i \rangle^{-1}  $ for $ i = 1,\ldots,n $.  Solving the $ n\times n $ system takes time $ \mathcal{O}(n^3) $.  Therefore, we have computed the quantity $ \alpha_i\langle f, b_i \rangle = \langle a_i, f \rangle^3 = \gamma_i^3 \langle b_i, f \rangle^3$. The equation $ \alpha_i = \gamma_i^3 \langle b_i, f \rangle^2 $ determines the correcting factor $ \gamma_i $ up to the $ 3 $ roots of unity. 
+	\end{enumerate}
+\end{proof}
+
+
+%\subsection{Algorithms for odd degree symmetric ranks}
+%
+%\subsection{Algorithms for even degree symmetric ranks}
+%
+%\section{Higher-order Waring decomposition}
+%
+%\section{Chow and skew decompositions}
+
