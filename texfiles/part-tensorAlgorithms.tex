@@ -1,6 +1,6 @@
-\chapter{Algorithms for $ X $-rank}
-\label{rankAlgorithms-chapter-intro}
-% Alexander Blomenhofer
+\chapter{Algorithms for rank}
+\label{tensorAlgorithms-chapter-intro}
+% Author: Alexander Blomenhofer
 
 Throughout this section, let $ X \subseteq \mathbb C^N  $ be a conic irreducible affine variety. 
 The $ X $-rank problem is to find, given $ T\in \langle X \rangle $, the minimal $ r\in \mathbb N_0 $ and $ x_1,\ldots,x_r \in X $ such that 
@@ -12,8 +12,8 @@ In this chapter, we will collect several known algorithmic results.
 
 
 \section{Symmetric tensor rank}
-\label{section-symmetricTensorRank}
-% Alexander Blomenhofer
+\label{tensorAlgorithms-section-symmetricTensorRank}
+%  Author: Alexander Blomenhofer
 
 The symmetric tensor rank problem asks to write a symmetric tensor $ T\in S^d(\mathbb C^n) $ as
 \begin{align*}
@@ -28,26 +28,25 @@ where $ a_1,\ldots,a_r\in \mathbb C^n $ and $ r \in \mathbb{N}_0$ is minimal. It
 
 
 \subsection{Algorithms for symmetric 3-tensors}
-\label{subsection-algorithmsSymmetric3Tensors}
-% Alexander Blomenhofer
+\label{tensorAlgorithms-subsection-algorithmsSymmetric3Tensors}
+%  Author: Alexander Blomenhofer
 
 The following algorithm is classical, but attribution to a single source is difficult. %While attribution to a single author is difficult, it is reasonable to credit Sylvester and Prony. Sylvester solved the case $ n = 2 $ (and general $ d $). Prony is (...)
 
 
 \begin{theorem}
 	\label{tensorAlgorithms-theorem-3tensor}
-	% Alexander Blomenhofer
+	%  Author: Alexander Blomenhofer
 	If $ T \in S^3(\mathbb C^n) $ is concise and of rank at most $ n $, then the rank of $ T $ equals $ n $. Its minimum rank decomposition is unique (up to permutations and third roots of unity).
 	Furthermore, there exists a linear-time algorithm, stated below, which computes the minimum rank decomposition for all concise tensors $ T\in S^3(\mathbb C^n) $ of rank $ n $. 
 \end{theorem}
-\begin{proof}[Proof of uniqueness]
+\begin{proof}
 	As $ T $ has rank at most $ n $, we may write $ T = \sum_{i = 1}^{n} a_i^{\otimes 3} $. Since $ T $ is concise, we have $ \langle a_i \mid i=1,\ldots,n \rangle = \mathbb{C}^n $. This shows that $ a_1,\ldots,a_n $ are linearly independent. Denote by $ T_f $ the contraction of $ T $ by $ f \in \mathbb{C}^n $, i.e., the matrix obtained from the linear operation $ T\mapsto (f^{T} \otimes I_n \otimes I_n) T $. We consider the space $ \mathcal{L}_T $ of all contractions of $ T $, which is
 	\begin{align*}
 		\mathcal{L}_T = \{\sum_{i = 1}^{n} \langle a_i, f \rangle a_ia_i^{T} \} = \langle a_1a_1^{T},\ldots,a_na_n^{T} \rangle. 
 	\end{align*}
 	Here, the first equality is immediate from applying the definition of the contraction to the decomposition of $ T $. For the second equality, note that since $ a_1,\ldots,a_n $ are linearly independent, we may find $ f_j\in \mathbb{C}^n $ such that $ \langle a_i, f_j \rangle = \delta_{ij} $, which shows that $ a_ja_j^{T} $ lies in $ \mathcal{L} $ for each $ j = 1,\ldots,n $. 
 	
-	\smallskip\noindent
 	A general element of $ \mathcal{L}_T $ has rank $ n $. We consider the variety 
 	\begin{align*}
 		X_T = \{T_f \mid \det(T_f) = 0\}, 
@@ -66,8 +65,8 @@ A summary of the algorithm is as follows.
 
 \begin{algorithm}
 	\label{tensorAlgorithms-algorithm-3tensor}
-	% Alexander Blomenhofer
-	\hfill\\
+	%  Author: Alexander Blomenhofer
+	~\\
 	\textbf{Input: } A concise tensor $ T\in S^3(\mathbb C^n) $ of rank $ n $. \\
 	\textbf{Output: } The unique minimum rank decomposition of $ T $. \\
 	\textbf{Procedure: } \\
