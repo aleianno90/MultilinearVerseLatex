@@ -29,14 +29,17 @@ It is easy to prove that the apolarity action does not depend on the fixed choic
 \end{definition}
 
 We point out that $ I^{-1}$ is a $\Sym V^*$-module, but not in general an ideal of $\Sym V$, that is it is not necessarily a $\Sym V$-module under multiplication. For instance, if $n = 1$, and $I = (\partial_0)$ then $I^{-1} = \bigoplus_{k \geq 0} \langle x_1^k \rangle$, which is not closed under multiplication, and in fact it is not even finitely generated as a $\Sym V^*$-module. We record some basic properties of the inverse system.
-
+ 
 \begin{proposition}
  \label{apolarity-proposition-inverseSystemBasics}
 % Author: Fulvio Gesmundo
 Let $I,J \subseteq \Sym V^*$ be two ideals and let $I^{-1}, J^{-1}$ be their inverse systems. Then 
 \begin{itemize}
  \item $I^{-1}$ is a graded $\Sym V^*$-module if and only if $I$ is homogeneous;
- \item if $I$ is homogeneous, then for every $k$, $I^{-1}_k = I_k^\perp$, where $I_k$ denotes the homogeneous component of degree $k$ of $I$;
+ \item for every $k\geq 1$, the apolarity action induces a $\Bbbk$-bilinear pairing 
+ \[(\Sym V^*)_k\times (\Sym V)_k\to k.\]
+ This is a nonsingular (or perfect) pairing, meaning that $(\Sym V^*)_k\cong Hom_k((\Sym V)_k, k)$ and $(\Sym V)_k\cong Hom_k((\Sym V^*)_k, k)$. 
+ \item if $I$ is homogeneous, then for every $k$, $I^{-1}_k = I_k^\perp$, where $I_k$ denotes the homogeneous component of degree $k$ of $I$ and $I_k^\perp$ is the perpendicular subspace in $(\Sym V^*)_k$ with respect to the nonsingular pairing above;
  \item $I^{-1}$ is finitely generated as an $\Sym V^*$-module if and only if $I$ is Artinian;
  \item $(I \cap J)^{-1} = I^{-1} + J^{-1}$.
 \end{itemize}
