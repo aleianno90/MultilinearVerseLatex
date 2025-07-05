@@ -13,7 +13,7 @@ In this chapter, we will collect several known algorithmic results.
 
 \section{Symmetric tensor rank}
 \label{tensorAlgorithms-section-symmetricTensorRank}
-%  Author: Alexander Blomenhofer
+% Author: Alexander Blomenhofer
 
 The symmetric tensor rank problem asks to write a symmetric tensor $ T\in S^d(\mathbb C^n) $ as
 \begin{align*}
@@ -29,14 +29,14 @@ where $ a_1,\ldots,a_r\in \mathbb C^n $ and $ r \in \mathbb{N}_0$ is minimal. It
 
 \subsection{Algorithms for symmetric 3-tensors}
 \label{tensorAlgorithms-subsection-algorithmsSymmetric3Tensors}
-%  Author: Alexander Blomenhofer
+% Author: Alexander Blomenhofer
 
 The following algorithm is classical, but attribution to a single source is difficult. %While attribution to a single author is difficult, it is reasonable to credit Sylvester and Prony. Sylvester solved the case $ n = 2 $ (and general $ d $). Prony is (...)
 
 
 \begin{theorem}
 	\label{tensorAlgorithms-theorem-3tensor}
-	%  Author: Alexander Blomenhofer
+	% Author: Alexander Blomenhofer
 	If $ T \in S^3(\mathbb C^n) $ is concise and of rank at most $ n $, then the rank of $ T $ equals $ n $. Its minimum rank decomposition is unique (up to permutations and third roots of unity).
 	Furthermore, there exists a linear-time algorithm, stated below, which computes the minimum rank decomposition for all concise tensors $ T\in S^3(\mathbb C^n) $ of rank $ n $. 
 \end{theorem}
@@ -65,7 +65,7 @@ A summary of the algorithm is as follows.
 
 \begin{algorithm}
 	\label{tensorAlgorithms-algorithm-3tensor}
-	%  Author: Alexander Blomenhofer
+	% Author: Alexander Blomenhofer
 	~\\
 	\textbf{Input: } A concise tensor $ T\in S^3(\mathbb C^n) $ of rank $ n $. \\
 	\textbf{Output: } The unique minimum rank decomposition of $ T $. \\
@@ -78,7 +78,7 @@ A summary of the algorithm is as follows.
 		\item Output the set of vectors $ \sqrt[3]{\frac{\alpha_i}{\langle b_i, f \rangle^2}} b_i $, where $ i = 1,\ldots,n $. 
 	\end{enumerate}
 \end{algorithm}
-\begin{proof}[Analysis]
+\begin{proof}[Analysis] ~ \\
 	\textbf{Runtime:} Computing the contractions $ T_f $ and $ T_g $ takes $ \mathcal{O}(n^3) $ arithmetic operations. Computing the generalized eigenvalues of the two $ n\times n $ matrices takes time at most $ \mathcal{O}(n^3) $. Indeed, one way to do so is to compute the eigenvalues of $ T_g^{-1}T_f $. Both the inversion and the multiplication to compute $ T_g^{-1}T_f $ also take time $ \mathcal{O}(n^3) $. The linear system from step 3 of size $ n\times n $ can be solved in time $ \mathcal{O}(n^3) $. The remaining operations are of negligible complexity. As the encoding size of $ T $ is in $ \mathcal{O}(n^3) $, the algorithm thus runs in linear time. 
 	
 	\smallskip\noindent
