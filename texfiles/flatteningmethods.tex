@@ -6,7 +6,7 @@ for two vector spaces $E,F$. More generally, one can consider a section of a bun
 
 We say that a module of equations for a variety $X$ arises from a flattening if, for every $x \in X$, $\Flat(x)$ is a matrix of rank at most $r_X$. The equations can be described explicitly as the minors of size $r_X+1$ of $\Flat(v)$, which are polynomials in the element $v \in V$.
 
-Tautologically, the variety $\sigma_r( \bbP E \times \bbP F)$ of matrices of rank at most $r$ has (ideal-theoretic) equations arising from a flattening. Similarly, the standard flattenings introduced in \ref{introduction-section-representingtensors} are examples of flattening maps; it is a classical fact that they yield equations for Segre-Veronese varieties:
+Tautologically, the variety $\sigma_r( \bbP E \times \bbP F)$ of matrices of rank at most $r$ has (ideal-theoretic) equations arising from flattenings. Similarly, the standard flattenings introduced in \ref{introduction-section-representingtensors} are examples of flattening maps; it is a classical fact that they yield equations for Segre-Veronese varieties:
 \begin{proposition}
 % Author: Fulvio Gesmundo
 \label{RepTheory-proposition-standardFlatrank1}
@@ -26,7 +26,7 @@ When the flattening map $\Flat : V \to \Hom(E,F)$ is linear, then rank condition
  \[
  r_X = \max \{ r : \rank ( \Flat(x)) = r \text{ for some $x \in X$}\}.
  \]
-If $p \in \sigma_r(X)$, then $\rank(\Flat(p)) \leq r \cdot r_X$. In particular, if $\rank(\Flat(p)) = s$, then $p \notin \sigma_r (X)$ for $r = \lceil s / r_X \rceil$.
+If $p \in \sigma_r(X)$, then $\rank(\Flat(p)) \leq r \cdot r_X$. In particular, if $\rank(\Flat(p)) \geq R$ and $r < R / r_X$, then $p \notin \sigma_r (X)$.
 \end{lemma}
 
 \ref{RepTheory-proposition-standardFlatrank1} is a particular case of \ref{RepTheory-lemma-LandsbergOttaviani411}. We discuss it here in the case of Segre-Veronese varieties. In this setting, the standard flattenings defined in \ref{introduction-definition-flattenings} can be written as follows. Fix spaces $V_1 \vvirg V_k$ and integers $d_1 \vvirg d_k, e_1 \vvirg e_k$ with $e_i \leq d_i$; then there is a natural flattening map
@@ -87,11 +87,10 @@ In this case, one has the following result.
 \begin{proposition}
  \label{RepTheory-proposition-KoszulFlat}
 % Author: Fulvio Gesmundo
- Let $T \in V_1 \otimes V_2 \otimes V_3$ be a tensor. If $T \in \bbP V_1 \times \bbP V_2 \times \bbP V_3$, then $\rank( T_1^{\wedge p}) = \binom{n}{p}$. In particular, if $\rank ( T_1^{\wedge p} ) \geq R$, then 
+ Let $T \in V_1 \otimes V_2 \otimes V_3$ be a tensor. If $T \in \bbP V_1 \times \bbP V_2 \times \bbP V_3$, then $\rank( T_1^{\wedge p}) = \binom{n}{p}$. In particular, if $\rank ( T_1^{\wedge p} ) \geq R$ and $r < R / \binom{n}{p}$, then 
  \[
-T \notin \sigma_r ( \bbP V_1 \times \bbP V_2 \times \bbP V_3) 
+T \notin \sigma_r ( \bbP V_1 \times \bbP V_2 \times \bbP V_3).
  \]
-for $r = \Bigl\lfloor R / \binom{n}{p} \Bigr\rfloor$. In other words $\uR(T) \geq r+1$.
 \end{proposition}
 
 
